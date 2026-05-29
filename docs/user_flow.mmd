@@ -1,15 +1,20 @@
 graph TD
     %% SECTION I: COMMON — cave terracotta & dark purple
     A([<b>PANEL 1: PHYSICAL PREAMBLE</b><br/>Otranto Castle VR Room]) --> B[<b>PANEL 2: VR OPENING</b><br/>Cave entrance]
-    B --> D[<b>PANEL 3: RED HALL</b><br/>Introduction & Pictograms]
-    D --> C{<b>PANEL 4: CHOOSE YOUR CHARACTER</b>}
+    B --> C{<b>PANEL 4: CHOOSE YOUR CHARACTER</b>}
 
     %% SECTION II: BRANCHING — one warm color per character
-    C -->|Shaman| E1[<b>PANEL 5a</b><br/>Ritual preparation]
-    C -->|Warrior| E2[<b>PANEL 5b</b><br/>Guardian duty]
-    C -->|Devotee I| E3[<b>PANEL 5c</b><br/>Contacting ancestors]
-    C -->|Devotee II| E4[<b>PANEL 5d</b><br/>Delivering an offering]
-    C -->|Dancer| E5[<b>PANEL 5e</b><br/>Dance & Trance]
+    C -->|Shaman| D[<b>PANEL 3: RED HALL</b><br/>Introduction & Pictograms]
+    C -->|Warrior| D
+    C -->|Devotee I| D
+    C -->|Devotee II| D
+    C -->|Dancer| D
+
+    D --> E1[<b>PANEL 5a</b><br/>Ritual preparation]
+    D --> E2[<b>PANEL 5b</b><br/>Guardian duty]
+    D --> E3[<b>PANEL 5c</b><br/>Contacting ancestors]
+    D --> E4[<b>PANEL 5d</b><br/>Delivering an offering]
+    D --> E5[<b>PANEL 5e</b><br/>Dance & Trance]
 
     %% SECTION III: FINALE — sanctuary green, then dark end screen
     E1 --> F[<b>PANEL 6: THE SANCTUARY</b><br/>Handprints]
@@ -18,9 +23,13 @@ graph TD
     E4 --> F
     E5 --> F
 
-    F --> G[<b>PANEL 7: VR EXIT</b><br/>Global map & Drawing]
-    G --> H[<b>PANEL 8: PHYSICAL OUTRO</b><br/>Interactive LED Handprint Screen]
-    H --> END([<b>REMOVE THE HEADSET</b><br/>End of experience])
+    %% NEW BRANCH POINT: THE COLLAPSE
+    F --> I{<b>PANEL 6b: THE COLLAPSE</b><br/>Cave has collapsed!}
+    I -->|Go Back| D
+    I -->|Exit Cave / Continue| G[<b>PANEL 7: VR EXIT</b><br/>Global map & Drawing]
+    
+    G --> END([<b>REMOVE THE HEADSET</b><br/>End of experience])
+    END --> H[<b>PANEL 8: PHYSICAL OUTRO</b><br/>Interactive LED Handprint Screen]
 
     %% ── STYLE DEFINITIONS ─────────────────────────────────────────
 
@@ -34,6 +43,7 @@ graph TD
     style E4 fill:#f2eee8,stroke:#0a0a0a,stroke-width:2px,color:#0a0a0a
     style E5 fill:#f2eee8,stroke:#0a0a0a,stroke-width:2px,color:#0a0a0a
     style F fill:#f2eee8,stroke:#0a0a0a,stroke-width:2px,color:#0a0a0a
+    style I fill:#f2eee8,stroke:#0a0a0a,stroke-width:3px,color:#0a0a0a
     style G fill:#f2eee8,stroke:#0a0a0a,stroke-width:2px,color:#0a0a0a
     style H fill:#f2eee8,stroke:#0a0a0a,stroke-width:2px,color:#0a0a0a
     style END fill:#8B3A2A,stroke:#0a0a0a,stroke-width:3px,color:#f2eee8
