@@ -3,864 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[PROJECT TITLE] — Grotta dei Cervi VR</title>
+    <title>PixelGrams — Grotta dei Cervi VR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <style>
-        /* ── Reset ── */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ochre: #C9622A;
+            --ochre-dark: #8B3A2A;
+            --ochre-light: #E8906A;
+            --cream: #F2EDE4;
+            --stone: #C9B99A;
+            --dark: #0E0B09;
+            --dark-mid: #1A1410;
+            --dark-warm: #241C16;
+            --border: rgba(201, 185, 154, 0.2);
+            --border-strong: rgba(201, 98, 42, 0.4);
         }
-
-        /* ── Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            min-height: 100vh;
-            background-color: #C9B99A;
-            position: relative;
-            font-family: 'Cormorant Garamond', serif;
+            background: var(--dark);
+            color: var(--cream);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
-
-        /* ── Background pattern ── */
         #bg-pattern {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            mix-blend-mode: multiply;
-            background-repeat: repeat;
+            position: fixed; inset: 0; z-index: 0;
+            pointer-events: none; opacity: 0.04; background-repeat: repeat;
         }
-
-        /* ── Main column ── */
-        .content {
-            position: relative;
-            z-index: 1;
-            background-color: #8B3A2A;
-            width: 60%;
-            min-height: 100vh;
-            margin: 40px auto;
-            padding: 60px 50px;
-            border: 3px solid #1C1A17;
-            outline: 2px solid rgba(28, 26, 23, 0.35);
-            outline-offset: -12px;
-        }
-
-        /* ── Nav ── */
         nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 48px;
-            border-bottom: 2px solid #1C1A17;
-            padding: 12px 0;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 60px; height: 64px;
+            background: rgba(14, 11, 9, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
         }
-
-        nav a {
-            color: #C9B99A;
-            text-decoration: none;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.85;
-            padding: 0 24px;
-            border-right: 2px solid rgba(28, 26, 23, 0.6);
-            font-weight: 500;
+        .nav-logo {
+            font-size: 1.15rem; font-weight: 500; letter-spacing: 0.08em;
+            color: var(--cream); text-decoration: none;
         }
-
-        nav a:last-child {
-            border-right: none;
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a {
+            color: var(--stone); text-decoration: none;
+            font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase;
+            transition: color 0.2s;
         }
-
-        nav a:hover,
-        nav a.active {
-            opacity: 1;
-            font-weight: 600;
-        }
-
-        /* ── Page title ── */
-        .page-title {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 2.6rem;
-            font-weight: 300;
-            letter-spacing: 0.12em;
-            text-align: center;
-            margin-bottom: 36px;
-            padding-bottom: 36px;
-        }
-
-        /* ── Hero ── */
+        .nav-links a:hover { color: var(--cream); }
         .hero {
-            text-align: center;
-            padding-bottom: 48px;
-            margin-bottom: 52px;
-            border-bottom: 1px solid rgba(201, 185, 154, 0.25);
+            position: relative; height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
         }
-
+        .cave-caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 8px 12px;
+            background: linear-gradient(transparent, rgba(14,11,9,0.85));
+            font-size: 0.7rem; letter-spacing: 0.1em;
+            color: var(--stone); opacity: 0.7; font-style: italic;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('assets/imgs/05-GROTTA-CERVI_pittogrammi.jpg');
+            background-size: cover; background-position: center;
+            filter: brightness(0.28) blur(0.5px);
+            transform: scale(1.06);
+            transition: transform 8s ease;
+        }
+        .hero:hover .hero-bg { transform: scale(1.0); }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, var(--dark) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 1;
+            max-width: 700px; padding: 0 40px;
+        }
         .hero-eyebrow {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.9rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            opacity: 0.5;
-            margin-bottom: 20px;
-            font-weight: 400;
+            font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+            color: var(--ochre); margin-bottom: 28px; opacity: 0.9;
         }
-
-        .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1.25rem;
-            font-style: italic;
-            font-weight: 300;
-            opacity: 0.82;
-            max-width: 520px;
-            margin: 0 auto;
-            line-height: 1.75;
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 300;
+            letter-spacing: 0.06em; line-height: 1; margin-bottom: 8px; color: var(--cream);
         }
-
-        /* ── Section structure ── */
-        .section {
-            margin-bottom: 52px;
+        .hero-title em { font-style: italic; color: var(--ochre-light); }
+        .hero-subtitle-small {
+            font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--stone); opacity: 0.6; margin-bottom: 32px;
         }
-
+        .hero-desc {
+            font-size: 1.1rem; color: var(--stone); font-style: italic;
+            max-width: 520px; margin: 0 auto 48px; line-height: 1.8;
+        }
+        .hero-scroll {
+            font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--stone); opacity: 0.5;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+        }
+        .hero-scroll::after {
+            content: ''; width: 1px; height: 48px;
+            background: var(--stone); opacity: 0.4;
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+        @keyframes scrollLine {
+            0%, 100% { transform: scaleY(1); opacity: 0.4; }
+            50% { transform: scaleY(0.5); opacity: 0.2; }
+        }
+        main { position: relative; z-index: 1; }
+        .section { padding: 120px 0; border-bottom: 1px solid var(--border); }
+        .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 60px; }
+        .section-label {
+            font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+            color: var(--ochre); margin-bottom: 20px; display: block;
+        }
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.85rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            opacity: 0.5;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(201, 185, 154, 0.2);
-            font-weight: 500;
+            font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300;
+            letter-spacing: 0.04em; margin-bottom: 40px; line-height: 1.2; color: var(--cream);
         }
-
-        .section-heading {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 18px;
-            line-height: 1.3;
+        .section-title em { font-style: italic; color: var(--stone); }
+        .body-text { font-size: 1.08rem; line-height: 1.95; color: var(--stone); max-width: 680px; }
+        .body-text p + p { margin-top: 16px; }
+        .cave-section { background: var(--dark); }
+        .cave-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .cave-imgs {
+            display: grid; grid-template-rows: 1fr 1fr;
+            gap: 2px; background: var(--border);
+            min-height: 480px;
         }
-
-        .section-body {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1.1rem;
-            line-height: 1.9;
-            opacity: 0.88;
-            font-weight: 300;
+        .cave-img { position: relative; overflow: hidden; }
+        .cave-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.75) sepia(0.3) contrast(1.15);
+            transition: filter 0.5s;
         }
-
-        .section-body p + p {
-            margin-top: 14px;
+        .cave-img:hover img { filter: brightness(0.9) sepia(0.15) contrast(1.05); }
+        .cave-img::after {
+            content: ''; position: absolute; inset: 0;
+            border: 1px solid var(--border-strong); pointer-events: none;
         }
-
-        .section-body em {
-            font-style: italic;
-            font-weight: 400;
+        .cave-img::after {
+            content: ''; position: absolute; inset: 0;
+            border: 1px solid var(--border-strong); pointer-events: none;
         }
-
-        /* ── Character cards ── */
-        .character-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            margin-top: 28px;
+        .experience-section { background: var(--dark-mid); }
+        .experience-bg { position: relative; }
+        .experience-bg::before {
+            content: ''; position: absolute; top: 0; right: -60px;
+            width: 45%; height: 100%;
+            background-image: url('assets/imgs/03-GROTTA-CERVI_interni-grotta.jpg');
+            background-size: cover; background-position: center; opacity: 0.1;
         }
-
-        .character-card {
-            border: 1px solid rgba(201, 185, 154, 0.3);
-            padding: 18px 10px;
-            text-align: center;
+        .characters-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 1px; background: var(--border); margin-top: 48px; border: 1px solid var(--border);
         }
-
-        .character-name {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.9rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .character-desc {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.85rem;
-            font-style: italic;
-            font-weight: 300;
-            opacity: 0.65;
-            line-height: 1.55;
-        }
-
-        /* ── Level cards ── */
-        .level-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 24px;
-        }
-
-        .level-card {
-            border: 1px solid rgba(201, 185, 154, 0.3);
-            padding: 22px 18px;
-        }
-
-        .level-name {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .level-meta {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.88rem;
-            font-style: italic;
-            font-weight: 300;
-            opacity: 0.62;
-            line-height: 1.6;
-        }
-
-        /* ── Concept blocks ── */
-        .concept-block {
-            border-left: 2px solid rgba(201, 185, 154, 0.35);
-            padding-left: 22px;
-            margin-bottom: 30px;
-        }
-
-        .concept-label {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .concept-text {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1.05rem;
-            line-height: 1.85;
-            opacity: 0.82;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        /* ── Journey bar ── */
-        .journey-bar {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0;
-            margin-top: 22px;
-        }
-
-        .journey-step {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.82rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.72;
-            padding: 7px 14px;
-            border: 1px solid rgba(201, 185, 154, 0.25);
-            white-space: nowrap;
-            font-weight: 500;
-        }
-
-        .journey-arrow {
-            color: #C9B99A;
-            opacity: 0.3;
-            font-size: 0.85rem;
-            padding: 0 5px;
-        }
-
-        /* ── Team ── */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 22px;
-        }
-
-        .team-card {
-            border: 1px solid rgba(201, 185, 154, 0.3);
-            padding: 22px 18px;
-        }
-
-        .team-name {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 400;
-        }
-
-        .team-role {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.85rem;
-            font-style: italic;
-            font-weight: 300;
-            opacity: 0.6;
-            line-height: 1.55;
-        }
-
-        /* ── Explore ── */
-        .explore-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 22px;
-        }
-
-        .explore-card {
-            border: 1px solid rgba(201, 185, 154, 0.3);
-            padding: 22px 18px;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.2s;
-        }
-
-        .explore-card:hover {
-            background-color: rgba(201, 185, 154, 0.07);
-        }
-
-        .explore-label {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.78rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            opacity: 0.48;
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .explore-name {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 1.05rem;
-            display: block;
-            font-weight: 400;
-        }
-
-        /* ── Sources ── */
-        .source-list {
-            list-style: none;
-            margin-top: 18px;
-        }
-
-        .source-list li {
-            font-family: 'Cormorant Garamond', serif;
-            color: #C9B99A;
-            font-size: 0.92rem;
-            font-style: italic;
-            font-weight: 300;
-            opacity: 0.7;
-            line-height: 1.75;
-            padding-left: 18px;
-            position: relative;
-            margin-bottom: 4px;
-        }
-
-        .source-list li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            opacity: 0.4;
-        }
-
-        .source-list a {
-            color: #C9B99A;
-            text-decoration: underline;
-            text-decoration-color: rgba(201, 185, 154, 0.35);
-        }
-
-        .source-list a:hover {
-            text-decoration-color: #C9B99A;
-        }
-
-        /* ── Divider ── */
-        .divider {
-            border: none;
-            border-top: 1px solid rgba(201, 185, 154, 0.18);
-            margin: 52px 0;
-        }
-
-        /* ── Footer ── */
-        footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 2px solid #1C1A17;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .footer-icons {
-            display: flex;
-            gap: 40px;
-        }
-
-        .footer-meta {
-            color: #C9B99A;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.88rem;
-            letter-spacing: 0.06em;
-            opacity: 0.65;
-            text-align: center;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .footer-meta a {
-            color: inherit;
-            text-decoration: underline;
-            text-decoration-color: rgba(201, 185, 154, 0.45);
-        }
-
-        .footer-meta a:hover {
-            text-decoration-color: #C9B99A;
-        }
-
-        footer a {
-            color: #C9B99A;
-            text-decoration: none;
-            opacity: 0.8;
-            display: flex;
-            align-items: center;
-        }
-
-        footer a:hover {
-            opacity: 1;
-        }
-
-        footer a svg {
-            width: 28px;
-            height: 28px;
-            fill: #C9B99A;
-        }
-
-        .footer-icon-item {
-            position: relative;
-            display: flex;
-        }
-
-        .footer-icon-item::after {
-            content: attr(data-name);
-            position: absolute;
-            bottom: calc(100% + 10px);
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1C1A17;
-            color: #C9B99A;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            font-style: italic;
-            padding: 6px 14px;
-            white-space: nowrap;
-            border: 1px solid #C9B99A;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
-        }
-
-        .footer-icon-item:hover::after {
-            opacity: 1;
-        }
-
-        /* ── Responsive ── */
         @media (max-width: 900px) {
-            .content {
-                width: 90%;
-                padding: 40px 28px;
-                margin: 20px auto;
-            }
+            .characters-grid { grid-template-columns: repeat(2, 1fr); }
+            .characters-grid .character-card:last-child { grid-column: 1 / -1; }
         }
-
-        @media (max-width: 640px) {
-            .content {
-                width: 96%;
-                padding: 30px 18px;
-                margin: 10px auto;
-            }
-            .character-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .level-grid,
-            .team-grid,
-            .explore-grid {
-                grid-template-columns: 1fr;
-            }
-            nav a {
-                padding: 0 12px;
-                font-size: 0.85rem;
-            }
-            .page-title {
-                font-size: 1.9rem;
-            }
+        .character-card {
+            background: var(--dark-warm); padding: 28px 20px;
+            text-align: center; transition: background 0.25s;
+        }
+        .character-card:hover { background: rgba(139, 58, 42, 0.2); }
+        .character-role {
+            font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+            color: var(--ochre); display: block; margin-bottom: 10px;
+        }
+        .character-desc { font-size: 0.9rem; font-style: italic; color: var(--stone); opacity: 0.75; line-height: 1.5; }
+        .levels-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border); margin-top: 1px;
+            border: 1px solid var(--border); border-top: none;
+        }
+        .level-card { background: var(--dark-warm); padding: 22px 20px; display: flex; justify-content: space-between; align-items: baseline; }
+        .level-name { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); font-weight: 500; }
+        .level-meta { font-size: 0.82rem; font-style: italic; color: var(--stone); opacity: 0.6; text-align: right; }
+        .concepts-section { background: var(--dark); }
+        .concepts-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+        .concepts-sticky { position: sticky; top: 100px; }
+        .concept-block { padding: 40px 0; border-top: 1px solid var(--border); }
+        .concept-block:last-child { border-bottom: 1px solid var(--border); }
+        .concept-name {
+            font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+            color: var(--ochre); display: block; margin-bottom: 16px;
+        }
+        .concept-text { font-size: 1.05rem; line-height: 1.9; color: var(--stone); font-style: italic; }
+        .journey-section { background: var(--dark-mid); position: relative; overflow: hidden; }
+        .journey-section::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url('assets/imgs/09-GROTTA-CERVI_Pittogrammi-1.jpg');
+            background-size: cover; background-position: center; opacity: 0.06;
+        }
+        .journey-steps { display: flex; align-items: center; gap: 0; margin-top: 48px; flex-wrap: wrap; }
+        .journey-step {
+            font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--stone); padding: 10px 20px; border: 1px solid var(--border);
+            white-space: nowrap; transition: all 0.2s;
+        }
+        .journey-step:hover { border-color: var(--ochre); color: var(--cream); }
+        .journey-arrow { color: var(--ochre); opacity: 0.5; font-size: 0.8rem; padding: 0 6px; }
+        .journey-ending {
+            margin-top: 60px; padding: 40px; border: 1px solid var(--border-strong);
+            background: rgba(139, 58, 42, 0.08); position: relative; max-width: 680px;
+        }
+        .journey-ending::before {
+            content: '✦'; position: absolute; top: -10px; left: 40px;
+            background: var(--dark-mid); padding: 0 8px; color: var(--ochre); font-size: 0.8rem;
+        }
+        .team-section { background: var(--dark); }
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 48px; }
+        .team-card { background: var(--dark-warm); padding: 36px 32px; transition: background 0.25s; }
+        .team-card:hover { background: rgba(139, 58, 42, 0.15); }
+        .team-name { font-size: 1.15rem; font-weight: 400; color: var(--cream); display: block; margin-bottom: 8px; }
+        .team-role { font-size: 0.85rem; font-style: italic; color: var(--stone); opacity: 0.65; line-height: 1.6; }
+        .team-link {
+            display: inline-block; margin-top: 16px; font-size: 0.72rem;
+            letter-spacing: 0.14em; text-transform: uppercase; color: var(--ochre);
+            text-decoration: none; opacity: 0.7; transition: opacity 0.2s;
+        }
+        .team-link:hover { opacity: 1; }
+        .explore-section { background: var(--dark-mid); }
+        .explore-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 48px; }
+        .explore-card {
+            background: var(--dark-warm); padding: 48px 36px; text-decoration: none;
+            display: block; position: relative; overflow: hidden; transition: background 0.3s;
+        }
+        .explore-card::before {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+            background: var(--ochre); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+        }
+        .explore-card:hover { background: rgba(139, 58, 42, 0.15); }
+        .explore-card:hover::before { transform: scaleX(1); }
+        .explore-label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ochre); opacity: 0.7; display: block; margin-bottom: 12px; }
+        .explore-name { font-size: 1.3rem; color: var(--cream); display: block; margin-bottom: 8px; font-weight: 400; }
+        .explore-arrow { font-size: 0.85rem; color: var(--stone); opacity: 0.5; display: block; margin-top: 20px; transition: opacity 0.2s, transform 0.2s; }
+        .explore-card:hover .explore-arrow { opacity: 1; transform: translateX(6px); }
+        .sources-section { background: var(--dark); }
+        .source-list { list-style: none; margin-top: 40px; border-top: 1px solid var(--border); }
+        .source-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 16px; }
+        .source-list li::before { content: '—'; color: var(--ochre); opacity: 0.5; flex-shrink: 0; font-size: 0.85rem; }
+        .source-list a { color: var(--stone); text-decoration: none; font-size: 0.92rem; font-style: italic; opacity: 0.75; transition: opacity 0.2s, color 0.2s; }
+        .source-list a:hover { opacity: 1; color: var(--cream); }
+        footer {
+            padding: 60px; background: var(--dark); border-top: 1px solid var(--border);
+            display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;
+        }
+        .footer-meta { font-size: 0.82rem; font-style: italic; color: var(--stone); opacity: 0.55; line-height: 1.7; }
+        .footer-meta a { color: inherit; text-decoration: underline; text-decoration-color: rgba(201, 185, 154, 0.3); }
+        .footer-team { display: flex; gap: 28px; }
+        .footer-team a { color: var(--stone); text-decoration: none; opacity: 0.5; transition: opacity 0.2s; }
+        .footer-team a:hover { opacity: 1; }
+        .footer-team svg { width: 22px; height: 22px; fill: currentColor; }
+        @media (max-width: 900px) {
+            nav { padding: 0 24px; }
+            .section-inner { padding: 0 24px; }
+            .cave-layout { grid-template-columns: 1fr; gap: 40px; }
+            .cave-imgs { min-height: 320px; }
+            .concepts-layout { grid-template-columns: 1fr; gap: 40px; }
+            .concepts-sticky { position: static; }
+            .characters-grid { grid-template-columns: repeat(2, 1fr); }
+            .characters-grid .character-card:last-child { grid-column: 1 / -1; }
+            .team-grid, .explore-grid { grid-template-columns: 1fr; }
+            footer { grid-template-columns: 1fr; padding: 40px 24px; }
+        }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.8rem; }
+            .characters-grid { grid-template-columns: 1fr; }
+            .levels-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div id="bg-pattern"></div>
+<div id="bg-pattern"></div>
 
-    <div class="content">
+<nav>
+    <a href="index.html" class="nav-logo">Pixel<em style="font-style:italic; color:var(--ochre);">Grams</em></a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="design_brief.html">Design Brief</a></li>
+        <li><a href="twine.html">Twine</a></li>
+        <li><a href="figma.html">Figma</a></li>
+    </ul>
+</nav>
 
-        <!-- Page title -->
-        <h1 class="page-title">[ PROJECT TITLE ]</h1>
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">Castello Aragonese di Otranto &nbsp;·&nbsp; 2025</p>
+        <h1 class="hero-title">Pixel<em>Grams</em></h1>
+        <p class="hero-subtitle-small">pixels &nbsp;·&nbsp; pittogrammi &nbsp;·&nbsp; patrimonio</p>
+        <p class="hero-desc">A virtual journey into one of Europe's most extraordinary Neolithic sanctuaries — a cave sealed from the public for fifty years, now open to all.</p>
+        <div class="hero-scroll">scroll</div>
+    </div>
+</section>
 
-        <!-- Navigation -->
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="design_brief.html">Design Brief</a>
-            <a href="twine.html">Twine</a>
-            <a href="figma.html">Figma</a>
-        </nav>
+<main>
 
-        <!-- ══ HERO ══ -->
-        <div class="hero">
-            <p class="hero-eyebrow">Castello Aragonese di Otranto &nbsp;·&nbsp; 2025</p>
-            <p class="hero-subtitle">
-                A virtual journey into one of Europe's most extraordinary Neolithic sanctuaries —
-                a cave sealed from the public for fifty years, now open to all.
-            </p>
-        </div>
-
-        <!-- ══ 01 — THE CAVE ══ -->
-        <div class="section">
-            <p class="section-title">01 — The Cave</p>
-            <h2 class="section-heading">The Grotta dei Cervi of Porto Badisco</h2>
-            <div class="section-body">
-                <p>
-                    Hidden beneath the cliffs of Porto Badisco, near Otranto in Puglia,
-                    the Grotta dei Cervi is one of the most significant Neolithic cave sanctuaries
-                    in the Mediterranean. Its walls and ceilings are covered in thousands of pictograms —
-                    painted in red ochre and black guano by communities who inhabited this coastline
-                    over six thousand years ago.
-                </p>
-                <p>
-                    The cave has been closed to the public since the 1970s. Human presence —
-                    breath, warmth, light — would destroy the fragile microclimate that preserves
-                    the paintings. Only researchers with special permits may enter.
-                    This experience gives you access no one else has.
-                </p>
-            </div>
-        </div>
-
-        <hr class="divider">
-
-        <!-- ══ 02 — THE EXPERIENCE ══ -->
-        <div class="section">
-            <p class="section-title">02 — The Experience</p>
-            <h2 class="section-heading">An immersive VR journey hosted at the Castello Aragonese</h2>
-            <div class="section-body">
-                <p>
-                    Visitors are welcomed into a dim room inside the Aragonese Castle of Otranto —
-                    the closest public institution to the cave, and home to an existing permanent
-                    exhibition on the Grotta dei Cervi. Four VR headsets transport them back
-                    six thousand years, to a summer sunset at the cave's western entrance.
-                </p>
-                <p>
-                    Before entering, a question appears: <em>Who are you?</em>
-                    Each visitor chooses a role — and from that moment, their experience is their own.
-                </p>
-            </div>
-
-            <div class="character-grid">
-                <div class="character-card">
-                    <span class="character-name">Shaman</span>
-                    <span class="character-desc">You perform the ritual. You carry the knowledge.</span>
-                </div>
-                <div class="character-card">
-                    <span class="character-name">Warrior</span>
-                    <span class="character-desc">Wounded. You seek the shaman's healing.</span>
-                </div>
-                <div class="character-card">
-                    <span class="character-name">Devotee I</span>
-                    <span class="character-desc">You come to speak with your ancestor.</span>
-                </div>
-                <div class="character-card">
-                    <span class="character-name">Devotee II</span>
-                    <span class="character-desc">You carry an offering. You want something.</span>
-                </div>
-                <div class="character-card">
-                    <span class="character-name">Dancer</span>
-                    <span class="character-desc">You don't choose to come. You are called.</span>
+<section class="section cave-section" id="cave">
+    <div class="section-inner">
+        <div class="cave-layout">
+            <div>
+                <span class="section-label">01 — The Cave</span>
+                <h2 class="section-title">The Grotta dei Cervi<br><em>of Porto Badisco</em></h2>
+                <div class="body-text">
+                    <p>Hidden beneath the cliffs of Porto Badisco, near Otranto in Puglia, the Grotta dei Cervi is one of the most significant Neolithic cave sanctuaries in the Mediterranean. Its walls and ceilings are covered in thousands of pictograms — painted in red ochre and black guano by communities who inhabited this coastline over six thousand years ago.</p>
+                    <p>The cave has been closed to the public since the 1970s. Human presence — breath, warmth, light — would destroy the fragile microclimate that preserves the paintings. Only researchers with special permits may enter. This experience gives you access no one else has.</p>
                 </div>
             </div>
-
-            <div class="level-grid">
-                <div class="level-card">
-                    <span class="level-name">Kids</span>
-                    <span class="level-meta">~15 min · Ages 13–17<br>Lighter themes, accessible language</span>
+            <div class="cave-imgs">
+                <div class="cave-img">
+                    <img src="assets/imgs/07-GROTTA-CERVI_pittogrammi.jpg" alt="Pittogrammi della Grotta dei Cervi">
                 </div>
-                <div class="level-card">
-                    <span class="level-name">Light</span>
-                    <span class="level-meta">~20 min · Condensed experience<br>Essential narrative arc</span>
-                </div>
-                <div class="level-card">
-                    <span class="level-name">Full</span>
-                    <span class="level-meta">~30 min · Complete depth<br>All educational content included</span>
+                <div class="cave-img">
+                    <img src="assets/imgs/08-GROTTA-CERVI_sciamana.jpg" alt="Ricercatrice nella Grotta dei Cervi" style="object-position: center 30%;">
+                    <span class="cave-caption">Only researchers with special permits may enter</span>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <hr class="divider">
-
-        <!-- ══ 03 — CONCEPT-BASED DESIGN ══ -->
-        <div class="section">
-            <p class="section-title">03 — Concept-Based Design</p>
-            <h2 class="section-heading">What we want visitors to feel, understand, and question</h2>
-
-            <div class="concept-block" style="margin-top: 26px;">
-                <span class="concept-label">Curiosity</span>
-                <p class="concept-text">
-                    The cave is inaccessible. That inaccessibility is not an obstacle — it is the starting point.
-                    The experience is built on information gaps: you know something happened here,
-                    but the meaning is open. The pictograms do not explain themselves.
-                    Neither does the shaman.
-                </p>
-            </div>
-
-            <div class="concept-block">
-                <span class="concept-label">Embodiment</span>
-                <p class="concept-text">
-                    You do not observe the ritual. You are inside it.
-                    The choice of character determines not only what you see,
-                    but how the cave responds to your presence.
-                    The dancer does not walk through the cave — the cave calls the dancer.
-                </p>
-            </div>
-
-            <div class="concept-block">
-                <span class="concept-label">Storytelling</span>
-                <p class="concept-text">
-                    Five parallel narratives. One sanctuary. The branching structure mirrors
-                    the cave itself — many paths, one convergence point.
-                    Every character arrives at the same chamber with a different history
-                    written on their body.
-                </p>
-            </div>
+<section class="section experience-section" id="experience">
+    <div class="section-inner experience-bg">
+        <span class="section-label">02 — The Experience</span>
+        <h2 class="section-title">An immersive VR journey<br><em>hosted at the Castello Aragonese</em></h2>
+        <div class="body-text">
+            <p>Visitors are welcomed into a dim room inside the Aragonese Castle of Otranto — the closest public institution to the cave, and home to an existing permanent exhibition on the Grotta dei Cervi. Four VR headsets transport them back six thousand years, to a summer sunset at the cave's western entrance.</p>
+            <p>Before entering, a question appears: <em>Who are you?</em> Each visitor chooses a role — and from that moment, their experience is their own.</p>
         </div>
-
-        <hr class="divider">
-
-        <!-- ══ 04 — USER JOURNEY ══ -->
-        <div class="section">
-            <p class="section-title">04 — User Journey</p>
-            <h2 class="section-heading">The emotional arc of the experience</h2>
-            <div class="journey-bar">
-                <span class="journey-step">Ignorance</span>
-                <span class="journey-arrow">→</span>
-                <span class="journey-step">Curiosity</span>
-                <span class="journey-arrow">→</span>
-                <span class="journey-step">Exploration</span>
-                <span class="journey-arrow">→</span>
-                <span class="journey-step">Discovery</span>
-                <span class="journey-arrow">→</span>
-                <span class="journey-step">Reflection</span>
-                <span class="journey-arrow">→</span>
-                <span class="journey-step">Caring</span>
-            </div>
-            <div class="section-body" style="margin-top: 22px;">
-                <p>
-                    The experience ends outside the VR. In a darkened room between the headset station
-                    and the exit, a reactive LED screen covers one wall. On it: the handprints of every
-                    visitor who has lived this experience before you — pale ochre silhouettes on near-black,
-                    scattered like the hand stencils on the ceiling of the Sanctuary.
-                    You press your hand to the screen. Your mark remains.
-                </p>
-            </div>
+        <div class="characters-grid">
+            <div class="character-card"><span class="character-role">Shaman</span><span class="character-desc">You perform the ritual. You carry the knowledge.</span></div>
+            <div class="character-card"><span class="character-role">Guardian</span><span class="character-desc">You protect this place. You do not enter by choice.</span></div>
+            <div class="character-card"><span class="character-role">Devotee I</span><span class="character-desc">You come to speak with your ancestor.</span></div>
+            <div class="character-card"><span class="character-role">Devotee II</span><span class="character-desc">You carry an offering. You want something.</span></div>
+            <div class="character-card"><span class="character-role">Dancer</span><span class="character-desc">You don't choose to come. You are called.</span></div>
         </div>
+        <div class="levels-grid">
+            <div class="level-card"><span class="level-name">Kids</span><span class="level-meta">~15 min · Ages 13–17<br>Lighter themes</span></div>
+            <div class="level-card"><span class="level-name">Light</span><span class="level-meta">~20 min · Condensed<br>Essential arc</span></div>
+            <div class="level-card"><span class="level-name">Full</span><span class="level-meta">~30 min · Complete<br>All content</span></div>
+        </div>
+    </div>
+</section>
 
-        <hr class="divider">
-
-        <!-- ══ 05 — THE TEAM ══ -->
-        <div class="section">
-            <p class="section-title">05 — The Team</p>
-            <h2 class="section-heading">CineFiles25</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <span class="team-name">Laura Bortoli</span>
-                    <span class="team-role">Website · Storyboard · Low-fi wireframes</span>
+<section class="section concepts-section" id="concepts">
+    <div class="section-inner">
+        <div class="concepts-layout">
+            <div class="concepts-sticky">
+                <span class="section-label">03 — Concept-Based Design</span>
+                <h2 class="section-title">What we want visitors<br><em>to feel, understand,<br>and question</em></h2>
+            </div>
+            <div>
+                <div class="concept-block">
+                    <span class="concept-name">Curiosity</span>
+                    <p class="concept-text">The cave is inaccessible. That inaccessibility is not an obstacle — it is the starting point. The experience is built on information gaps: you know something happened here, but the meaning is open. The pictograms do not explain themselves. Neither does the shaman.</p>
                 </div>
-                <div class="team-card">
-                    <span class="team-name">Qinghao Chen</span>
-                    <span class="team-role">Twine narrative · Mid-fi prototype · Interpretation strategy</span>
+                <div class="concept-block">
+                    <span class="concept-name">Embodiment</span>
+                    <p class="concept-text">You do not observe the ritual. You are inside it. The choice of character determines not only what you see, but how the cave responds to your presence. The dancer does not walk through the cave — the cave calls the dancer.</p>
                 </div>
-                <div class="team-card">
-                    <span class="team-name">Claudia Romanello</span>
-                    <span class="team-role">High-fi prototype · Presentation · Exhibition flow</span>
+                <div class="concept-block">
+                    <span class="concept-name">Storytelling</span>
+                    <p class="concept-text">Five parallel narratives. One sanctuary. The branching structure mirrors the cave itself — many paths, one convergence point. Every character arrives at the same chamber with a different history written on their body.</p>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <hr class="divider">
+<section class="section journey-section" id="journey">
+    <div class="section-inner" style="position:relative; z-index:1;">
+        <span class="section-label">04 — User Journey</span>
+        <h2 class="section-title">The emotional arc<br><em>of the experience</em></h2>
+        <div class="journey-steps">
+            <span class="journey-step">Ignorance</span><span class="journey-arrow">→</span>
+            <span class="journey-step">Curiosity</span><span class="journey-arrow">→</span>
+            <span class="journey-step">Exploration</span><span class="journey-arrow">→</span>
+            <span class="journey-step">Discovery</span><span class="journey-arrow">→</span>
+            <span class="journey-step">Reflection</span><span class="journey-arrow">→</span>
+            <span class="journey-step">Caring</span>
+        </div>
+        <div class="journey-ending">
+            <p style="font-size:1.05rem; line-height:1.9; color:var(--stone); font-style:italic;">The experience ends outside the VR. In a darkened room between the headset station and the exit, a reactive LED screen covers one wall. On it: the handprints of every visitor who has lived this experience before you — pale ochre silhouettes on near-black, scattered like the hand stencils on the ceiling of the Sanctuary. You press your hand to the screen. Your mark remains.</p>
+        </div>
+    </div>
+</section>
 
-        <!-- ══ 06 — EXPLORE ══ -->
-        <div class="section">
-            <p class="section-title">06 — Explore</p>
-            <h2 class="section-heading">Project materials</h2>
-            <div class="explore-grid">
-                <a class="explore-card" href="twine.html">
-                    <span class="explore-label">Interactive narrative</span>
-                    <span class="explore-name">Twine Prototype →</span>
-                </a>
-                <a class="explore-card" href="figma.html">
-                    <span class="explore-label">Wireframes &amp; prototype</span>
-                    <span class="explore-name">Figma →</span>
-                </a>
-                <a class="explore-card" href="design_brief.html">
-                    <span class="explore-label">Full documentation</span>
-                    <span class="explore-name">Design Brief →</span>
-                </a>
+<section class="section team-section" id="team">
+    <div class="section-inner">
+        <span class="section-label">05 — The Team</span>
+        <h2 class="section-title"><em>CineFiles25</em></h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <span class="team-name">Laura Bortoli</span>
+                <span class="team-role">Website · Storyboard · Low-fi wireframes</span>
+                <a href="https://github.com/lauraaa13" target="_blank" class="team-link">GitHub →</a>
+            </div>
+            <div class="team-card">
+                <span class="team-name">Qinghao Chen</span>
+                <span class="team-role">Twine narrative · Mid-fi prototype · Interpretation strategy</span>
+                <a href="https://github.com/ChenQingHa" target="_blank" class="team-link">GitHub →</a>
+            </div>
+            <div class="team-card">
+                <span class="team-name">Claudia Romanello</span>
+                <span class="team-role">High-fi prototype · Presentation · Exhibition flow</span>
+                <a href="https://github.com/claudiarom" target="_blank" class="team-link">GitHub →</a>
             </div>
         </div>
+    </div>
+</section>
 
-        <hr class="divider">
-
-        <!-- ══ 07 — SOURCES ══ -->
-        <div class="section">
-            <p class="section-title">07 — Sources &amp; Credits</p>
-            <ul class="source-list">
-                <li>
-                    <a href="https://www.preistoriainitalia.it/scheda/grotta-dei-cervi-porto-badisco-le/" target="_blank">
-                        Preistoria in Italia — Grotta dei Cervi, Porto Badisco
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.artepreistorica.com/wp-content/uploads/2010/01/The-Deer-Cave.pdf" target="_blank">
-                        Arte Preistorica — The Deer Cave (phosphenic art)
-                    </a>
-                </li>
-                <li>
-                    <a href="https://vimeo.com/407669569" target="_blank">
-                        Virginia Valzano — "Neolithic Mysteries: Revealing in 3D the Grotta dei Cervi" (2020)
-                    </a>
-                </li>
-                <li>
-                    <a href="https://library.oapen.org/handle/20.500.12657/62799" target="_blank">
-                        OAPEN — 3D documentation of the Grotta dei Cervi
-                    </a>
-                </li>
-                <li>
-                    <a href="https://en.wikipedia.org/wiki/Deer_Cave_(Otranto)" target="_blank">
-                        Wikipedia — Deer Cave (Otranto)
-                    </a>
-                </li>
-                <li>
-                    <a href="https://fondoambiente.it/luoghi/grotta-dei-cervi" target="_blank">
-                        Fondo Ambiente Italiano — Grotta dei Cervi
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.preistoriainitalia.it/2021/02/08/io-badisco-e-grotta-dei-cervi/" target="_blank">
-                        Maria Laura Leone — Io, Badisco e la Grotta dei Cervi (2021)
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.focus.it/cultura/storia/ecco-la-grotta-proibita" target="_blank">
-                        Focus — Ecco la grotta proibita
-                    </a>
-                </li>
-                <li>
-                    Background pattern illustrations by Claudia Romanello.
-                    Font: <a href="https://fonts.google.com/specimen/Cormorant+Garamond" target="_blank">Cormorant Garamond</a> (Google Fonts).
-                </li>
-            </ul>
+<section class="section explore-section" id="explore">
+    <div class="section-inner">
+        <span class="section-label">06 — Explore</span>
+        <h2 class="section-title">Project <em>materials</em></h2>
+        <div class="explore-grid">
+            <a class="explore-card" href="twine.html">
+                <span class="explore-label">Interactive narrative</span>
+                <span class="explore-name">Twine Prototype</span>
+                <span class="explore-arrow">Enter the story →</span>
+            </a>
+            <a class="explore-card" href="figma.html">
+                <span class="explore-label">Wireframes &amp; prototype</span>
+                <span class="explore-name">Figma</span>
+                <span class="explore-arrow">View the design →</span>
+            </a>
+            <a class="explore-card" href="design_brief.html">
+                <span class="explore-label">Full documentation</span>
+                <span class="explore-name">Design Brief</span>
+                <span class="explore-arrow">Read the brief →</span>
+            </a>
         </div>
+    </div>
+</section>
 
-        <!-- ══ FOOTER ══ -->
-        <footer>
-            <div class="footer-icons">
-                <div class="footer-icon-item" data-name="Laura Bortoli">
-                    <a href="https://github.com/lauraaa13" target="_blank" aria-label="Laura Bortoli">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="footer-icon-item" data-name="Qinghao Chen">
-                    <a href="https://github.com/ChenQingHa" target="_blank" aria-label="Qinghao Chen">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="footer-icon-item" data-name="Claudia Romanello">
-                    <a href="https://github.com/claudiarom" target="_blank" aria-label="Claudia Romanello">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <p class="footer-meta">
-                <a href="https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364" target="_blank">Digital Heritage &amp; Multimedia</a>
-                &nbsp;·&nbsp; University of Bologna &nbsp;·&nbsp; 2024/25
-            </p>
-        </footer>
+<section class="section sources-section" id="sources">
+    <div class="section-inner">
+        <span class="section-label">07 — Sources &amp; Credits</span>
+        <h2 class="section-title"><em>Bibliography</em></h2>
+        <ul class="source-list">
+            <li><a href="https://www.preistoriainitalia.it/scheda/grotta-dei-cervi-porto-badisco-le/" target="_blank">Preistoria in Italia — Grotta dei Cervi, Porto Badisco</a></li>
+            <li><a href="https://www.artepreistorica.com/wp-content/uploads/2010/01/The-Deer-Cave.pdf" target="_blank">Arte Preistorica — The Deer Cave (phosphenic art)</a></li>
+            <li><a href="https://vimeo.com/407669569" target="_blank">Virginia Valzano — "Neolithic Mysteries: Revealing in 3D the Grotta dei Cervi" (2020)</a></li>
+            <li><a href="https://library.oapen.org/handle/20.500.12657/62799" target="_blank">OAPEN — 3D documentation of the Grotta dei Cervi</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Deer_Cave_(Otranto)" target="_blank">Wikipedia — Deer Cave (Otranto)</a></li>
+            <li><a href="https://fondoambiente.it/luoghi/grotta-dei-cervi" target="_blank">Fondo Ambiente Italiano — Grotta dei Cervi</a></li>
+            <li><a href="https://www.preistoriainitalia.it/2021/02/08/io-badisco-e-grotta-dei-cervi/" target="_blank">Maria Laura Leone — Io, Badisco e la Grotta dei Cervi (2021)</a></li>
+            <li><a href="https://www.focus.it/cultura/storia/ecco-la-grotta-proibita" target="_blank">Focus — Ecco la grotta proibita</a></li>
+            <li>Background pattern illustrations by Claudia Romanello. Font: <a href="https://fonts.google.com/specimen/Cormorant+Garamond" target="_blank">Cormorant Garamond</a> (Google Fonts).</li>
+        </ul>
+    </div>
+</section>
 
-    </div><!-- end .content -->
+</main>
 
-    <!-- Background pattern script -->
-    <script>
-        (function () {
-            const SIZE = 200;
-            const PAD  = 10;
-            const CELL = SIZE + PAD * 2;
+<footer>
+    <p class="footer-meta">
+        <a href="https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364" target="_blank">Digital Heritage &amp; Multimedia</a>
+        &nbsp;·&nbsp; University of Bologna &nbsp;·&nbsp; 2024/25<br>
+        CineFiles25 &nbsp;·&nbsp; Bortoli · Chen · Romanello
+    </p>
+    <div class="footer-team">
+        <a href="https://github.com/lauraaa13" target="_blank" aria-label="Laura Bortoli">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="https://github.com/ChenQingHa" target="_blank" aria-label="Qinghao Chen">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="https://github.com/claudiarom" target="_blank" aria-label="Claudia Romanello">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+    </div>
+</footer>
 
-            const canvas = document.createElement('canvas');
-            canvas.width  = CELL * 2;
-            canvas.height = CELL * 2;
-            const ctx = canvas.getContext('2d');
-
-            const img1 = new Image();
-            const img2 = new Image();
-            let loaded = 0;
-
-            function draw() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage(img1, PAD,        PAD,        SIZE, SIZE);
-                ctx.drawImage(img2, CELL + PAD, PAD,        SIZE, SIZE);
-                ctx.drawImage(img2, PAD,        CELL + PAD, SIZE, SIZE);
-                ctx.drawImage(img1, CELL + PAD, CELL + PAD, SIZE, SIZE);
-
-                const bg = document.getElementById('bg-pattern');
-                bg.style.backgroundImage = 'url(' + canvas.toDataURL('image/png') + ')';
-                bg.style.backgroundSize  = (CELL * 2) + 'px ' + (CELL * 2) + 'px';
-            }
-
-            img1.onload = img2.onload = function () { if (++loaded === 2) draw(); };
-            img1.src = 'assets/imgs/sciam_trasp.png';
-            img2.src = 'assets/imgs/picts_trasp.png';
-        })();
-    </script>
+<script>
+    (function () {
+        const SIZE = 200, PAD = 10, CELL = SIZE + PAD * 2;
+        const canvas = document.createElement('canvas');
+        canvas.width = CELL * 2; canvas.height = CELL * 2;
+        const ctx = canvas.getContext('2d');
+        const img1 = new Image(), img2 = new Image();
+        let loaded = 0;
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img1, PAD, PAD, SIZE, SIZE);
+            ctx.drawImage(img2, CELL + PAD, PAD, SIZE, SIZE);
+            ctx.drawImage(img2, PAD, CELL + PAD, SIZE, SIZE);
+            ctx.drawImage(img1, CELL + PAD, CELL + PAD, SIZE, SIZE);
+            const bg = document.getElementById('bg-pattern');
+            bg.style.backgroundImage = 'url(' + canvas.toDataURL('image/png') + ')';
+            bg.style.backgroundSize = (CELL * 2) + 'px ' + (CELL * 2) + 'px';
+        }
+        img1.onload = img2.onload = function () { if (++loaded === 2) draw(); };
+        img1.src = 'assets/imgs/sciam_trasp.png';
+        img2.src = 'assets/imgs/picts_trasp.png';
+    })();
+</script>
 
 </body>
 </html>
