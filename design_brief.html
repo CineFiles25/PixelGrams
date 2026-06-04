@@ -3,234 +3,593 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Brief</title>
+    <title>Design Brief — PixelGrams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'IM Fell English';
-            src: url('assets/fonts/IMFellEnglish-Regular.ttf') format('truetype');
-            font-style: normal;
+        :root {
+            --ochre: #C9622A;
+            --ochre-dark: #8B3A2A;
+            --cream: #F2EDE4;
+            --stone: #C9B99A;
+            --dark: #0E0B09;
+            --dark-mid: #1A1410;
+            --dark-warm: #241C16;
+            --border: rgba(201, 185, 154, 0.2);
+            --border-strong: rgba(201, 98, 42, 0.4);
         }
-
-        @font-face {
-            font-family: 'IM Fell English';
-            src: url('assets/fonts/IMFellEnglish-Italic.ttf') format('truetype');
-            font-style: italic;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            min-height: 100vh;
-            background-color: #C9B99A;
-            position: relative;
-            font-family: 'IM Fell English', serif;
+            background: var(--dark);
+            color: var(--cream);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 300;
+            line-height: 1.75;
+            overflow-x: hidden;
         }
 
-        #bg-pattern {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            mix-blend-mode: multiply;
-            background-repeat: repeat;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-            background-color: #8B3A2A;
-            width: 60%;
-            min-height: 100vh;
-            margin: 40px auto;
-            padding: 60px 50px;
-            border: 3px solid #1C1A17;
-            outline: 2px solid rgba(28, 26, 23, 0.35);
-            outline-offset: -12px;
-        }
-
+        /* Nav */
         nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 48px;
-            border-bottom: 2px solid #1C1A17;
-            padding: 12px 0;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 60px; height: 64px;
+            background: rgba(14, 11, 9, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo {
+            font-size: 1.15rem; font-weight: 500; letter-spacing: 0.08em;
+            color: var(--cream); text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a {
+            color: var(--stone); text-decoration: none;
+            font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+
+        /* Hero */
+        .brief-hero {
+            padding: 140px 60px 80px;
+            max-width: 1100px; margin: 0 auto;
+            border-bottom: 1px solid var(--border);
+        }
+        .brief-hero-label {
+            font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+            color: var(--ochre); display: block; margin-bottom: 20px;
+        }
+        .brief-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300; letter-spacing: 0.04em; line-height: 1.1;
+            color: var(--cream); margin-bottom: 24px;
+        }
+        .brief-hero-title em { font-style: italic; color: var(--stone); }
+        .brief-hero-meta {
+            font-size: 0.9rem; color: var(--stone); opacity: 0.6;
+            font-style: italic; letter-spacing: 0.06em;
         }
 
-        nav a {
-            color: #C9B99A;
-            text-decoration: none;
-            font-family: 'IM Fell English', serif;
-            font-size: 1rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            opacity: 0.85;
-            padding: 0 24px;
-            border-right: 2px solid rgba(28, 26, 23, 0.6);
+        /* Main layout */
+        .brief-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 0;
+            max-width: 1100px; margin: 0 auto;
+            min-height: 100vh;
         }
 
-        nav a:last-child {
-            border-right: none;
+        /* Sidebar TOC */
+        .brief-toc {
+            position: sticky; top: 64px;
+            height: calc(100vh - 64px);
+            overflow-y: auto;
+            padding: 48px 32px 48px 60px;
+            border-right: 1px solid var(--border);
+        }
+        .toc-label {
+            font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+            color: var(--ochre); opacity: 0.7; display: block; margin-bottom: 20px;
+        }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 12px; }
+        .toc-list a {
+            font-size: 0.82rem; color: var(--stone); text-decoration: none;
+            opacity: 0.65; letter-spacing: 0.04em; transition: opacity 0.2s, color 0.2s;
+            display: block; line-height: 1.4;
+        }
+        .toc-list a:hover { opacity: 1; color: var(--cream); }
+
+        /* Content */
+        .brief-content {
+            padding: 64px 80px 120px 64px;
         }
 
-        nav a:hover,
-        nav a.active {
-            opacity: 1;
-            font-weight: bold;
+        /* Section */
+        .brief-section {
+            margin-bottom: 80px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border);
+        }
+        .brief-section:last-child { border-bottom: none; }
+
+        .section-label {
+            font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+            color: var(--ochre); display: block; margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 300;
+            letter-spacing: 0.04em; margin-bottom: 32px; line-height: 1.2;
+            color: var(--cream);
+        }
+        .section-title em { font-style: italic; color: var(--stone); }
+
+        /* Body text */
+        p {
+            font-size: 1.05rem; line-height: 1.9; color: var(--stone);
+            margin-bottom: 16px; max-width: 680px;
+        }
+        p strong { color: var(--cream); font-weight: 500; }
+        p em { font-style: italic; }
+
+        /* Subsection heading */
+        h3 {
+            font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+            color: var(--ochre); margin: 40px 0 16px; font-weight: 400;
+        }
+        h4 {
+            font-size: 1rem; color: var(--cream); font-weight: 400;
+            margin: 28px 0 10px; letter-spacing: 0.04em;
         }
 
-        .page-title {
-            font-family: 'IM Fell English', serif;
-            color: #C9B99A;
-            font-size: 2.2rem;
-            font-weight: normal;
-            letter-spacing: 0.08em;
-            text-align: center;
-            margin-bottom: 36px;
-            padding-bottom: 36px;
+        /* Quote block */
+        .quote-block {
+            margin: 32px 0; padding: 28px 32px;
+            border-left: 2px solid var(--ochre);
+            background: rgba(201, 98, 42, 0.06);
+        }
+        .quote-block p {
+            font-size: 1.1rem; font-style: italic; color: var(--cream);
+            opacity: 0.85; margin: 0; max-width: none;
         }
 
+        /* Cards grid */
+        .cards-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); margin: 28px 0;
+        }
+        .card {
+            background: var(--dark-warm); padding: 24px 22px;
+        }
+        .card-label {
+            font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+            color: var(--ochre); display: block; margin-bottom: 10px; opacity: 0.8;
+        }
+        .card-text {
+            font-size: 0.95rem; color: var(--stone); line-height: 1.75;
+        }
+        .card-text strong { color: var(--cream); }
+
+        /* Moscow table */
+        .moscow-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); margin: 28px 0;
+        }
+        .moscow-cell {
+            background: var(--dark-warm); padding: 24px 22px;
+        }
+        .moscow-label {
+            font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+            color: var(--ochre); display: block; margin-bottom: 12px;
+        }
+        .moscow-cell ul {
+            list-style: none; padding: 0;
+        }
+        .moscow-cell ul li {
+            font-size: 0.92rem; color: var(--stone); line-height: 1.7;
+            padding-left: 14px; position: relative; margin-bottom: 6px;
+        }
+        .moscow-cell ul li::before {
+            content: '—'; position: absolute; left: 0;
+            color: var(--ochre); opacity: 0.5; font-size: 0.85rem;
+        }
+
+        /* Characters list */
+        .characters-list {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); margin: 28px 0;
+        }
+        .character-item {
+            background: var(--dark-warm); padding: 20px 16px; text-align: center;
+        }
+        .character-role {
+            font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--ochre); display: block; margin-bottom: 8px;
+        }
+        .character-desc {
+            font-size: 0.82rem; color: var(--stone); font-style: italic; line-height: 1.5;
+        }
+
+        /* Journey bar */
+        .journey-bar {
+            display: flex; align-items: center; flex-wrap: wrap;
+            gap: 0; margin: 28px 0;
+        }
+        .journey-step {
+            font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--stone); padding: 8px 16px;
+            border: 1px solid var(--border); white-space: nowrap;
+        }
+        .journey-arrow { color: var(--ochre); opacity: 0.5; padding: 0 6px; font-size: 0.8rem; }
+
+        /* Image figure */
+        .brief-figure {
+            margin: 40px 0;
+        }
+        .brief-figure img {
+            width: 100%; height: auto; display: block;
+            filter: brightness(0.85) sepia(0.1) contrast(1.05);
+            border: 1px solid var(--border-strong);
+        }
+        .brief-figure img.light {
+            filter: none;
+            background: var(--dark-warm);
+        }
+        .brief-figure figcaption {
+            margin-top: 10px;
+            font-size: 0.78rem; font-style: italic; color: var(--stone);
+            opacity: 0.6; letter-spacing: 0.04em;
+        }
+
+        /* Footer */
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 2px solid #1C1A17;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
+            padding: 60px; background: var(--dark);
+            border-top: 1px solid var(--border);
+            display: grid; grid-template-columns: 1fr auto;
+            align-items: center; gap: 40px;
+            max-width: 100%;
         }
-
-        .footer-icons {
-            display: flex;
-            gap: 40px;
-        }
-
         .footer-meta {
-            color: #C9B99A;
-            font-family: 'IM Fell English', serif;
-            font-size: 0.8rem;
-            letter-spacing: 0.06em;
-            opacity: 0.65;
-            text-align: center;
-            font-style: italic;
+            font-size: 0.82rem; font-style: italic;
+            color: var(--stone); opacity: 0.55; line-height: 1.7;
         }
+        .footer-meta a { color: inherit; text-decoration: underline; text-decoration-color: rgba(201,185,154,0.3); }
+        .footer-team { display: flex; gap: 28px; }
+        .footer-team a { color: var(--stone); text-decoration: none; opacity: 0.5; transition: opacity 0.2s; }
+        .footer-team a:hover { opacity: 1; }
+        .footer-team svg { width: 22px; height: 22px; fill: currentColor; }
 
-        .footer-meta a {
-            color: inherit;
-            text-decoration: underline;
-            text-decoration-color: rgba(201, 185, 154, 0.45);
-        }
-
-        .footer-meta a:hover {
-            text-decoration-color: #C9B99A;
-        }
-
-        footer a {
-            color: #C9B99A;
-            text-decoration: none;
-            opacity: 0.8;
-            display: flex;
-            align-items: center;
-        }
-
-        footer a:hover {
-            opacity: 1;
-        }
-
-        footer a svg {
-            width: 28px;
-            height: 28px;
-            fill: #C9B99A;
-        }
-
-        .footer-icon-item {
-            position: relative;
-            display: flex;
-        }
-
-        .footer-icon-item::after {
-            content: attr(data-name);
-            position: absolute;
-            bottom: calc(100% + 10px);
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1C1A17;
-            color: #C9B99A;
-            font-family: 'IM Fell English', serif;
-            font-size: 0.8rem;
-            letter-spacing: 0.05em;
-            font-style: italic;
-            padding: 6px 14px;
-            white-space: nowrap;
-            border: 1px solid #C9B99A;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
-        }
-
-        .footer-icon-item:hover::after {
-            opacity: 1;
+        /* Responsive */
+        @media (max-width: 900px) {
+            nav { padding: 0 24px; }
+            .brief-hero { padding: 120px 24px 60px; }
+            .brief-layout { grid-template-columns: 1fr; }
+            .brief-toc { display: none; }
+            .brief-content { padding: 40px 24px 80px; }
+            .cards-grid, .moscow-grid { grid-template-columns: 1fr; }
+            .characters-list { grid-template-columns: repeat(2, 1fr); }
+            .characters-list .character-item:last-child { grid-column: 1/-1; }
+            footer { grid-template-columns: 1fr; padding: 40px 24px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div id="bg-pattern"></div>
+<nav>
+    <a href="https://cinefiles25.github.io/PixelGrams/" class="nav-logo">Pixel<em style="font-style:italic;color:var(--ochre);">Grams</em></a>
+    <ul class="nav-links">
+        <li><a href="https://cinefiles25.github.io/PixelGrams/">Home</a></li>
+        <li><a href="https://cinefiles25.github.io/PixelGrams/design_brief.html" class="active">Design Brief</a></li>
+        <li><a href="https://cinefiles25.github.io/PixelGrams/twine/index.html">Twine</a></li>
+        <li><a href="https://www.figma.com/proto/JYK878ImTlbi3Z7feiOZUZ/Grotta-dei-Cervi-VR-%E2%80%94-Hi-Fi-Wireframes--Copy-?node-id=1-3&t=NXlmvA55O6wHBzIm-1">Figma</a></li>
+    </ul>
+</nav>
 
-    <div class="content">
-        <h1 class="page-title">Design Brief</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="design_brief.html" class="active">Design Brief</a>
-            <a href="twine.html">Twine</a>
-            <a href="figma.html">Figma</a>
-        </nav>
-        <!-- design brief content goes here -->
-        <footer>
-            <div class="footer-icons">
-                <div class="footer-icon-item" data-name="Laura Bortoli">
-                    <a href="#" target="_blank" aria-label="Laura Bortoli"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+<!-- Hero -->
+<div class="brief-hero">
+    <span class="brief-hero-label">Digital Heritage &amp; Multimedia · University of Bologna · 2024/25</span>
+    <h1 class="brief-hero-title">Design Brief<br><em>PixelGrams</em></h1>
+    <p class="brief-hero-meta">Laura Bortoli &nbsp;·&nbsp; Qinghao Chen &nbsp;·&nbsp; Claudia Romanello &nbsp;·&nbsp; CineFiles25</p>
+</div>
+
+<div class="brief-layout">
+
+    <!-- TOC Sidebar -->
+    <aside class="brief-toc">
+        <span class="toc-label">Contents</span>
+        <ul class="toc-list">
+            <li><a href="#context">1. The Context</a></li>
+            <li><a href="#audience">2. The Audience</a></li>
+            <li><a href="#concept">3. The Concept</a></li>
+            <li><a href="#requirements">4. Requirements</a></li>
+            <li><a href="#ideation">5. Ideation</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="brief-content">
+
+        <!-- 1. CONTEXT -->
+        <section class="brief-section" id="context">
+            <span class="section-label">01 — Context</span>
+            <h2 class="section-title">The Museum<br><em>&amp; its Collection</em></h2>
+
+            <p>The <strong>Grotta dei Cervi</strong> (Cave of the Deer) of Porto Badisco, near Otranto in Puglia, is one of the most significant Neolithic cave sanctuaries in Europe. Discovered in 1970, it extends for over 700 metres and features three main corridors divided into twelve zones, with paintings gathered in 81 groups. The pictograms were made with pigments derived from subfossil guano (brilliant brown), clays and ground bones (yellowish brown), and ochre (red). Most images are abstract — spirals, sinuous lines, complex motifs — while figurative scenes depict deer, hunters with bows, and dogs.</p>
+
+            <p>The cave has been <strong>closed to the public since 1987</strong>. Human presence — breath, warmth, light — would destroy the fragile microclimate preserving the paintings. Only researchers with special authorisation may enter.</p>
+
+            <h3>3D Documentation</h3>
+            <p>A high-resolution, full-colour 3D model of the cave was developed starting in 2005 by the University of Salento, led by <strong>Professor Virginia Valzano</strong>, in collaboration with the Visual Information Technology Group of the IIT-NRC (Canada) and CASPUR (Rome). The acquisition took place under extreme conditions — high humidity, difficult access — and required specialised equipment. The resulting model is a milestone: unmatched resolution, never previously achieved for a cave site of this scale. As of September 2025, a permanent exhibition at the <strong>Castello Aragonese di Otranto</strong> includes a 3D digital twin of Corridor 2, the corridor containing the most significant pictograms.</p>
+
+            <h3>Institutional Goals</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">Engagement</span>
+                    <p class="card-text">Let more people know about this cultural heritage treasure — largely unknown due to its inaccessibility — and increase its national and international visibility.</p>
                 </div>
-                <div class="footer-icon-item" data-name="Qinghao Chen">
-                    <a href="#" target="_blank" aria-label="Qinghao Chen"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                <div class="card">
+                    <span class="card-label">Museum Sustainability</span>
+                    <p class="card-text">Allow visitors to experience the cave without entering it, preserving the humid environment that keeps the pictograms intact and well-preserved.</p>
                 </div>
-                <div class="footer-icon-item" data-name="Claudia Romanello">
-                    <a href="https://github.com/claudiarom" target="_blank" aria-label="Claudia Romanello"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                <div class="card">
+                    <span class="card-label">Accessibility &amp; Diversification</span>
+                    <p class="card-text">Create a virtual environment with no barriers — accessible to everyone regardless of age, language, cultural background or physical limitation.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Cognitive Goals</span>
+                    <p class="card-text"><strong>Concentration · Curiosity · Embodiment · Storytelling.</strong> Education happens through immersion, not instruction. Culture triggers emotion; emotion drives action.</p>
                 </div>
             </div>
-            <p class="footer-meta"><a href="https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue?codiceMateria=B5059&amp;annoAccademico=2024&amp;codiceCorso=9224&amp;single=True&amp;search=True" target="_blank">Digital Heritage &amp; Multimedia</a> &nbsp;·&nbsp; University of Bologna &nbsp;·&nbsp; 2024/25</p>
-        </footer>
-    </div>
 
-    <script>
-        (function () {
-            const SIZE = 200;
-            const PAD  = 10;
-            const CELL = SIZE + PAD * 2;
-            const canvas = document.createElement('canvas');
-            canvas.width  = CELL * 2;
-            canvas.height = CELL * 2;
-            const ctx = canvas.getContext('2d');
-            const img1 = new Image();
-            const img2 = new Image();
-            let loaded = 0;
-            function draw() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage(img1, PAD,        PAD,        SIZE, SIZE);
-                ctx.drawImage(img2, CELL + PAD, PAD,        SIZE, SIZE);
-                ctx.drawImage(img2, PAD,        CELL + PAD, SIZE, SIZE);
-                ctx.drawImage(img1, CELL + PAD, CELL + PAD, SIZE, SIZE);
-                const bg = document.getElementById('bg-pattern');
-                bg.style.backgroundImage = 'url(' + canvas.toDataURL('image/png') + ')';
-                bg.style.backgroundSize  = (CELL * 2) + 'px ' + (CELL * 2) + 'px';
-            }
-            img1.onload = img2.onload = function () { if (++loaded === 2) draw(); };
-            img1.src = 'assets/imgs/sciam_trasp.png';
-            img2.src = 'assets/imgs/picts_trasp.png';
-        })();
-    </script>
+            <h3>Star Assets</h3>
+            <p>The <strong>Shaman pictogram</strong> — the most iconographically charged image in the cave — as well as the full pictogram ensemble, the mystery of ritual practice, and the <strong>3D model by Professor Valzano</strong> are the core star assets. The ability to virtually access a location inaccessible to almost every living person is itself the most powerful asset of all.</p>
+        </section>
+
+        <!-- 2. AUDIENCE -->
+        <section class="brief-section" id="audience">
+            <span class="section-label">02 — Audience</span>
+            <h2 class="section-title">The <em>Visitors</em></h2>
+
+            <p>The audience is intentionally <strong>as wide as the human community that once inhabited the cave</strong> — and as diverse as the one that shared a universal visual language across prehistoric sites worldwide. Our primary audience groups are tourists visiting Otranto and Puglia, cultural heritage enthusiasts, school groups, and locals with a connection to the territory.</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">Motivations</span>
+                    <p class="card-text">The mystery and inaccessibility of the cave. The fact that digital means are the only way to explore it. The richness of Neolithic pictograms representing the beliefs of a community six thousand years ago.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Barriers</span>
+                    <p class="card-text">Physical inaccessibility of the cave. VR side effects (motion sickness, eye strain). Age restrictions: headsets from age 13. Educational gap: not everyone knows Italian Neolithics.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Capabilities</span>
+                    <p class="card-text">Basic familiarity with digital devices. Mixed reality and casual gaming literacy assumed. Staff onboarding removes barriers for first-time VR users.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Devices</span>
+                    <p class="card-text">4 VR headsets + controllers. Interactive LED display for handprints. Chairs for seated usability. Physical infographic panels at the preamble station.</p>
+                </div>
+            </div>
+
+            <h3>User Persona — Annunziata</h3>
+            <p><em>56 years old · Catholic · Low tech literacy · Carpal tunnel · Chronic back pain</em></p>
+            <p>After a beach day at Porto Badisco, Annunziata visits the Otranto Castle with her family. She sits comfortably in a chair, a staff member shows her the VR controller. The experience opens on a 360° panorama of Porto Badisco at sunset — she recognises the place. She chooses Devotee II, as she is a strong devotee in real life. In the Sanctuary, she is mesmerised by the handprints on the wall, children and women. She leaves her own handprint on the LED display. Afterward, she exchanges the experience with her husband and kids.</p>
+
+            <div class="brief-figure">
+                <img src="assets/imgs/user_scenario.png" alt="User Scenario — Annunziata" class="light" onerror="this.style.display='none'">
+                <figcaption>User Scenario · Annunziata, 56 · Storyboard drawn by the team</figcaption>
+            </div>
+        </section>
+
+        <!-- 3. CONCEPT -->
+        <section class="brief-section" id="concept">
+            <span class="section-label">03 — Concept</span>
+            <h2 class="section-title">The Core <em>Idea</em></h2>
+
+            <div class="quote-block">
+                <p>A multi-character VR experience where visitors physically descend into darkness just as the Neolithic people did thousands of years ago. Each visitor inhabits a role inside the cave and discovers its art through that lens. Education happens through immersion, not instruction. The user journey <em>is</em> the descent into darkness.</p>
+            </div>
+
+            <h3>The Problems We Are Facing</h3>
+            <p>The Grotta dei Cervi has been inaccessible since 1987, making it impossible to visit directly — even for most researchers. It is largely unknown outside academic and local circles. The experience risks feeling like a passive museum visit rather than something genuinely immersive. VR as a medium presents accessibility barriers: physical discomfort, low digital literacy in older audiences, the need for trained staff.</p>
+
+            <h3>How We Face Them</h3>
+            <p>By <strong>hosting the experience at the Castello Aragonese di Otranto</strong> — already a heritage destination — we meet the audience where they already are. A <strong>branching narrative with five character roles</strong> allows each visitor to engage at their own pace. Groups are encouraged to choose different characters and compare experiences afterward, creating social motivation. The <strong>closing handprint activity</strong> bridges the ancient and contemporary, making the experience personally relevant regardless of background.</p>
+
+            <h3>The Five Roles</h3>
+            <div class="characters-list">
+                <div class="character-item">
+                    <span class="character-role">Shaman</span>
+                    <span class="character-desc">The most complete path. Performs the ritual. Interprets phosphenes as visions.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Guardian</span>
+                    <span class="character-desc">Protects the sacred site. Seeks power or protection in darkness.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Devotee I</span>
+                    <span class="character-desc">Seeks initiation and communication with ancestors.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Devotee II</span>
+                    <span class="character-desc">Brings a votive offering. Asks something of the deity.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Dancer</span>
+                    <span class="character-desc">Keeper of movement and trance. Does not choose to come — is called.</span>
+                </div>
+            </div>
+
+            <h3>Museological Approach</h3>
+            <p>The project is grounded in <strong>interpretive museology</strong>, guided by Freeman Tilden's six principles (<em>Interpreting Our Heritage</em>, 1957). Successful interpretation requires a robust mix of media and sensory experiences designed to stimulate curiosity, challenge intellect, and appeal to emotion. Every design decision begins with the visitor — not the collection. The cave's pictograms, zones, and artifacts are always encountered through the lens of a specific role, motivation, and emotional state.</p>
+
+            <h3>Case Studies &amp; Inspirations</h3>
+            <p>The <strong>VR experience at the Rafa Nadal Academy Museum</strong> (Manacor, Mallorca) demonstrated how VR transforms passive observation into active participation. The <strong>DDR Museum</strong> (Berlin) showed how analog objects and interactive displays can be combined to explain history through touch and embodiment. Both were experienced firsthand by team members.</p>
+
+            <h3>Key Themes</h3>
+            <p><strong>Phosphenic art and altered states of consciousness.</strong> The Shaman figure as organiser of symbolic life. The Mother Goddess — recurring female figure linked to fertility, trans-Adriatic cultural exchange. The ritual community — five interdependent roles reconstructing a full Neolithic ceremony. <strong>The universality of abstract visual language</strong>: the same geometric forms (spirals, concentric circles, zigzags) appear from California to Colombia, suggesting a neurological rather than purely cultural origin.</p>
+
+            <p>Community is a central topic of this project: the whole point is to remind people that we live in communities, that we have duties to them and draw strength from them — and that we share the same basic concepts with other communities across time and space.</p>
+        </section>
+
+        <!-- 4. REQUIREMENTS -->
+        <section class="brief-section" id="requirements">
+            <span class="section-label">04 — Requirements</span>
+            <h2 class="section-title">Needs &amp; <em>MoSCoW</em></h2>
+
+            <p>We used the <strong>MoSCoW framework</strong> to distinguish between what the project absolutely needs, what would improve it, what is possible but non-essential, and what is explicitly out of scope. Requirements were identified by starting from PACT data, then transforming it into information and finally into requirements.</p>
+
+            <div class="moscow-grid">
+                <div class="moscow-cell">
+                    <span class="moscow-label">Must</span>
+                    <ul>
+                        <li>Historically and archaeologically accurate content throughout</li>
+                        <li>VR headsets in an atmospherically lit room at the Castello Aragonese</li>
+                        <li>Five playable character roles</li>
+                        <li>3D model developed by Professor Valzano</li>
+                        <li>Physical preamble station with infographics and accessibility warnings</li>
+                        <li>Staff presence for onboarding and headset fitting</li>
+                        <li>Experience usable from a seated position</li>
+                        <li>VR side-effect and epilepsy warnings before the experience</li>
+                    </ul>
+                </div>
+                <div class="moscow-cell">
+                    <span class="moscow-label">Should</span>
+                    <ul>
+                        <li>Colorblind-safe palette, subtitles, and accessible features</li>
+                        <li>Interactive LED handprint display at exit</li>
+                        <li>Multilingual support (minimum Italian and English)</li>
+                        <li>Closing pictogram drawing activity with global visitor comparison</li>
+                        <li>Postcard takeaway with QR code linking to the website</li>
+                        <li>Ambient cave soundscape — dripping water, echoes</li>
+                    </ul>
+                </div>
+                <div class="moscow-cell">
+                    <span class="moscow-label">Could</span>
+                    <ul>
+                        <li>Multiplayer layer for group visitors inside the cave simultaneously</li>
+                        <li>Adjustable text size for visual impairments</li>
+                        <li>Additional world cave comparisons beyond those currently mapped</li>
+                        <li>Kids' version — not a diluted adult version, but purpose-built following Tilden's Interpretative Principles</li>
+                        <li>Soft background ambient sound (constant but not distracting)</li>
+                    </ul>
+                </div>
+                <div class="moscow-cell">
+                    <span class="moscow-label">Won't</span>
+                    <ul>
+                        <li>Physical access to the Grotta dei Cervi</li>
+                        <li>Direct photography or reproduction of pictograms from the cave</li>
+                        <li>A fully autonomous experience without any staff presence</li>
+                        <li>Graphic violence or explicit representation in any version</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>PACT Analysis</h3>
+
+            <div class="brief-figure">
+                <img src="assets/imgs/pact_map.png" alt="PACT Framework map" class="light">
+                <figcaption>Figure 1. PACT Framework — Grotta dei Cervi VR Experience. Source: team elaboration.</figcaption>
+            </div>
+
+            <h4>People</h4>
+            <p>International and domestic tourists visiting Otranto and Puglia, cultural heritage enthusiasts, and locals with a connection to the territory. A broad audience — diverse in age, education, cultural background and familiarity with prehistoric art. Groups need a shared social hook; individuals need a personal emotional journey.</p>
+
+            <h4>Activities</h4>
+            <p>Each full session lasts approximately 30–45 minutes. It runs during museum opening hours in scheduled slots to manage 4 headsets. Peak moments will be tourist season in summer and school visits in spring. The experience is individual inside VR; the character selection mechanic encourages groups to choose different roles for comparison afterward.</p>
+
+            <h4>Context</h4>
+            <p>A dim, atmospherically lit room inside the Otranto Castle. The historic stone building may have ambient echoing noise. The space accommodates 4 visitors simultaneously with enough room to move safely wearing headsets. Full accessibility is a hard requirement: colorblind-friendly interface, subtitles and visual cues for deaf users, seated usability for mobility-impaired visitors.</p>
+
+            <h4>Technologies</h4>
+            <p><strong>3D Photogrammetry</strong> (cave interior) · <strong>360° panorama</strong> at sunset (intro) · <strong>Real-time 2D animation</strong> (for the fresh painting effect). VR headsets for the main experience. A shared screen displaying the live archive of visitor pictograms. Physical infographic panels at the preamble station. <strong>LED display</strong> for handprints. The core VR experience runs on a local network; the website is fully online.</p>
+        </section>
+
+        <!-- 5. IDEATION -->
+        <section class="brief-section" id="ideation">
+            <span class="section-label">05 — Ideation</span>
+            <h2 class="section-title">The Experience<br><em>from the Inside</em></h2>
+
+            <h3>User Journey</h3>
+            <div class="journey-bar">
+                <span class="journey-step">Ignorance</span><span class="journey-arrow">→</span>
+                <span class="journey-step">Curiosity</span><span class="journey-arrow">→</span>
+                <span class="journey-step">Exploration</span><span class="journey-arrow">→</span>
+                <span class="journey-step">Discovery</span><span class="journey-arrow">→</span>
+                <span class="journey-step">Reflection</span><span class="journey-arrow">→</span>
+                <span class="journey-step">Caring</span>
+            </div>
+
+            <h3>Experience Flow</h3>
+
+            <div class="brief-figure">
+                <img src="assets/imgs/user_flow.png" alt="User flow diagram" class="light">
+                <figcaption>Figure 2. Experience flow diagram. Source: team elaboration.</figcaption>
+            </div>
+
+            <h4>I. The Opening: The Liminal Threshold</h4>
+            <p>The journey begins at the West entrance of the cave during a Salento sunset. A 360° panorama of the Apulian sea — beautiful and brief. Something draws the visitor into the dark mouth of the cave. A single question defines the journey: <strong>Who are you?</strong></p>
+
+            <h4>II. Inside the Cave</h4>
+            <p>The educational content — descriptions of paintings, historical context, significance of symbols — is the same for all characters. What changes is the experience. The Shaman interprets paintings as phosphenic visions. The Devotee II learns about Neolithic artifacts by choosing the correct votive offering for their petition. The Dancer experiences the cave through movement and sound. A 3D model of <strong>Professor Valzano</strong> serves as academic anchor throughout.</p>
+
+            <h4>III. The Finale: Intertextuality &amp; The Sanctuary</h4>
+            <p>At the heart of the cave, the narrative expands globally. The visitor sees paintings linked to identical symbols found in caves worldwide — from California to Colombia — reinforcing the project's thesis: this visual language is a universal human trait. A moment of absolute darkness and silence recreates the sensory deprivation that ancient shamans used to trigger phosphenic imagery.</p>
+
+            <h4>IV. The Physical Outro: The Collective Handprint</h4>
+            <p>The visitor removes the headset and finds a <strong>touch-reactive LED screen</strong> in the Otranto Castle room. It displays a luminous cloud of handprints left by previous visitors — pale ochre silhouettes on dark background, like the handprints on the ceiling of the Sanctuary. By placing their own hand on the screen, the visitor's print is added instantly. This final gesture bridges the virtual Neolithic past and the physical present.</p>
+
+            <h3>Storyboard</h3>
+            <p>The storyboard maps the narrative arc for all five character paths across 8 panels: Physical Preamble → VR Opening → Red Hall → Character Paths (5a–5e) → The Sanctuary → The Collapse → VR Exit → Physical Outro.</p>
+
+            <div class="brief-figure">
+                <img src="assets/imgs/user_flow_5.png" alt="Storyboard flow panels" class="light">
+                <figcaption>Figure 3. Storyboard panels flow. Source: team elaboration.</figcaption>
+            </div>
+
+            <h3>Twine Narrative Prototype</h3>
+            <p>An interactive narrative prototype was built in Twine (Harlowe format) to model the branching logic, decision-making dynamics, and the emotional arc of the experience. The prototype implements all five character paths, with looping video backgrounds, CSS animations, and image-based scene backgrounds drawn from archival photographs of the cave's pictograms.</p>
+
+            <div class="brief-figure">
+                <img src="assets/imgs/twine_map.png" alt="Twine narrative map" class="light">
+                <figcaption>Figure 4. Narrative structure in Twine. Source: team elaboration.</figcaption>
+            </div>
+
+            <h3>Low-Fidelity Wireframes</h3>
+            <p>Low-fidelity wireframes were developed in Figma across two pages. <strong>Page A (External Interface)</strong> covers E1 (pre-VR informational panel) and E2 (level selection: Kids / Light / Full). <strong>Page B (VR + Physical)</strong> maps V1 (sunset entrance + character selection), V2 (Red Hall), V3a–e (five character paths), V4 (Sanctuary), V5 (global phosphenic map), and P1 (physical LED handprint screen).</p>
+
+            <h3>High-Fidelity Prototype</h3>
+            <p>The high-fidelity prototype was built in Figma by Claudia Romanello. It uses real photographic backgrounds from the Grotta dei Cervi, the project's terracotta/ochre palette, bilingual labels (English / Italian), and photo-realistic representations of the votive artifacts (pintadera, Mother Goddess artifact, anthropomorphic pintadera). The prototype is fully interactive and navigable.</p>
+            <p><a href="https://www.figma.com/proto/JYK878ImTlbi3Z7feiOZUZ/Grotta-dei-Cervi-VR-%E2%80%94-Hi-Fi-Wireframes--Copy-?node-id=1-3&t=NXlmvA55O6wHBzIm-1" target="_blank" style="color:var(--ochre); text-decoration:underline; font-size:0.9rem; letter-spacing:0.06em;">View Hi-Fi Prototype on Figma →</a></p>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    <p class="footer-meta">
+        <a href="https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364" target="_blank">Digital Heritage &amp; Multimedia</a>
+        &nbsp;·&nbsp; University of Bologna &nbsp;·&nbsp; 2024/25<br>
+        CineFiles25 &nbsp;·&nbsp; Bortoli · Chen · Romanello
+    </p>
+    <div class="footer-team">
+        <a href="https://github.com/lauraaa13" target="_blank" aria-label="Laura Bortoli">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="https://github.com/ChenQingHa" target="_blank" aria-label="Qinghao Chen">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="https://github.com/claudiarom" target="_blank" aria-label="Claudia Romanello">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+    </div>
+</footer>
+
 </body>
 </html>
