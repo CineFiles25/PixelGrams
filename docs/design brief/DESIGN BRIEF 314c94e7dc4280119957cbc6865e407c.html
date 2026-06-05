@@ -1,0 +1,752 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DESIGN BRIEF</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="314c94e7-dc42-8011-9957-cbc6865e407c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📝</span></div><h1 class="page-title" dir="auto">DESIGN BRIEF</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="31bc94e7-dc42-8005-9a2e-ea5dc7e605df"><div class="source"><a href="DESIGN-BRIEF-template.docx">DESIGN-BRIEF-template.docx</a></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="35dc94e7-dc42-8093-8670-eb0248a2e834"><div style="width:100%"><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8087-8be7-cef9bf40017e" class=""><strong>STYLE GUIDELINES FOR THE WORD/PDF: </strong></p></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-801a-aa70-f29105002274" class="bulleted-list"><li style="list-style-type:disc">IN INGLESE </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-80d4-a2f9-e9db405c5e48" class="bulleted-list"><li style="list-style-type:disc">Stile, formato, font di testo: centrato, 12 punti, interlinea 1.5, Times New Roman; </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8050-9065-fb9bbe8acd82" class="bulleted-list"><li style="list-style-type:disc">I titoli dei paragrafi vanno scritti in neretto, i titoli dei sotto-paragrafi vanno scritti in corsivo.</li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8099-9a43-ebd899acf246" class="bulleted-list"><li style="list-style-type:disc">All’interno di ogni capoverso, le frasi devono essere chiare e concise: il ricorso alle subordinate di grado superiore al primo è caldamente sconsigliato. L’uso del punto è preferibile a quello del punto e virgola.</li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8073-8255-fd611ce59cb9" class="bulleted-list"><li style="list-style-type:disc">un’attenzione particolare deve essere riservata al controllo della correttezza grammaticale.</li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8080-8a97-f7a41278caa3" class="bulleted-list"><li style="list-style-type:disc">I termini stranieri vanno riportati in corsivo. Le sigle non vanno in corsivo,<br/>anche se sono straniere. Per i termini stranieri usare, comunque, sempre il corsivo e mai le virgolette. </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8081-acb5-f8dce3e59359" class="bulleted-list"><li style="list-style-type:disc">Bisogna essere coerenti nello stile degli elenchi puntati e numerati: ogni item inizia con la lettera maiuscola e si conclude con il punto.</li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-80ab-927c-db4ba51b9258" class="bulleted-list"><li style="list-style-type:disc">Allo stesso modo bisogna essere coerenti nell’indicare le date (ad esempio, 12/1/2003 o 12 gennaio 2003), le cifre (ad esempio, $1 milione o 1 milione di dollari), le sigle (ad esempio, S.p.A. o S.p.a.) e nella scelta del separatore decimale (virgola o punto).</li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8016-8dbb-d40fed4991e3" class="bulleted-list"><li style="list-style-type:disc">Sia le tabelle, che le figure, devono essere numerate in maniera progressiva e avere un breve titolo descrittivo (ad esempio, “Tabella 1. Rapporto di indebitamento delle imprese italiane”). In calce alle tabelle e alle figure deve sempre essere riportata la fonte dei dati utilizzata (ad esempio, “Fonte: Banca d’Italia” oppure, in caso di rielaborazione dei dati, “Fonte: nostre elaborazioni su dati Banca d’Italia”).</li></ul></div></div></figure></div><div style="display:contents" dir="auto"><h2 id="314c94e7-dc42-8032-a3fc-f28169d7f513" class=""><strong>Digital Heritage and Multimedia Course: Design Brief</strong></h2></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80e8-949b-f50f5600e266" class=""><em>Requirements for the exam 2023-24</em></p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8057-b5b6-f76b17f03346" class=""><em>For the exam you are going to develop a Project Work (PW). It would be a collaborative work a group (we suggest to select a colleague with different digital skills and expertise).</em></p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-800b-9d0a-f3c67ca3e5e4" class=""><em>You will summarise the PW in a written Design Brief, that would be sent between 7 and 15 days before the date of the discussion.  Use the Visitor Box Cards to prepare the Brief.</em></p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80bd-a30f-eb9ea14d0535" class=""><em>During the exam, you are going to present your work and answers to questions related to the two modules of the course. You will use, for you presentation:</em></p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8002-85b1-f633e8cbb691" class="bulleted-list"><li style="list-style-type:disc"><em>a Power Point (or similar presentation)</em></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-809d-b9df-ce4968a11e78" class="bulleted-list"><li style="list-style-type:disc"><em>a Scenario (as an interactive story made with Twine) that will include photos, panoramas, 3d models</em></li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80e0-9f13-e422a2f3fd2e" class=""><em>Here you can find the template for the Design Brief:</em></p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80f9-a183-c9f75a0a4bc8" class="bulleted-list"><li style="list-style-type:disc">---------------------------------------------------------------------------------------------------------------------------------</li></ul></div><div style="display:contents" dir="auto"><h1 id="314c94e7-dc42-8063-80e7-dbba5bbfdadb" class="">Pixelgrams </h1></div><div style="display:contents" dir="auto"><p id="375c94e7-dc42-80fa-83fa-e39883306b22" class="">Smarter alternative: <strong>PixTorGrams </strong></p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80ad-bce1-c69725db0bb8" class=""><strong>CineFiles</strong></p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8000-a651-fd1ba5c7aa8b" class=""><strong>Laura Bortoli, Qinghao Chen, Claudia Romanello</strong></p></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-8049-a96d-c62c34c3ae67" class=""><strong>1. The CONTEXT</strong></h3></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-804a-abd0-e96f9d23c90e" class="">Here  you specify:</p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-807e-8dc3-fdc347b2b877" class="bulleted-list"><li style="list-style-type:disc">The museum and its content / collections: <strong>Grotta Dei Cervi</strong> (<em>Deer Cave</em>). Pictograms, pintadere, etc.</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8092-a60c-d3e2f86f0deb" class="bulleted-list"><li style="list-style-type:disc"><strong>pictograms: </strong><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8067-8167-ee59bfb22346" class="bulleted-list"><li style="list-style-type:circle">[aggiungere dalla ricerca]</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8088-8fda-e5a6979fc3d1" class="bulleted-list"><li style="list-style-type:disc"><strong>3d reprod</strong>: <div style="display:contents" dir="auto"><ul id="352c94e7-dc42-800f-8500-cb754b9d7546" class="bulleted-list"><li style="list-style-type:circle">A high-resolution, full-colour 3D model of the cave;</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80eb-889c-cfcf5995d438" class="bulleted-list"><li style="list-style-type:circle"><strong>Goals</strong>: digital preservation, environmental monitoring and virtual access to allow study of the cave without damaging the site;</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8074-b41b-faacd4d44d60" class="bulleted-list"><li style="list-style-type:circle">Carried out by the University of Salento (led by professor Virginia Valzano) in collaboration with the Visual Information Technology Group of the IIT-NRC in Canada and CASPUR in Rome, in agreement with the Archaeological Superintendence of Puglia</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-801b-855e-d92d47986ee9" class="bulleted-list"><li style="list-style-type:circle">The 2D and 3D digital acquisition took place in 2005 and 2009 under extreme conditions (high humidity, difficult access) and required specialised equipment;</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-805a-a37a-f5585acbcf25" class="bulleted-list"><li style="list-style-type:circle">The resulting 3D model was a milestone: unmatched resolution, never previously achieved for a cave site of this scale and complexity</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-802d-948b-d448be31da99" class="bulleted-list"><li style="list-style-type:circle">As of September 2025, a permanent exhibition at the Castello Aragonese di Otranto includes a 3D digital twin of Corridor 2 — the corridor containing the most significant pictograms</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80cd-8684-ef28ba4937c6" class="bulleted-list"><li style="list-style-type:disc">The location and its map/plan: <strong>Porto Badisco, Otranto</strong> (LE)</li></ul></div><div style="display:contents" dir="auto"><ul id="370c94e7-dc42-80b4-a0b7-c52358bc48c0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Explain why the site is inaccessible</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="370c94e7-dc42-80bd-b942-c0332cddece0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Discuss fragility &amp; ethical issues</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="370c94e7-dc42-80e2-ace1-d84ee9167009" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Highlight scientific uncertainty</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="370c94e7-dc42-804f-82ce-d7e6c52d7349" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Provide interpretive alternatives</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="370c94e7-dc42-80d3-9a3c-e9778424d98f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Compare different scholarly hypotheses</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><div style="display:contents" dir="ltr"><figure id="2d2c94e7-dc42-803c-84b9-fc2818694fb8" class="link-to-page"><a href="https://app.notion.com/p/DEER-CAVE-FULL-RESEARCH-2d2c94e7dc42803c84b9fc2818694fb8?pvs=21"><span class="icon">📝</span>DEER CAVE: FULL RESEARCH</a></figure></div></div><div style="display:contents" dir="auto"><p id="360c94e7-dc42-802c-a1b5-f7951ca0873c" class=""><br/></p></div><div style="display:contents" dir="auto"><p id="352c94e7-dc42-8009-b87e-c940b72bd894" class="">For the design, we used the <strong>CoDesign Tool Kit </strong>which served as a way to answer the <strong>PACT framework </strong>sheet. We used it as a guide, not in a strict way - allowing us to branch out and choose our own goals, context, techonologies, etc. </p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-808c-b2dd-cd3e6d2b0c66" class="bulleted-list"><li style="list-style-type:disc"><strong>INSTITUTIONAL goals: </strong><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80ac-acdc-e65aacf027d3" class="bulleted-list"><li style="list-style-type:circle"><strong>Engagement</strong>: let more people know about this CH treasure not known to the public as other treasures due to it being inaccessible;</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80a4-9741-edc9f64ba191" class="bulleted-list"><li style="list-style-type:circle"><strong>Museum Sustainability</strong>: allow people to visit it without entering the cave and preserving the humid environment that allows the pictograms to remain intact and well-preserved;</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80fe-9f71-d3f117e2af82" class="bulleted-list"><li style="list-style-type:circle"><strong>Diversification and Accessibility: </strong>create a virtual environment that has no barriers and is accessible and that can be experienced by everyone (despite their different needs, languages, limitations, cultures, etc)</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80c7-afa0-efcb923dd044" class="bulleted-list"><li style="list-style-type:circle"><strong>Increase international reach à [card]</strong></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80e1-8719-ea1920243d91" class="bulleted-list"><li style="list-style-type:disc"><strong>COGNITIVE goals: </strong><div style="display:contents" dir="auto"><p id="350c94e7-dc42-80b6-93a3-c93c0470f0dc" class=""><span style="border-bottom:0.05em solid">What is Concept-Based Design</span>? A design methodology where the experience is built around a central <strong>intellectual or emotional concept</strong> rather than around objects/time. They are usually <strong>universal concepts:</strong> recognized and felt by everyone, despite of differences → through <strong>metaphors </strong>we take these concepts from one domain to the other, by associating something new to something familiar. <br/>Culture can be a trigger of emotions, which lead to motivations, which then lead to actions.  </p></div><div style="display:contents" dir="auto"><p id="350c94e7-dc42-80fe-a2cd-db20dd68e1b5" class=""><em>“What do we want people to </em><em><strong>feel, understand, or question</strong></em><em>?&quot;</em></p></div><div style="display:contents" dir="auto"><p id="350c94e7-dc42-80fd-9ce7-f5bccba0a224" class=""><strong><span style="border-bottom:0.05em solid">Chosen goals: </span></strong></p></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-8049-9764-d766b5e6ef67" class="bulleted-list"><li style="list-style-type:circle"><strong><span style="border-bottom:0.05em solid">Concentration</span></strong>: the cave’s structure removes external stimuli so that the mind concentrates entirely on the experience;</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80a9-9575-e85d07b76476" class="bulleted-list"><li style="list-style-type:circle"><strong><span style="border-bottom:0.05em solid">Curiosity</span></strong>: the inaccessibility of the cave fuels the visitor’s curiosity, as we are naturally drawn to what we don’t know and can’t experience;</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80dc-a663-e6caddb2683d" class="bulleted-list"><li style="list-style-type:circle"><strong><span style="border-bottom:0.05em solid">Embodiment</span></strong>: the VR experience allows the visitor to feel like they’re a prehistoric person inside the cave;</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80f3-b332-c83b867277ce" class="bulleted-list"><li style="list-style-type:circle"><strong><span style="border-bottom:0.05em solid">Storytelling</span></strong>the stories told make this exhibition not simply an informational experience, but also an emotional one – anchoring knowledge to memory through emotions.</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80e8-9d1e-ee9e1d870fc8" class="bulleted-list"><li style="list-style-type:disc"><strong>STAR ASSETS</strong> (must-see of the museum, add images):<div style="display:contents" dir="auto"><ul id="314c94e7-dc42-805e-83f5-c789fcb99874" class="bulleted-list"><li style="list-style-type:circle"><strong>Location: </strong>located in Otranto, nearby the cave (or in one of the big museums in either Maglie or Lecce); </li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8087-adaa-e6b9984027a2" class="bulleted-list"><li style="list-style-type:circle"><strong>Shaman</strong> pictogram, other pictograms, mystery and rituals;</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8029-80a2-c4adef309aab" class="bulleted-list"><li style="list-style-type:circle"><strong>Digital resource: 3D</strong> reconstruction of the cave by Valzano <div style="display:contents" dir="auto"><ul id="351c94e7-dc42-8052-a728-e11f59fc0bfb" class="bulleted-list"><li style="list-style-type:square">A high-resolution, full-colour 3D model of the cave</li></ul></div><div style="display:contents" dir="auto"><ul id="351c94e7-dc42-80fe-a54e-e5f2b927e89a" class="bulleted-list"><li style="list-style-type:square"><strong>Goals</strong>: digital preservation and virtual access to allow study of the cave without damaging the site</li></ul></div><div style="display:contents" dir="auto"><ul id="351c94e7-dc42-80f0-9276-fd07382abfb1" class="bulleted-list"><li style="list-style-type:square">Carried out by the University of Salento (led by professor Virginia Valzano) in collaboration with the Visual Information Technology Group of the IIT-NRC in Canada and CASPUR in Rome, in agreement with the Archaeological Superintendence of Puglia</li></ul></div><div style="display:contents" dir="auto"><ul id="351c94e7-dc42-80de-8a4d-cf010ba37b0d" class="bulleted-list"><li style="list-style-type:square">The 2D and 3D digital acquisition took place in 2005 and 2009 under extreme conditions (high humidity, difficult access) and required specialised equipment;</li></ul></div><div style="display:contents" dir="auto"><ul id="351c94e7-dc42-8065-82dd-c7f727338f99" class="bulleted-list"><li style="list-style-type:square">The resulting 3D model was a milestone: unmatched resolution, never previously achieved for a cave site of this scale and complexity</li></ul></div><div style="display:contents" dir="auto"><ul id="351c94e7-dc42-80ff-9616-d593276d6c5d" class="bulleted-list"><li style="list-style-type:square">Parts of the cave are now accessible in stereoscopy, in real time, in an immersive and interactive way through the CEIT 3D Virtual Reality Theatre</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-802b-bbe7-d15e17666851" class="bulleted-list"><li style="list-style-type:circle">Possibility to access a stunning CH location that cannot be accessed by non-academics</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8069-8e92-e9c0dd165a8d" class="bulleted-list"><li style="list-style-type:circle">Learning activity </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8015-b1a6-d61704ae95bc" class="bulleted-list"><li style="list-style-type:disc"><strong>TARGET Audience</strong>: <strong>broad audience</strong>, from people who know nothing about the cave to people who are familiar with it (non-academics) (tourists, locals, schools and teachers).</li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80aa-8def-df128e417b35" class=""><strong><span style="border-bottom:0.05em solid">GOALS</span></strong>:</p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-808f-915c-efeb39e5a7bd" class="bulleted-list"><li style="list-style-type:disc"><strong>AUTHENTICITY</strong>:<div style="display:contents" dir="auto"><p id="314c94e7-dc42-8028-a55f-ff6237d22156" class=""><strong>SELF</strong>:</p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80f8-a32b-fd1a0b91b090" class="bulleted-list"><li style="list-style-type:circle">Strengthen personal context → LOCAL</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80bd-8dbd-ef9f2498ad24" class="bulleted-list"><li style="list-style-type:circle">Develop sense of familiarity → ITALIAN AND FOREIGN VISITOR</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-804f-b267-cfe95de1effb" class="bulleted-list"><li style="list-style-type:circle">Develop personal evolution → FOREIGN VISITOR</li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8024-a771-f1704ee6b181" class=""><strong>OTHERS</strong>:</p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-807c-a671-c0f233332c45" class="bulleted-list"><li style="list-style-type:circle">Foster social norms among visitors</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8027-97b1-ca775889a825" class="bulleted-list"><li style="list-style-type:circle">Improve language exchanges</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-807e-a758-cfe7c1547a63" class="bulleted-list"><li style="list-style-type:circle">Improve group familiarity</li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-804b-9e7d-dd2eeba58066" class=""><strong>WORLD</strong>:</p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8075-a76c-d2be4b923929" class="bulleted-list"><li style="list-style-type:circle">Make visitors feeling familiar with environment</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8008-83aa-e783000cab37" class="bulleted-list"><li style="list-style-type:circle">Interactions and feedback between visitors and environment</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80e3-a5db-c04056809cd0" class="bulleted-list"><li style="list-style-type:circle">Create the appropriate mood</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8081-a1e6-c08b58edf746" class="bulleted-list"><li style="list-style-type:disc"><strong>SENSE OF CARE:</strong><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80a7-adaf-f9fe11f71eb3" class="bulleted-list"><li style="list-style-type:circle">Make citizens learn about heritage protection</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8048-b406-fbf7cccdfa3c" class="bulleted-list"><li style="list-style-type:circle">Make citizens learn about the importance of coloured collections</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8081-bf07-d0d712946988" class="bulleted-list"><li style="list-style-type:circle">Boost enchantment</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80a2-8e8b-c03eedd8a2c9" class="bulleted-list"><li style="list-style-type:circle">Extend knowledge</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80d8-a373-c42c0a4bdb5f" class="bulleted-list"><li style="list-style-type:circle">Encourage personal growth</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-809d-9348-c39a413e3ca9" class="bulleted-list"><li style="list-style-type:circle">Use universal concepts to trigger ethical behaviours?</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8019-9585-c0deb9b3e132" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-80e0-8548-c5b488170943" class=""><strong>2. The AUDIENCE</strong></h3></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8024-868c-c1875bc3debb" class="">Here you details your audience (use as reference the Visitor Box Cards)</p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80ba-ac57-d6e2e32b400d" class="">You have to choose one of the following target audience: 1- <strong>schools</strong>, 2- <strong>retired</strong>, 3- <strong>visitors with disabilities</strong>, 4-<strong>citizens</strong>, 5-<strong>foreigner visitors</strong>/tourists:<div class="indented"><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8072-8751-e0bc94a0a186" class="bulleted-list"><li style="list-style-type:disc"><strong>Schools </strong></li></ul></div><div style="display:contents" dir="auto"><ul id="360c94e7-dc42-80c1-9e78-c97baac56457" class="bulleted-list"><li style="list-style-type:disc"><strong>Citizens &amp; locals;</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-809f-9d89-e1f8c3502c6b" class="bulleted-list"><li style="list-style-type:disc"><strong>Foreign visitors;</strong></li></ul></div></div></p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8049-bdfe-df1ae46b4ed7" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">MOTIVATIONS</span></strong>:<div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8012-ad9f-d88763891748" class="bulleted-list"><li style="list-style-type:circle">The history and mystery of the cave;</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80f6-aa05-e54eee59dfd9" class="bulleted-list"><li style="list-style-type:circle">the fact that it’s unknown and inaccessible to most people and digital means are the only way to explore it;</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80a0-99d2-e10b81ea5e5b" class="bulleted-list"><li style="list-style-type:circle">the scarcity of findings and remainings of the Paleolithic (and the cave is rich and full of pictograms from the time, representing the interests and beliefs of the people of the time);</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80cd-a5af-f6c8b497e778" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">BARRIERS</span></strong>:<div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80e2-ab35-e08f3834c1ee" class="bulleted-list"><li style="list-style-type:circle">Inaccesibility of the cave;</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8046-9b91-dcea7699b96c" class="bulleted-list"><li style="list-style-type:circle"><strong>ACCESSIBILITY issues: </strong>difficult to get to the cave entry / visual exhibition so not fully accessible to blind people (thought it can be solved through sounds and sound description);</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8027-81e4-d23ce1486626" class="bulleted-list"><li style="list-style-type:circle"><strong>EDUCATIONAL issues: </strong>not everyone knows about Italian Neolithics</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-804e-8b8f-fac7392b2686" class="bulleted-list"><li style="list-style-type:circle"><strong>AGE restrictions:</strong> Head-mounted set can be used from 13 up and themes are not fit for children (ex. drugs, heavy and complicated themes).</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8011-b21f-c9920380151b" class="bulleted-list"><li style="list-style-type:circle"><strong>Physical STRAINS: </strong>back pain when standing too much, motion sickness, eye strain</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8028-9391-e3fb66374392" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">CAPABILITIES</span></strong><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80cb-9b67-d0f9a0ef6522" class="bulleted-list"><li style="list-style-type:circle">Mixed Reality</li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-8048-8049-fe79f81cec3f" class="bulleted-list"><li style="list-style-type:circle">Computer gaming</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8000-b376-e6a8d3fcb747" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">DEVICES</span></strong><strong>: </strong><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-805f-8f26-fa110f0efa82" class="bulleted-list"><li style="list-style-type:circle"><strong>VR System </strong>(4 headsets + controllers) </li></ul></div><div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-8011-bc42-eb1f29f2d979" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default"><strong>Interactive LED Display → for hand prints</strong></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80d2-af28-e7a154254fe5" class="bulleted-list"><li style="list-style-type:circle"><strong>Chairs </strong>→ for accessibility </li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80ea-8581-ff93f2bfd6eb" class="bulleted-list"><li style="list-style-type:circle"><strong>Paper board </strong>→ next to the VR sets, with info about the project </li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-808a-88fa-c95a36dda0dc" class="">
+</p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80b1-9ebe-d7e3a1158322" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-800b-9dfe-fdf22f13dd5a" class=""><strong>3. CONCEPT </strong></h3></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80d6-acc5-fb74dd57787d" class="">Here you specify:</p></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8066-b85a-d4c96bd9fcc5" class="bulleted-list"><li style="list-style-type:disc"><strong>Problem/s you are facing with your project, try to be specific (i.e. attracting an audience that usually is not interested to museums):</strong><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80e8-a9db-da5f29ca207c" class="bulleted-list"><li style="list-style-type:circle">The Grotta dei Cervi has been <strong>inaccessible to the public since 1987</strong>, making it impossible to visit, photograph, or experience directly — even for most researchers</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-809b-bb17-ec148a3f46a1" class="bulleted-list"><li style="list-style-type:circle">The cave is<strong> largely unknown outside of academic and local circles</strong>, despite being one of Europe&#x27;s richest Neolithic painted sites</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-808d-9117-fc03be1dc093" class="bulleted-list"><li style="list-style-type:circle"><strong>Attracting an audience that is not typically interested in prehistory or museums</strong>, and making the experience meaningful across very different visitor profiles (local elderly, tourists, international researchers) → <strong>Audience disengagement: </strong>the cave&#x27;s scholarly profile is strong but its public profile is weak. Tourists in Salento are primarily drawn by the coastline; cultural heritage competes for attention against leisure. The challenge is not just accessibility but <em>motivation</em> — making someone who wasn&#x27;t planning a museum visit feel that this experience is unmissable.</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80e7-87f5-e3fe2c21bfa7" class="bulleted-list"><li style="list-style-type:circle">The <strong>experience risks feeling like a passive museum visit rather than something genuinely immersive</strong> and memorable; the design must actively counter this expectation</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80e6-b000-ea6b828c1c9b" class="bulleted-list"><li style="list-style-type:circle"><strong>VR as a medium presents accessibility barriers</strong>: physical discomfort, low digital literacy in older or local audiences, and the need for trained staff on site</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80fe-bec1-dd780d97874f" class="bulleted-list"><li style="list-style-type:disc"><strong>How your project will face the problem/s: </strong><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-8063-807a-e802dd9ac3ae" class="bulleted-list"><li style="list-style-type:circle">By <strong>hosting the experience at the Castello Aragonese di Otranto</strong> — already a heritage destination — we meet the audience where they already are, lowering the barrier to entry</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-8050-8dc4-de2b5ab0f8ba" class="bulleted-list"><li style="list-style-type:circle">An intrecative experiience<strong> branching narrative with five character roles </strong>(Shaman, Warrior, Devotee I, Devotee II, Dancer) allows each visitor to engage at their own pace and level of interest and learning speed; </li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80a6-bba5-e66080cd8aa9" class="bulleted-list"><li style="list-style-type:circle">The <strong>choice architecture</strong> also addresses audience disengagement: the branching structure creates replayability and social motivation, particularly for groups, who are encouraged by staff to choose different characters and compare experiences afterward, creating <strong>social motivation </strong>through <strong>fun activites</strong>; </li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80b4-a333-d4fa1839948c" class="bulleted-list"><li style="list-style-type:circle">The <strong>closing pictogram activity </strong>— asking visitors to draw a contemporary concept abstractly — bridges the ancient and the contemporary,<strong> making the experience personally relevant regardless of background or education level</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-8047-b76e-dab8cfe307ac" class="bulleted-list"><li style="list-style-type:circle">Staff presence at the installation guides first-time VR users and contextualizes the experience before and after</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8040-b950-e3d9cebf0a36" class="bulleted-list"><li style="list-style-type:disc"><strong>Museological Approach: </strong><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-808e-9b98-c0ed051cfcce" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-gray">The project focuses primarily on the </mark><mark class="highlight-gray"><strong>audience</strong></mark><mark class="highlight-gray">: rather than starting from the collection and asking how to display it, every design decision begins with the visitor, the capabilities and their feelings. The cave&#x27;s pictograms, zones, and artifacts are all present, but they are always encountered through the lens of a specific visitor role, motivation, and emotional state.</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80e5-8860-dd9d1fcd6990" class="bulleted-list"><li style="list-style-type:circle">This approach is grounded in an <strong>interpretive museology</strong> framework, guided by Freeman Tilden&#x27;s six principles of interpretation (<em>Interpreting Our Heritage</em>, 1957). Tilden held that any interpretation that does not relate what is being displayed to something within the personality or experience of the visitor will be sterile: a principle that drives every design choice in this project. Successful interpretation requires not only good information but a robust mix of media and sensory experiences designed to stimulate curiosity, challenge intellect, and appeal to visitors&#x27; emotions. Accordingly, DigHerit is built around immersion and active participation rather than passive information delivery. The visitor does not read about the cave — they descend into it, inhabit a role within it, and leave their own mark on it. </li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-808b-9a47-f61c445ca173" class="bulleted-list"><li style="list-style-type:circle"><strong>Inspirations (</strong>based ourselves on Jakobs’Law: familiriaty does help with the users,so we based our experiences on prexisting ones<strong>): </strong><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-808b-9d46-c857e1af1277" class="bulleted-list"><li style="list-style-type:square">the <strong>VR experience at the Rafa Nadal Academy Museum</strong> in Manacor, Mallorca), and how VR can transform a museum visit from passive observation into active participation, using digital technologies and virtual reality to<span style="border-bottom:0.05em solid"> experience sports that most users will never experience in their life</span> (e.g. extreme sports) and <span style="border-bottom:0.05em solid">learn the values of the sport.</span> Experienced by Claudia personally; </li></ul></div><div style="display:contents" dir="auto"><ul id="358c94e7-dc42-80a7-8dd8-e5a9743515f0" class="bulleted-list"><li style="list-style-type:square"><strong>DDR Museum </strong>in Berlin, Germany: many experiences that <strong>blend analogic objects from the time and digital technologies</strong> (like interactive displays) to explain their history, description and purpose. Experienced by Laura personally. </li></ul></div><div style="display:contents" dir="auto"><ul id="35fc94e7-dc42-8060-9e2c-ffdb69fe71f3" class="bulleted-list"><li style="list-style-type:square">for other inspiration we used this communal Pinterest board, where we all shared pins and ideas that could work for our project: </li></ul></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80b6-86d2-e374ddb15a98" class="bulleted-list"><li style="list-style-type:disc"><strong>Specific themes and topics you have selected as case study for your PW: </strong><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80c6-8ea0-f6beabd508d1" class="bulleted-list"><li style="list-style-type:circle"><strong>Phosphenic art and altered states of consciousness</strong> — the geometric and abstract pictograms of the cave as expressions of shamanic visionary experience</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-800f-90bb-d35232a2e613" class="bulleted-list"><li style="list-style-type:circle"><strong>The Shaman figure</strong> — central to the cave&#x27;s iconographic program and to our narrative structure; the ritual role as organizer of the community&#x27;s symbolic life</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-8054-811b-cf6f582a343a" class="bulleted-list"><li style="list-style-type:circle"><strong>The Mother Goddess</strong> — recurring female figure linked to fertility, cosmology, trans-Adriatic cultural exchange, guidance; </li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80c4-bb6c-d2009a1c9de9" class="bulleted-list"><li style="list-style-type:circle"><strong>The ritual community</strong> — the cave was not a place of solitude but of collective practice. The five character roles (Shaman, Warrior, Devotee I, Devotee II, Dancer) reconstruct the full social fabric of a Neolithic ceremony: each role is interdependent, each enters the cave for a different reason, and each contributes to the same ritual. The storyboard&#x27;s cross-character NPC encounters — the Shaman receiving the Devotee II, the Warrior being healed by the Shaman — make this interdependence narratively visible → <mark class="highlight-yellow_background"><strong><span style="border-bottom:0.05em solid">COMMUNITY IS A CENTRAL TOPIC OF THIS PROJECT: THE WHOLE POINT IS TO REMIND PEOPLE THAT WE LIVE IN COMMUNITIES AND SOCIETIES AND THE DUTY WE HAVE TO THEM, BUT ALSO THE BENEFITS OF LIVING IN IT, OF COMMUNICATING WITH THEM AND OTHER COMMUNITIES DIFFERENT FROM US WITH WHOM WE SHARE THE SAME BASIC CONCEPTS AND IDEAS</span></strong></mark></li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-806e-ac2e-d60e22d39241" class="bulleted-list"><li style="list-style-type:circle"><strong>Votive practice and the artifacts and pintaderas given as offerings: </strong> the objects actually found in the cave (pintaderas, anthropomorphic ceramics, obsidian from the Aeolian Islands, Tuscan cinnabar, Albanian bitumen) as evidence of ritual offering and long-distance exchange networks. The Devotee II&#x27;s choice of offering is the narrative mechanism through which visitors encounter this archaeological reality.</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-8070-967f-d4b3e21f415c" class="bulleted-list"><li style="list-style-type:circle">The <strong>3D documentation project</strong> by Virginia Valzano (CNR-ISPC / UniSalento) as a model of ethical digital heritage practice: making the inaccessible accessible without compromising the physical site.</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-80ef-bb02-d20108611073" class="bulleted-list"><li style="list-style-type:circle"><strong>Trans-Adriatic connections</strong> — the cave&#x27;s symbols share affinities with sites across the Adriatic and Mediterranean, suggesting a shared visual language in the Neolithic</li></ul></div><div style="display:contents" dir="auto"><ul id="350c94e7-dc42-8016-94e7-e8ebd828e910" class="bulleted-list"><li style="list-style-type:circle"><strong>The universality of abstract visual language: </strong>the closing activity posits that the impulse to represent the world through geometric abstraction is cross-cultural and trans-historical, connecting Neolithic painters to contemporary visitors. The same geometric forms (spirals, concentric circles, zigzags) appear in caves from California to Colombia, suggesting a neurological rather than purely cultural origin. <br/></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80fd-a947-e8c0ba521dfe" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-8026-973e-cc4d8c8dee1f" class=""><strong>4. NEEDS AND REQUIREMENTS</strong></h3></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8034-aa09-d6660e1ebc51" class=""><br/>We used <strong>MoSCoW</strong>, a framework used in project and UX design to distinguish between what a project absolutely needs, what would improve it, what is possible but non-essential, and what is explicitly not possible. This way, we know what can realistically be done. <br/>As learned in class, we identified the requirements by starting from the data acquired from the PACT framework, which we then transformed into information and finally, requirements. We used interviews and observations as means for the acquiring of data. </p></div><div style="display:contents" dir="auto"><p id="352c94e7-dc42-8029-8e70-fd339b549f2f" class=""><strong><span style="border-bottom:0.05em solid">Must</span></strong></p></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-807c-a172-dffc10eba990" class="bulleted-list"><li style="list-style-type:disc">Historically and archaeologically accurate content throughout</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-804a-9b23-fd6bf8e6537c" class="bulleted-list"><li style="list-style-type:disc">VR headsets installed in an atmospherically lit room at the Castello Aragonese di Otranto</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-801b-a93d-fe9ee5447c6a" class="bulleted-list"><li style="list-style-type:disc">Five playable character roles (Shaman, Warrior, Devotee I, Devotee II, Dancer)</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8061-970e-e2c5237b575d" class="bulleted-list"><li style="list-style-type:disc">Closing pictogram drawing activity with global visitor comparison</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-804a-aa10-e9b18d80dac9" class="bulleted-list"><li style="list-style-type:disc">3D model developed by Professor Valzano</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80dc-9a4b-c953e694ca06" class="bulleted-list"><li style="list-style-type:disc">Physical station with infographics, accessibility warnings, and character guidance</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80c2-8fe5-d7568cd2bc8b" class="bulleted-list"><li style="list-style-type:disc">Staff presence to assist with onboarding and headset fitting</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-800e-9f4b-f66be75f9dfb" class="bulleted-list"><li style="list-style-type:disc">Experience usable from a seated position</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8041-a06c-e477b57c2151" class="bulleted-list"><li style="list-style-type:disc">VR side-effect warnings clearly communicated before the experience begins</li></ul></div><div style="display:contents" dir="auto"><hr id="352c94e7-dc42-808a-8ca7-f7d41fd6c509"/></div><div style="display:contents" dir="auto"><p id="352c94e7-dc42-8003-950e-e87087f65b03" class=""><strong><span style="border-bottom:0.05em solid">Should</span></strong></p></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8064-907c-c0bfa8ea8d56" class="bulleted-list"><li style="list-style-type:disc">Colorblind-safe palette, subtitles and other accessible features throughout</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-805d-84b1-f12c2c73b188" class="bulleted-list"><li style="list-style-type:disc">Handprint interactive LED display at the exit</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-800f-b331-ed6c3506c376" class="bulleted-list"><li style="list-style-type:disc">Multilingual support (at minimum Italian and English)</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80e4-b7d1-e2b817019b55" class="bulleted-list"><li style="list-style-type:disc">Postcard printed takeaway with QR code linking to the website</li></ul></div><div style="display:contents" dir="auto"><ul id="36ec94e7-dc42-8034-9c36-d37d597718e4" class="bulleted-list"><li style="list-style-type:disc">Sounds of the cave — dripping water, echos, etc. Could not be implemented in the free version of Figma. </li></ul></div><div style="display:contents" dir="auto"><hr id="352c94e7-dc42-80e9-84fe-e8c379713de5"/></div><div style="display:contents" dir="auto"><p id="352c94e7-dc42-8042-af39-efddcbac6a9a" class=""><strong><span style="border-bottom:0.05em solid">Could </span></strong>→ future prospects for the project</p></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8054-ae2c-d4e25676c9a4" class="bulleted-list"><li style="list-style-type:disc">Multiplayer layer allowing group visitors to see and interact with each other&#x27;s characters inside the cave simultaneously</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-803c-aee0-e3471f3d5d59" class="bulleted-list"><li style="list-style-type:disc">Adjustable text size for visitors with visual impairments</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-804c-b6a3-d9c2df5abe18" class="bulleted-list"><li style="list-style-type:disc">Integration of additional world cave comparisons beyond those currently mapped</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8020-8567-eb492ad77bcb" class="bulleted-list"><li style="list-style-type:disc">Kids’ version - that is not a diluted version of the adults’ one, but a versione on its own (following one of the TIP’S <span style="border-bottom:0.05em solid">= Tilden’s Interpretative Principles). </span>However, children 10+ up can do this experience if the parents allow as it won’t be too overstimulating. Also it would reflect the history of the cave: despite it being a place concering sexuality, dark rituals, altered states of consciousness caused by psychogenic substances, the handprints in the Sanctuary indicate that children used to inhabit these spaces and highlight a central role in the creation of these pictograms. </li></ul></div><div style="display:contents" dir="auto"><ul id="35ec94e7-dc42-8044-b9b3-f15f9eb2b9ee" class="bulleted-list"><li style="list-style-type:disc">Background music → constant, soft music that resmble the echo of the cave or no music at all. Overwhelming sounds could distract the user or make the experience more overwhelming - we dont need that, we need them to focus on the cave and their walk. It’s a moment of focus and silence. </li></ul></div><div style="display:contents" dir="auto"><hr id="352c94e7-dc42-80ed-9311-eb15b40f2a4b"/></div><div style="display:contents" dir="auto"><p id="352c94e7-dc42-804e-8408-e745debb5dc1" class=""><strong><span style="border-bottom:0.05em solid">Won&#x27;t</span></strong></p></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80d6-bb12-f37c9022ba15" class="bulleted-list"><li style="list-style-type:disc">Physical access to the Grotta dei Cervi</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-809f-a8fa-c322f2342d25" class="bulleted-list"><li style="list-style-type:disc">Direct photography or reproduction of pictograms from the cave itself</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-8099-ac85-db6d58a1ecf2" class="bulleted-list"><li style="list-style-type:disc">A fully autonomous experience without any staff presence</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-805f-baf5-d70ea39c0486" class="bulleted-list"><li style="list-style-type:disc">Realistic graphic violence or explicit representation in the potential future kids’ version</li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8060-b7e4-db43ed2c54b0" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-80ae-8244-c9f3cdc4a7ef" class=""><strong>5. IDEATION</strong></h3></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-808a-87bd-e15ecd38cb78" class="">Here you specify:</p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8081-bfe1-eba510df12b5" class="">(a) <mark class="highlight-yellow_background"><strong>Experience </strong></mark>(from the users perspective)</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-805b-9641-f74162eb56cd" class="">To develop the various scenarios, we put the personas we created in specific contexts and used the PACT framework to develop them. We tried to create different scenarios in order to understand all possible needs and requirements. </p></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8027-949b-c7198e799bff" class="bulleted-list"><li style="list-style-type:disc"><strong>PERSONAS</strong>: <a href="https://app.notion.com/p/PERSONA-1-ANNUNZIATA-314c94e7dc428011939fc8cce8cbee1b?pvs=21">1 </a>/ <a href="https://app.notion.com/p/PERSONA-2-DANIEL-314c94e7dc4280ae93b7c455d40cd4aa?pvs=21">2 </a>/ <a href="https://app.notion.com/p/PERSONA-3-4-DILETTA-SAMUELE-314c94e7dc42803ca4f3c270b9ce35bd?pvs=21">3</a></li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80f5-986a-ee101cfc429e" class="bulleted-list"><li style="list-style-type:disc"><strong>SCENARIOS</strong>: <a href="https://app.notion.com/p/Claudia-SCENARIO-31bc94e7dc42804b89eadda1a72eaae5?pvs=21">1 </a>/ <a href="https://app.notion.com/p/RIVER-SCENARIO-31cc94e7dc42801a98adeef861a8b3f4?pvs=21">2 </a>/ <a href="https://app.notion.com/p/Laura-SCENARIO-31bc94e7dc42800b819ccdb9fcca35ff?pvs=21">3</a></li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8016-8f2a-ce13c9d88ac8" class="bulleted-list"><li style="list-style-type:disc"><strong>STORYBOARD: </strong></li></ul></div><div style="display:contents" dir="ltr"><figure id="359c94e7-dc42-8092-af71-ce4ec3694bc3"><div class="source"><a href="storyboard_ENG_vers2.docx">storyboard_ENG_vers2.docx</a></div></figure></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8068-8fc3-cb90cfaf19f6" class="bulleted-list"><li style="list-style-type:disc"><strong>USER JOURNEY:</strong> <em>Ignorance → Curiosity → Exploration → Discovery → Knowledge/Reflection→ Caring/Sharing</em></li></ul></div><div style="display:contents" dir="ltr"><figure id="36fc94e7-dc42-80ff-929f-d83f544d7d23" class="image"><a href="Interactive_Whiteboard_in_Dark_Blue_Grey_Sleek_Professional_Style_(1).png"><img style="width:703.9750366210938px" src="Interactive_Whiteboard_in_Dark_Blue_Grey_Sleek_Professional_Style_(1).png"/></a></figure></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80ed-a180-d947f257ea47" class="">(b) <mark class="highlight-yellow_background"><strong>Conceptual map</strong></mark></p></div><div style="display:contents" dir="auto"><div id="359c94e7-dc42-8028-83b3-f6301a68c505" class="column-list"><div style="display:contents" dir="auto"><div id="359c94e7-dc42-80e6-bafb-ea5bacc71db7" style="width:50%" class="column"><div style="display:contents" dir="auto"><div style="display:contents" dir="ltr"><figure id="318c94e7-dc42-8063-900d-e5d5ae60d9ea" class="link-to-page"><a href="https://app.notion.com/p/PACT-Framework-Deer-Cave-VR-Experience-318c94e7dc428063900de5d5ae60d9ea?pvs=21"><span class="icon">📋</span>PACT Framework - Deer Cave VR Experience</a></figure></div></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80c5-a743-db4785eda898" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="359c94e7-dc42-80ed-a25d-ce4c3a47baae" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="359c94e7-dc42-80c2-ad87-d7ab5ce224fa" class="image"><a href="pact_map.png"><img style="width:288px" src="pact_map.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8051-a903-f1f4beb930da" class="">(d)<mark class="highlight-yellow_background"> The </mark><mark class="highlight-yellow_background"><strong>story </strong></mark><mark class="highlight-yellow_background">(y</mark>ou can include an interactive narrative using Twine)</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8073-bb19-f26d3e4e0f9e" class=""><strong>I. The Opening: The Liminal Threshold</strong><br/>The journey begins at the West entrance of the cave during a Salento sunset. The visitor is standing in a &quot;360° Panorama&quot; where the Apulian sea glitters behind them in the last light of a summer evening. This beauty is brief; the narrative creates a sense of urgency, drawing the visitor away from the modern landscape and into the dark mouth of the cave.  <br/><br/>At this threshold, a single question defines the journey: <strong>&quot;Who are you?&quot;</strong>. The visitor must select one of five Neolithic identities, each offering a unique lens through which to experience the cave:  <br/><br/>• <strong>🐾 Shaman:</strong> The most complete narrative path.  <br/>• <strong>⚔️ Warrior:</strong> Seeking protection or power.  <br/>• <strong>👁️ Devotee I:</strong> Seeking initiation and communication with ancestors.  <br/>• <strong>🙏 Devotee II:</strong> Bringing a votive offering to a deity.<br/>• <strong>💃 Dancer:</strong> A keeper of movement and trance.  <br/><strong><br/>II. Inside the Cave: Personalizing Universal Knowledge</strong><br/>While the educational core—the history of the pictograms and the significance of the 12 Zones—remains consistent, the <em>reason</em> for encountering it changes based on the chosen role. The experience follows the real spatial logic of the site, moving from the Red Room outward, mirroring the sacred path of the original Neolithic painters.  <br/><br/>• <strong>The Ritual of Learning:</strong> The <strong>Shaman</strong> interprets paintings as phosphenic visions, while the <strong>Devotee II</strong> learns about Neolithic artifacts by choosing the correct votive offering (Ceramic, Obsidian, or Pintaderas) for their petition.<br/>• <strong>Academic Guidance:</strong> Throughout the descent, a 3D model of <strong>Professor Valzano</strong> serves as the academic anchor, providing archaeological context for the discoveries.  <br/><br/>• <strong>The Sensory Core:</strong> A pivotal moment occurs deep in the cave where the visitor experiences absolute darkness and silence, recreating the sensory deprivation that ancient shamans used to trigger phosphenic imagery.  <br/><strong><br/>III. The Finale: Intertextuality and the Sanctuary</strong><br/>At the heart of the cave, the narrative expands from a local story to a global one. The visitor sees paintings linked to identical symbols found in caves from California to Colombia, reinforcing the project&#x27;s thesis: that this visual language is a universal human trait.  <br/><strong><br/>IV. The Ending: Your Mark on the World</strong><br/>As the visitor prepares to exit the VR, the experience poses a final challenge: <strong>&quot;If you were a Neolithic painter, what would you draw?&quot;</strong>.  <br/><br/>• <strong>The Concept Drawing:</strong> The system assigns a universal contemporary concept—such as <em>Family</em>, <em>Death</em>, or <em>A Phone</em>—and asks the visitor to draw it abstractly using shapes and lines, just as the Badisco painters did.<br/>• <strong>The Revelation:</strong> The user’s drawing is placed in a &quot;Global Archive&quot; alongside those of other visitors. This comparison answers the project&#x27;s emotional thesis: if our modern shapes converge with ancient ones, the pictograms are no longer alien—they are a mirror of our shared humanity.  <br/><strong><br/>V. The Physical Outro: The Collective Handprint</strong><br/>The experience concludes as the visitor removes the headset and transitions to a physical <strong>touch-reactive LED screen</strong> in the Otranto Castle room.  <br/><br/>• <strong>A Living Archive:</strong> The screen displays a luminous cloud of handprints left by previous visitors, arranged randomly like the ceiling of the <strong>Sanctuary</strong>.  <br/><br/>• <strong>The Act of Presence:</strong> By placing their own hand on the screen, the visitor’s print is added to the local network instantly. This final gesture bridges the gap between the virtual Neolithic past and the physical present, making the belonging to a single, continuous humanity visible and permanent.  </p></div><div style="display:contents" dir="auto"><div style="display:contents" dir="ltr"><figure id="318c94e7-dc42-8091-88d4-cd1718a59da5" class="link-to-page"><a href="https://app.notion.com/p/Grotta-dei-Cervi-PROJECT-CONCEPT-318c94e7dc42809188d4cd1718a59da5?pvs=21"><span class="icon">📱</span>Grotta dei Cervi — PROJECT CONCEPT</a></figure></div></div><div style="display:contents" dir="auto"><hr id="359c94e7-dc42-80eb-bc9b-dd17f940c433"/></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80e5-8c3f-e490235905f6" class=""><strong>Narrative voice</strong> → <mark class="highlight-default_background"><strong>IMMERSIVE: </strong></mark><mark class="highlight-default_background">you are a person of the time (but there are different voices to chose) </mark></p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8065-9a61-e5d7b5f5d72a" class=""><mark class="highlight-default_background"><strong>Structure →</strong></mark><mark class="highlight-default_background"> </mark><mark class="highlight-default_background"><strong>BRANCHING: </strong></mark><mark class="highlight-default_background">you choose the character at the beginning and then each story is different</mark></p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8096-8064-f56ee2ae3a0d" class=""><mark class="highlight-default_background"><strong>Emotional climax</strong></mark><mark class="highlight-default_background"> → </mark><mark class="highlight-default_background"><strong>different for everybody </strong></mark></p></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8002-9b92-c0acecf4ddf8" class="bulleted-list"><li style="list-style-type:disc">Your ancestor appears before you and speaks directly to you →<strong> devotee II </strong></li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80a5-af17-d890f2e133b1" class="bulleted-list"><li style="list-style-type:disc">The shaman performs a powerful ritual that brings you what you asked for → <strong>devotee I</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80ef-a18a-e16e88d1e711" class="bulleted-list"><li style="list-style-type:disc">After fighting off a robber and getting injured, you enter the cave seeking the shaman’s help → <strong>warrior</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80e8-be7d-d749f780e065" class="bulleted-list"><li style="list-style-type:disc">You help the shaman prepare the ritual; then, after taking the sacred substances, you begin to dance and fall into vivid visions → <strong>dancer</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8054-aeb5-f49020068bc4" class="bulleted-list"><li style="list-style-type:disc">You perform a ritual for a devotee and, after taking the sacred substances, you enter a visionary state → <strong>shaman</strong></li></ul></div><div style="display:contents" dir="auto"><hr id="359c94e7-dc42-80f6-90b8-ec94141457aa"/></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8037-ab7d-cd93410f20fd" class="">(f) <mark class="highlight-yellow_background"><strong>Description of the interaction</strong></mark> between the application and the users (include<strong> Interaction Diagram</strong>)</p></div><div style="display:contents" dir="auto"><div id="359c94e7-dc42-803c-8cb4-c5c5999d0687" class="column-list"><div style="display:contents" dir="auto"><div id="359c94e7-dc42-8037-afb0-f62cea782b81" style="width:50%" class="column"><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80cd-87cd-ef9e68855b98" class="">To represent the interaction, we chose a <strong>dataflow diagram </strong>to represent all the steps that are logically required for the completion of the interaction. It helped use understand where some features should be places, the flow of the story, what action should come first and where it needs to take place and which steps are essential and which ones are not. </p></div></div></div><div style="display:contents" dir="auto"><div id="359c94e7-dc42-805d-ba0f-e112ddafd5db" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="359c94e7-dc42-8004-846d-ffe7a9e30796" class="image"><a href="user_flow_5.png"><img style="width:336px" src="user_flow_5.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8060-a34f-e0945a9d3694" class="">(g)<strong> </strong><mark class="highlight-yellow_background"><strong>Foreseen workflow</strong></mark></p></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="359c94e7-dc42-808a-b6e2-e2ef67dccf00"><div style="width:100%"><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8070-a8c8-de6d4a4424c7" class=""><strong>Research </strong>phase (cave documentation, academic sources, Valzano contact) → <strong>Site visit</strong> → <strong>Planning &amp; concept design</strong> (narrative writing, character scripts, storyboard) → <strong>Revision </strong>→<strong> Asset design</strong> (pictogram redraws, visual identity, UI design) → <strong>Prototypes / implementation </strong>( Twine, Figma) → <strong>Website &amp; Presentation </strong>build → <strong>Revision </strong>→ <strong>Testing </strong>→ Approval → Installation → <strong>Opening </strong>/ Final delivery</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-800a-9853-fcdb8dc76e26" class=""><strong>1. Research</strong><br/>Collection and analysis of all academic sources (Leone tracings, Graziosi 1980, Valzano&#x27;s 3D documentation and publications). Contact with Virginia Valzano for asset permissions and academic consultation. Preliminary knowledge base on cave structure, zones, pictograms, archaeological interpretations, and trans-Adriatic connections. Copyright and usage rights clarification for all third-party materials.</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80d4-8382-ddcf0c563a2c" class=""><strong>2. Site Visit</strong><br/>Visit to the Castello Aragonese di Otranto and the permanent exhibition on the Grotta dei Cervi. Assessment of the available room for VR installation: dimensions, lighting conditions, electrical infrastructure, accessibility, visitor flow. Visit to Museo Faggiano (Lecce) and MArTA (Taranto) for additional reference material and artifact study. Visit to Porto Badisco for survey of the place. </p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-800d-9a2a-c6f00dee6b47" class=""><strong>3. Planning &amp; Concept Design</strong><br/>Definition of the core concept, narrative structure, and character roles. Writing of character scripts and branching logic. Storyboard production. Exhibition flow mapping. Interaction diagram. PACT analysis and persona development. MoSCoW requirements.</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8005-895b-d3b9ee8153b6" class=""><strong>4. Asset Design</strong><br/>Pictogram redraws inspired by published academic tracings (Claudia). Phosphenic pattern development and visual identity in Adobe Illustrator (Claudia). UI design across all screens. Website background illustrations (Claudia). Physical preamble station graphic design. Handprint LED display concept design.</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80f0-a0e1-f14869a4f93c" class=""><strong>5. User Flow</strong></p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8084-97e1-cc0a87108c26" class=""><strong>6. Prototyping &amp; Implementation</strong><br/>Low-fidelity wireframes (Laura) → mid-fidelity layout (River) → high-fidelity Figma prototype (Claudia). Twine interactive narrative prototype build and HTML export (River). Website build and publication (Laura).</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80c0-804f-c138a36cc778" class=""><strong>7. Website &amp; Presentation Build</strong><br/>Final website publication with all project documentation, Twine link, Figma link, bibliography and credits (Laura). PPT slides and pitch preparation (Claudia + all).</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8097-a5a5-d029b5d5b1e1" class=""><strong>8. Revision II</strong><br/>Full project review across all deliverables. Consistency check between visual identity, narrative content, and museological framework. Final edits.</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8061-b753-cc657c33e530" class=""><strong>9. Testing</strong><br/>User testing of Twine prototype and Figma prototype with representative users from target audience groups. Accessibility testing (colorblind palette, subtitle readability, seated usability). VR hardware testing in the intended room at the Castello Aragonese. Feedback collection and iteration.</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-801d-a732-dacba269fbcf" class=""><strong>10. Approval</strong><br/>Academic approval from course supervisors. Confirmation of permissions from Virginia Valzano and the Castello Aragonese. Final sign-off on all content, assets, and installation design.</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8066-8c7e-f101febd0093" class=""><strong>11. Installation</strong><br/>Physical setup of four VR headsets in the designated room. Installation of preamble station infographics and printed materials. Setup of handprint LED display. Staff briefing on visitor onboarding procedure, accessibility protocols, and headset management. Full technical run-through.下</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8035-b7eb-e047c25d0658" class=""><strong>12. Opening / Final Delivery</strong><br/>Public opening of the exhibition. Submission of Design Brief, Twine scenario, Figma prototype, website, and presentation for academic examination. Post-opening monitoring and maintenance plan handed to venue staff.</p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-80d9-abb6-c875be4b84f0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80db-b198-eccbd3fab5c3" class="">(h)<strong> </strong><mark class="highlight-yellow_background"><strong>Set-up</strong></mark>: Foreseen hardware, software and Media (digital asset needed) ( = TECHNOLOGIES) </p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8054-8672-f680040af35f" class=""><strong>1. Hardware (Visualization &amp; Interaction Devices)</strong><br/>The hardware is designed to bridge the gap between a private virtual experience and a collective physical installation.  </p></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-80cb-9594-e3767341cf80" class="bulleted-list"><li style="list-style-type:disc"><strong>VR Headsets:</strong> Meta Quest 2, most popular headset used in museums. These must support seated usability to accommodate visitors with mobility issues or chronic pain.  </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8091-81da-ec5da6c0ccf9" class="bulleted-list"><li style="list-style-type:disc"><strong>VR Controllers:</strong> Used for primary navigation and role-specific interactions (e.g., picking up offerings or performing rituals, ray casting for drawing the pictogram).  </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-806c-aaa0-c320768b4083" class="bulleted-list"><li style="list-style-type:disc"><strong>Interactive LED Display:</strong> A large, touch-reactive screen located in the physical room. It serves as the &quot;Physical Outro,&quot; allowing visitors to add their handprints to a luminous collective archive. </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-80a3-9fd1-de7a32dd3324" class="bulleted-list"><li style="list-style-type:disc"><strong>Local Server:</strong> to ensure communication between the VR headsets and the LED display.  </li></ul></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80a2-9879-df257d4bfa68" class=""><strong>2. Software &amp; Connectivity</strong><br/>The software architecture prioritizes reliability inside the museum while maintaining a global digital presence: </p></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-808c-a2b9-eaa4949d4d2b" class="bulleted-list"><li style="list-style-type:disc"><strong>Game Engine:</strong> Unity or Unreal Engine (implied for 3D/VR rendering and real-time interaction)</li></ul></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8050-871e-d1876cac254b" class=""><strong>3. Media (Digital Assets Needed)</strong><br/>These assets are required to build the &quot;Reconstructed Reality&quot; described in your story.</p></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-80a6-8fb9-f4d0a0634e4b" class="bulleted-list"><li style="list-style-type:disc"><strong>360° Equirectangular Imagery:</strong> High-resolution HDR panoramas of the Porto Badisco coastline at sunset for the &quot;liminal&quot; opening scene.  </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-804b-aa4f-e45ba3a81710" class="bulleted-list"><li style="list-style-type:disc"><strong>3D Environment Models:</strong> * <strong>Cave Interior:</strong> High-fidelity 3D reconstructions of the 12 zones, optimized from Professor Valzano’s photogrammetric scans.  </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8087-964b-e30bb5dbf061" class="bulleted-list"><li style="list-style-type:disc"><strong>2D Animated Assets:</strong> &quot;Phosphenic&quot; style animations for the pictograms (e.g., the Lady of the Serpents) to simulate &quot;fresh&quot; painting or spiritual visions.  </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-8056-8142-f15ee33d7d4b" class="bulleted-list"><li style="list-style-type:disc"><strong>Audio Design:</strong> * <strong>Spatial Audio:</strong> Ambient cave echoes, water droplets, and coastal sounds. No voiceovers as it would be too overwhelming. </li></ul></div><div style="display:contents" dir="auto"><ul id="35dc94e7-dc42-80d3-9881-ff5144bd8054" class="bulleted-list"><li style="list-style-type:disc"><strong>Visual references</strong> and <strong>metadata </strong>from global cave sites (e.g., Lascaux, Altamira) for the  &quot;Global Map&quot; part.<div style="display:contents" dir="ltr"><figure id="376c94e7-dc42-8162-a27b-eb8ef99606a0" class="image"><a href="Senza_titolo_-_6_giugno_2026_01.14.jpg"><img src="Senza_titolo_-_6_giugno_2026_01.14.jpg"/></a></figure></div></li></ul></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80a7-a1b6-e61deb8de391" class="">(i) <mark class="highlight-yellow_background"><strong>Further development</strong></mark> and <strong>maintenance issues</strong>: </p></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8098-affe-df2b6cffb9be" class=""><span style="border-bottom:0.05em solid">Developments: </span></p></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8060-aa65-d0779ae72499" class="bulleted-list"><li style="list-style-type:disc"><strong>Multiplayer layer </strong>for group interactions during the VR experience; </li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8094-b4b9-e65e9658fcb1" class="bulleted-list"><li style="list-style-type:disc"><strong>Adjustable text size</strong> for visitors with visual impairments;</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80b2-be49-f107480f699f" class="bulleted-list"><li style="list-style-type:disc"><strong>Kids’ version </strong>that is not a diluted version of the adults’ one, but <span style="border-bottom:0.05em solid">a version on its own</span> (following one of the TIP’S = Tilden’s Interpretative Principles).</li></ul></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-800a-a2d1-ccdc8144c13f" class=""><span style="border-bottom:0.05em solid">Maintenance issues: </span></p></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8079-8722-f72e11f171f1" class="bulleted-list"><li style="list-style-type:disc"><strong>Technical Maintenance</strong><br/>VR headsets require regular hardware upkeep: lens cleaning between sessions, battery charging, strap and hygiene maintenance, and periodic firmware and software updates. The Twine narrative and Figma-derived VR interface will need compatibility checks as operating systems and VR platforms update over time. A dedicated technical maintenance schedule — daily checks before opening, monthly deep checks, annual hardware review — should be established and handed to venue staff at installation.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80e3-98a1-d88675866820" class="bulleted-list"><li style="list-style-type:disc"><strong>Content Updates: </strong>archaeological understanding of the Grotta dei Cervi is ongoing. New findings, revised interpretations, or updated scholarship (particularly if Valzano&#x27;s team publishes new 3D data) may require content updates to the narrative, the educational labels, or the pictogram redraws. The experience should be built with modular content architecture so individual sections can be updated without rebuilding the entire experience.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-806f-b8a5-d0f3f3a20785" class="bulleted-list"><li style="list-style-type:disc"><strong>Website Maintenance:</strong> the project website requires ongoing hosting, domain renewal, link checking (particularly the Twine and Figma links), and content updates aligned with any changes to the physical exhibition. If the website is built on a platform like GitHub Pages, updates require team members with sufficient technical literacy to maintain it after the academic submission.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8000-9f68-c14d49dd85df" class="bulleted-list"><li style="list-style-type:disc"><strong>Funding Continuity: i</strong>nitial installation costs may be covered by cultural grants or institutional partnerships, but ongoing maintenance, content updates, and staff costs require a sustainable funding model. Options include: a modest visitor contribution integrated into the Castello Aragonese ticket price, recurring regional cultural funding applications, and partnerships with universities (UniSalento, UniBo) for ongoing academic collaboration and content review.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80c7-b80d-cbd65fb51610" class="bulleted-list"><li style="list-style-type:disc"><strong>Staff Training: </strong>as staff turnover occurs at the Castello Aragonese, new personnel will need to be trained on the onboarding protocol, accessibility procedures, headset management, and the pictogram activity moderation system. A clear, written staff manual should be produced and updated alongside the experience itself.</li></ul></div><div style="display:contents" dir="auto"><p id="359c94e7-dc42-8057-aabc-c27c2d3fe100" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-800c-b459-cc1dae169c94" class=""><strong>6. DISRUPTION</strong></h3></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-8012-97c1-eca5dc91049e" class="">Here you can explain threats and potential issues with your project and how you would face it</p></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8042-bdcd-ddfbfa52b3d7" class="bulleted-list"><li style="list-style-type:disc"><strong>High production and installation costs</strong><br/>A full VR installation with four headsets, custom narrative content, and a professional Figma/Twine prototype requires significant investment. However, the project makes a strong case for public and private funding: it generates tourism, demonstrates regional innovation, promotes ethical cultural heritage exploration, and positions Puglia as a leader in digital heritage practice. Partnerships with the Castello Aragonese, the Municipality of Otranto, regional cultural funds (e.g. Puglia Region cultural grants, MiC), and European heritage programmes (e.g. Creative Europe) could absorb much of the cost.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80d7-9403-e6c7f84e672a" class="bulleted-list"><li style="list-style-type:disc"><strong>Permission and copyright issues with Virginia Valzano&#x27;s 3D assets</strong><br/>The academic foundation of this project is deeply rooted in Valzano&#x27;s pioneering 3D reconstructions. To maximize the impact of this research, it is crucial that permissions are granted and collaborative avenues remain open. When institutions unite to enhance and celebrate a historical landmark, traditional restrictions should give way to shared progress, ultimately benefiting the global academic community and showcasing the power of collaborative preservation.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-805c-a1ab-e7193641f744" class="bulleted-list"><li style="list-style-type:disc"><strong>VR-induced discomfort and health risks</strong><br/>A significant portion of visitors — particularly older adults, children, and people prone to motion sickness — may experience nausea, disorientation, or anxiety. This is mitigated by: clear VR side-effect warnings at the preamble station, a seated experience option, short session duration (estimated 20–25 minutes), trained staff monitoring visitors throughout, and an immediate exit option at any point in the experience.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80d1-b594-f1774373a867" class="bulleted-list"><li style="list-style-type:disc"><strong>Low digital literacy among target visitors</strong><br/>Visitors like Annunziata — older, locally rooted, unfamiliar with VR — may feel intimidated by the technology. This is addressed by the staff onboarding protocol, the physical preamble station which builds familiarity before the headset is introduced, and the simplicity of the controller interaction design (single button presses, no complex gestures).</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8027-95fc-f12a0cfec21b" class="bulleted-list"><li style="list-style-type:disc"><strong>Technical failure during the experience</strong><br/>Hardware malfunction, software crashes, or connectivity issues could interrupt or ruin a visitor&#x27;s experience. Mitigation strategies include: regular technical maintenance checks before opening hours, backup headsets on standby, staff trained to troubleshoot basic issues, and a printed fallback version of key content at the preamble station so the visit retains educational value even without VR.</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-80ba-aee6-e565c0cc2225" class="bulleted-list"><li style="list-style-type:disc"><strong>Inaccessibility for visitors with severe physical disabilities</strong><br/>While the experience is designed to be usable seated and includes colorblind-safe design and subtitles, visitors with severe motor impairments may still find VR controllers difficult to use. Future development should include eye-tracking navigation as an alternative input method, which is already available on several current VR headsets.</li></ul></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-80a6-a81d-d8eb58e0a329" class=""><strong>7. UX: TWINE</strong></h3></div><div style="display:contents" dir="auto"><p id="314c94e7-dc42-80f6-b817-e2d93a10481e" class="">The Twine scenario of the project can be found at the following link on our website: <a href="https://cinefiles25.github.io/PixelGrams/twine/index.html">https://cinefiles25.github.io/PixelGrams/twine/index.html</a></p></div><div style="display:contents" dir="auto"><p id="889f568f-c9a8-4017-b885-86a343b20bc4" class="">Based on the storyboard developed in the previous stage, my role was to translate the narrative into an interactive experience.</p></div><div style="display:contents" dir="auto"><p id="1c30fc03-6a8b-417c-835f-b204e9ca789a" class="">I focused on the visual and interaction design of the Twine prototype, including page structure, navigation, text hierarchy, images, and visual effects. The goal was not only to communicate the story, but also to support the atmosphere of the cave experience.</p></div><div style="display:contents" dir="auto"><p id="12e04698-7de7-4fe4-b239-590fb5d2f220" class="">Since visitors cannot access the real cave, I used a minimal visual language inspired by the cave environment, including dark backgrounds, ochre-red highlights, subtle glow effects, and carefully paced text layouts. These elements were used to create a sense of mystery, discovery, and ritual while guiding users through the narrative.</p></div><div style="display:contents" dir="auto"><p id="375c94e7-dc42-8077-b2b0-fd530493cf07" class="">The final structure was designed to balance storytelling, interaction, and atmosphere while following the flow of the storyboard.</p></div><div style="display:contents" dir="ltr"><figure id="359c94e7-dc42-8077-83b8-fad6d961ea80" class="image"><a href="d04c42cf-be51-4258-a783-d70ee42213c4.png"><img style="width:307.72182254196645px" src="d04c42cf-be51-4258-a783-d70ee42213c4.png"/></a></figure></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-800f-96e1-e8f103cd4b5a" class="">8. UI: FIGMA</h3></div><div style="display:contents" dir="auto"><h4 id="36fc94e7-dc42-806a-b061-cd6fe6de1838" class="">LO-FI Figma</h4></div><div style="display:contents" dir="auto"><p id="36fc94e7-dc42-80c9-a9c1-df2cef70b9c2" class=""><strong><a href="https://www.figma.com/proto/Lykbc3PtCgTQM4vXfx2fUs/Grotta-dei-Cervi-VR-%E2%80%94-Low-Fi-Wireframes?node-id=1-3&amp;t=6qV1m6NVyTtNRBGA-1">PROTOTYPE </a></strong>/ <a href="https://www.figma.com/design/Lykbc3PtCgTQM4vXfx2fUs/Grotta-dei-Cervi-VR-%E2%80%94-Low-Fi-Wireframes?node-id=1-3&amp;m=dev&amp;t=6qV1m6NVyTtNRBGA-1">DESIGN</a></p></div><div style="display:contents" dir="auto"><p id="36fc94e7-dc42-8057-8d8b-d5f62747de5b" class="">I developed the low-fidelity wireframes in Figma, structured across two pages. On Page A (External Interface), I designed the pre-VR physical experience: an introductory panel (E1) displayed outside the headset room, presenting the project concept, accessibility warnings, and how the experience works. On Page B (VR + Physical), I mapped the full virtual journey: the sunset entrance with character selection (V1), the Red Hall common to all paths (V2), the five branching character paths (V3a–e: Shaman, Warrior, Devotee I, Devotee II, Dancer), the convergence in the Sanctuary (V4), the global phosphenic map (V5), and finally the physical LED handprint screen outside the VR (P1). I connected all screens with directional arrows to show the navigation flow, including the branching structure from V2 and the reconvergence of all five paths into V4.</p></div><div style="display:contents" dir="auto"><h4 id="36fc94e7-dc42-80d6-85fb-c1e9e7072f01" class="">HI-FI Figma </h4></div><div style="display:contents" dir="auto"><p id="36fc94e7-dc42-800b-b641-c3363a72a42a" class=""><strong><a href="https://www.figma.com/proto/JYK878ImTlbi3Z7feiOZUZ/Grotta-dei-Cervi-VR-%E2%80%94-Hi-Fi-Wireframes--Copy-?node-id=2250-84&amp;t=putSof6v0aHIK7oP-1&amp;scaling=contain&amp;content-scaling=fixed&amp;page-id=1%3A3&amp;starting-point-node-id=2003%3A9">PROTOTYPE </a></strong><strong>/ </strong><a href="https://www.figma.com/design/JYK878ImTlbi3Z7feiOZUZ/Grotta-dei-Cervi-VR-%E2%80%94-Hi-Fi-Wireframes--Copy-?node-id=1-3&amp;m=dev&amp;t=rrI4V4JKAsypxefX-1">DESIGN</a></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80ca-9a65-cf7d59538b10" class=""><strong>Hi-Fi Figma Prototype — DigHerit VR Experience</strong></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8040-a78d-fd863fac6acf" class="">We built a complete hi-fi prototype in Figma covering the full user journey from physical arrival to post-experience reflection.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80be-abac-eca807bcefbe" class=""><strong>Screen flow</strong></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8063-8091-d9f4da9cdf87" class="">The journey begins at the pre-VR physical panel (E1), which introduces the experience before the headset is put on. From there, the cave entrance screen (V0) presents a panoramic background with a movement prompt. Users then reach the character selection screen (V1), where they choose one of five roles.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8001-bcc8-c7344177da3a" class="">All characters pass through the Red Hall (V2), designed as the shared common space, populated with actual pictogram imagery and atmospheric lighting. At this branching point, five parallel paths diverge — Shaman, Warrior, Devotee I, Devotee II, and Dancer — each with its own narrative screen, a role-specific interaction (ritual choice, offering selection, ancestor figure recognition, or rhythm circle), and a continue button.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-808f-b4af-cac63f5e20be" class="">All paths then converge in the Sanctuary (V4), centered on the handprint moment. The experience continues with the global phosphenic map screen (V5), which shows cave sites across five continents, and concludes with the physical LED handprint display (P1) outside the headset.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80f9-9981-de6d43af53a8" class="">After exiting the cave, the V6 panel presents a placeholder starry-sky scene — in the final version, this would be replaced by a nighttime panoramic view of Porto Badisco photographed by us. Users see cave imagery from around the world and receive the &quot;Draw Your Picture&quot; prompt, which builds curiosity and anticipation for V7. In the V7 panel, users draw either a contemporary concept (for example, a phone, burnout, or a milkshake) or a Neolithic-era concept (for example, love or hunting) rendered in today&#x27;s visual language. In the real VR implementation, this would be done with controllers using ray casting. The final step compares each user&#x27;s drawing with those of previous visitors, creating a reflective takeaway — consistent with strong museum experience design, where the visit begins before the headset and continues after it.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8013-9700-c26bd3b3e39c" class="">Alongside the VR screens, we designed a set of pictogram ID cards (P1–P4) in a consistent format: image column, title, dividing line, and descriptive text. These serve as the interpretive layer of the exhibition.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80ba-88e3-d3b7d264405d" class=""><strong>Visual and aesthetic design</strong></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8008-bde2-ced72d80ce7d" class="">Starting from the lo-fi prototype&#x27;s established layout and color palette, we built an interactive version with images, screens, and buttons. To simulate a VR feeling inside Figma, panel images can be dragged around. To suggest cave humidity, most panels are set to 60% opacity.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80f6-a433-efa679b352b9" class="">For visuals, we used cave photos where available, placeholders from other caves, and stock images sourced from Unsplash via a Figma plugin. For the 360 view, we linked a proprietary Porto Badisco panorama from 360Cities as a stand-in for the final version: a sunset panoramic view of Porto Badisco photographed by us and stitched in PTGui.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-809c-9506-e3de1b496719" class="">The color system is drawn from the cave itself as it would appear when lit: light beige, black guano, and red ochre. The typeface is IM Fell English, a Google Font whose hand-drawn quality recalls pictographic writing.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8046-996f-cb2533446b91" class="">No music was added because the free version of Figma does not support the required audio setup. In the final implementation, the idea would be to use subtle cave drips or soft ambient sound — nothing too overwhelming, since immersive experiences can already be intense for more sensitive users.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8038-a90e-e4954e4647bb" class=""><strong>UX/UI principles</strong></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80ed-9cd6-ef7c4cf688bd" class="">The interface design follows several core principles:</p></div><div style="display:contents" dir="auto"><ul id="376c94e7-dc42-8005-8e7a-c8b4fb9892b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Fitt&#x27;s Law:</strong> all interactive elements are large enough to click comfortably.</li></ul></div><div style="display:contents" dir="auto"><ul id="376c94e7-dc42-807b-9859-c6a2ab266e93" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestalt principles:</strong> visual grouping improves readability and spatial orientation.</li></ul></div><div style="display:contents" dir="auto"><ul id="376c94e7-dc42-8079-9964-d5888c9afce1" class="bulleted-list"><li style="list-style-type:disc"><strong>Hick&#x27;s Law:</strong> choices are limited and clearly presented, reducing cognitive load.</li></ul></div><div style="display:contents" dir="auto"><ul id="376c94e7-dc42-80d9-97f7-e18470bc25ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Miller&#x27;s Law:</strong> information is delivered in manageable chunks as a direct consequence of applying Hick&#x27;s Law.</li></ul></div><div style="display:contents" dir="auto"><ul id="376c94e7-dc42-802e-ab37-cc030f971ced" class="bulleted-list"><li style="list-style-type:disc"><strong>Tidwell&#x27;s preattentive variables:</strong> visual hierarchy ensures key elements are immediately distinguishable.</li></ul></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-803f-b1bf-e7070dac8994" class=""><strong>Accessibility and tools</strong></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80e5-a30a-d564000f5ac1" class="">Figma plugins were used to check accessibility, color contrast, and related UI quality criteria. A settings menu allows users to adjust sound, color theme, and font size.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80b3-8c46-e381177d8350" class="">Green-dot annotations are placed throughout the prototype to flag features that could not be fully implemented due to budget, resource, or rights constraints.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-809a-9e4d-e9ba7fb95020" class=""><strong>Content and narrative design</strong></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80eb-882d-cd2884fdb38c" class="">For the Red Hall, reusable components were built for each character path so that the hall remains structurally consistent across all branches, sharing the same buttons and assets. Some pictogram descriptions are intentionally incomplete, since reliable data on individual symbols is limited; this content would be expanded by domain experts. The current Red Hall image is not from that exact room but was selected as the closest available representative image.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-809e-8efe-e19f25cde3c4" class="">The narrative assumes users have first encountered the artifacts in the Castle exhibition. If they have not, the experience may prompt them to go back and look more carefully afterward — which is itself a valid outcome.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8000-8bd2-e6e89086a786" class="">No character images are used anywhere in the prototype, by design. The goal is deeper immersion: users become the character and imagine their own appearance and identity freely.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-8086-92e8-f911b2c26217" class="">Character paths were designed with likely user motivations in mind. The Shaman and Devotee paths emphasize ritual decisions and reflection; the Devotee paths may appeal more to users with a spiritual or religious inclination; the Dancer path focuses on embodied movement rather than explicit choices, and may attract more physically active users. No path leads to a wrong outcome. Users are sometimes asked to reflect on whether a choice felt right, but all routes remain valid.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80fd-9606-ca2bb932d773" class="">The storylines are interconnected: the devotee figure in the Shaman path is one of the Devotees, the other Devotee is the person who clashes with the Guardian, and the Dancer witnesses these ritual dynamics from a different vantage point. This structure opens the door to future multiplayer development.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-808e-8477-c5c319de32a2" class="">In the Sanctuary, the sequence begins in darkness with phosphenic imagery, evoking the visual phenomena associated with cave ritual contexts. A &quot;Look Up&quot; prompt gives users a clear action, with further instructions to follow so as not to overload them. The intended design would delay any UI overlays — title, info panel, continue button — for at least ten seconds to strengthen immersion, but this timing behavior could not be reproduced in Figma Free.</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-802d-ad71-d0b39474a0c3" class=""><strong>Goals</strong></p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-80da-9c6b-f7f3cd92e138" class="">Both main project goals are addressed: presenting the Grotta dei Cervi and its pictograms in an immersive format, and prompting visitors to reflect on community and universal visual language — asking, ultimately, whether we still see the world the same way.</p></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-8008-b640-efa5eeeb3cd3" class=""><strong>9. TEAMS ROLES AND WORK</strong></h3></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-804e-a19d-dfb3f94f2d17" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">Claudia Romanello:</span></strong><strong> </strong>Ideation<strong>, </strong>Research<strong>, </strong>Hi-Fi prototype, Presentation;</li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-8052-979c-d9b1793314f1" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">Qinghao Chen: </span></strong>Ideation<strong><span style="border-bottom:0.05em solid">, </span></strong>Twine, Interpretation, Mid-fi Prototype; </li></ul></div><div style="display:contents" dir="auto"><ul id="359c94e7-dc42-807e-9f73-c87becee5bc5" class="bulleted-list"><li style="list-style-type:disc"><strong><span style="border-bottom:0.05em solid">Laura Bortoli:</span></strong> Ideation, Lo-Fi Prototype, Storyboard, Website; </li></ul></div><div style="display:contents" dir="auto"><h3 id="314c94e7-dc42-80ef-9763-f82a6b144d06" class=""><strong>10. BIBLIOGRAPHY/SITOGRAPHY </strong></h3></div><div style="display:contents" dir="auto"><h4 id="35dc94e7-dc42-80ac-a0d0-edc7391707b6" class="">BIBLIOGRAPHY</h4></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80cc-8441-d892573a840f" class=""><br/>Aprile, G., Potenza, A., Tiberi, I., &quot;Grotta dei Cervi, un santuario della Preistoria del Mediterraneo&quot;, in <em>XXVIII Valcamonica Symposium 2021: Rock-Art, a Human Heritage</em>, 2021.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8049-99f4-de1418159119" class="">Benyon, D., <em>Designing User Experience: A Guide to HCI, UX and Interaction Design</em>, Harlow, Pearson, 2019.<br/><br/>Leone, M. L., <em>La Fosfenica Grotta dei Cervi. Arte Mitologia e Religione dei Pittori di Porto Badisco</em>, 2009. </p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-800c-bd05-f465941cabdd" class="">Valzano, V., &quot;Neolithic Mysteries: Revealing in 3D the Grotta dei Cervi of Porto Badisco&quot;, video lecture, CEIT Otranto, 2020, <a href="https://vimeo.com/407669569">https://vimeo.com/407669569</a>.</p></div><div style="display:contents" dir="auto"><hr id="35dc94e7-dc42-8014-a074-e9b6e53e1f59"/></div><div style="display:contents" dir="auto"><h4 id="35dc94e7-dc42-80ef-964c-ff9472870295" class="">SITOGRAPHY</h4></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8064-8285-e5e192b48a3d" class="">Comune di Otranto, <em>La Grotta dei Cervi di Porto Badisco in 3D</em>, <a href="https://comune.otranto.le.it/novita/la-grotta-dei-cervi-di-porto-badisco-in-3d/">https://comune.otranto.le.it/novita/la-grotta-dei-cervi-di-porto-badisco-in-3d/</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80ba-911d-ef70fa6dcd6c" class="">Comune di Otranto, <em>I luoghi della preistoria a Otranto e la Grotta dei Cervi</em>, <a href="https://comune.otranto.le.it/novita/i-luoghi-della-preistoria-a-otranto-e-la-grotta-dei-cervi-2/">https://comune.otranto.le.it/novita/i-luoghi-della-preistoria-a-otranto-e-la-grotta-dei-cervi-2/</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80a5-bcc3-f4d35341b77f" class="">Comune di Otranto, <em>Presentazione dei primi risultati di ricostruzione tridimensionale della Grotta dei Cervi</em>, <a href="https://comune.otranto.le.it/novita/presentazione-dei-primi-risultati-di-ricostruzione-tridimensionale-della-grotta-dei-cervi/">https://comune.otranto.le.it/novita/presentazione-dei-primi-risultati-di-ricostruzione-tridimensionale-della-grotta-dei-cervi/</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80e7-84a0-ce5fb3082320" class="">Fondo Ambiente Italiano, <em>Grotta dei Cervi</em>, <a href="https://fondoambiente.it/luoghi/grotta-dei-cervi">https://fondoambiente.it/luoghi/grotta-dei-cervi</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-809f-ab4e-c68c5699a616" class="">Focus.it, <em>Ecco la grotta proibita</em>, <a href="https://www.focus.it/cultura/storia/ecco-la-grotta-proibita">https://www.focus.it/cultura/storia/ecco-la-grotta-proibita</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80aa-83ed-d971504a5841" class="">Preistoria in Italia, <em>Grotta dei Cervi, Porto Badisco (LE)</em>, <a href="https://www.preistoriainitalia.it/scheda/grotta-dei-cervi-porto-badisco-le/">https://www.preistoriainitalia.it/scheda/grotta-dei-cervi-porto-badisco-le/</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80a1-b020-edf781b54a9f" class="">Preistoria in Italia, <em>Messaggi femminili dalla preistoria dell’arte. Le artiste di Grotta Chauvet e Grotta dei Cervi</em>, <a href="https://www.preistoriainitalia.it/2020/11/20/messaggi-femminili-dalla-preistoria-dellarte-le-artiste-di-grotta-chauvet-e-grotta-dei-cervi/">https://www.preistoriainitalia.it/2020/11/20/messaggi-femminili-dalla-preistoria-dellarte-le-artiste-di-grotta-chauvet-e-grotta-dei-cervi/</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8010-8847-db722752c779" class="">Puglia Tourism, <em>Grotta dei Cervi</em>, <a href="https://visit.puglia.it/it/grotta-dei-cervi">https://visit.puglia.it/it/grotta-dei-cervi</a>, consultato il 12/05/2026.</p></div><div style="display:contents" dir="auto"><hr id="361c94e7-dc42-80f0-9b65-c6cc9e3be756"/></div><div style="display:contents" dir="auto"><h4 id="361c94e7-dc42-8093-b20c-fd73def4d19b" class="">TOOLS &amp; SOFTWARE</h4></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-80a9-a487-ddab0b182f42" class="bulleted-list"><li style="list-style-type:disc">Canva</li></ul></div><div style="display:contents" dir="auto"><ul id="36fc94e7-dc42-8001-ac9d-d5d708ff2b8f" class="bulleted-list"><li style="list-style-type:disc">Claude</li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-8098-82ac-c564ce1d9acf" class="bulleted-list"><li style="list-style-type:disc">CoToolKit </li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-803b-948f-cdde42fbd4df" class="bulleted-list"><li style="list-style-type:disc">Figma (plugins: Unsplash, A11y, Coloors)</li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-80a3-8c09-f03950d8253e" class="bulleted-list"><li style="list-style-type:disc">Google Fonts</li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-809a-9560-e1f16ee50463" class="bulleted-list"><li style="list-style-type:disc">JS, CSS, HTML</li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-8064-8bfc-ee3612207f63" class="bulleted-list"><li style="list-style-type:disc">Mermaid Live Editor </li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-80d9-83d3-ffe17f56989b" class="bulleted-list"><li style="list-style-type:disc">Microsoft Word</li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-8036-818d-f32380b20fcd" class="bulleted-list"><li style="list-style-type:disc">Microsoft PowerPoint</li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-8054-8d6f-f91345889b4a" class="bulleted-list"><li style="list-style-type:disc">Notion </li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-80c7-9c37-e08a2f02e1f1" class="bulleted-list"><li style="list-style-type:disc">PACT Framework</li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-8088-8bb6-d9b0dfa7a816" class="bulleted-list"><li style="list-style-type:disc">Twine </li></ul></div><div style="display:contents" dir="auto"><ul id="361c94e7-dc42-80ac-998a-c3cb817d793e" class="bulleted-list"><li style="list-style-type:disc">VsCode</li></ul></div><div style="display:contents" dir="auto"><p id="361c94e7-dc42-807c-a33a-f7e781c8edd5" class="">[other to add that we forgot]</p></div><div style="display:contents" dir="auto"><p id="376c94e7-dc42-811a-b659-e6a527eb436f" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

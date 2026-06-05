@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Grotta dei Cervi — PROJECT CONCEPT</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="318c94e7-dc42-8091-88d4-cd1718a59da5" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📱</span></div><h1 class="page-title" dir="auto">Grotta dei Cervi — PROJECT CONCEPT</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><blockquote id="318c94e7-dc42-80b9-adac-ee71c9c44caa" class=""><em>Grotta dei Cervi VR is a role-based, archaeologically accurate, multi-level virtual descent into one of Europe&#x27;s most mysterious prehistoric caves — where every visitor becomes part of the ritual, and leaves their own mark on the wall.</em></blockquote></div><div style="display:contents" dir="auto"><h2 id="318c94e7-dc42-8023-9466-fd306f83891f" class="">💡 The Core Idea</h2></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-802f-a34a-dfcfce9c2158" class="">A <strong>multi-character VR experience</strong> hosted in the Otranto Castle (Castello Aragonese di Otranto), where visitors physically descend into darkness just as the Neolithic people who inhabited it did thousands of years ago. The experience is not a passive museum visit —  each visitor inhabits a role inside the cave and <strong>discovers its art through that lens</strong>. </p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8011-ae61-ea844789fb88" class="">Education happens through immersion, not instruction.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8011-bb4f-f5f334bff56c" class="">The guiding metaphor: <strong>the user journey IS the descent into darkness.</strong></p></div><div style="display:contents" dir="auto"><hr id="318c94e7-dc42-809d-b8db-daf24426d93e"/></div><div style="display:contents" dir="auto"><h2 id="318c94e7-dc42-8060-bc95-f910a59e17a1" class="">🏛️ The Setting</h2></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-804b-9304-c69db143129b" class=""><strong>VR headsets</strong> in a <strong>dim, atmospherically lit room inside the Otranto Castle</strong> — the ideal host since it already holds a permanent exhibition on the Deer Cave and is geographically the closest institution to Porto Badisco.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8007-b9fb-e9379ff1fcc7" class="">Before entering the VR, visitors encounter a <strong>physical preamble station</strong>: infographics and images explaining why a) the cave is inaccessible, b) what they are about to see, c) accessibility warnings (VR side effects, colorblind and deaf-friendly design), and a d) key invitation — <em>if you are in a group, choose different characters so you can compare your experiences afterward.</em></p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-803e-af30-f53d7c6d5b9b" class=""><strong>Staff </strong>greet visitors, explain the dynamics, help fit the headsets, and then step back. </p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-80d6-8cad-ca802aa2d402" class="">From this point on, the visitor is alone in the cave.</p></div><div style="display:contents" dir="auto"><hr id="318c94e7-dc42-80ce-9957-c32bfa6ec769"/></div><div style="display:contents" dir="auto"><h2 id="318c94e7-dc42-8087-9cf1-ca3da9a9a91a" class="">🚶🏻 The Experience Structure</h2></div><div style="display:contents" dir="auto"><h3 id="318c94e7-dc42-802b-8b14-f7eaf25b8e9e" class="">The Opening Scene</h3></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-80fa-8b80-c5121cd5b538" class="">The visitor materialises at the <strong>West entrance of the cave at sunset in the 2020s</strong>. The Apulian sea glitters behind them, the last light of a summer evening washing over the Salento landscape. It is beautiful — and brief. There is no time to linger outside. Something draws you in.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8015-9e96-e0ca0f1f64ad" class="">A single question appears:</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8017-a100-f10f3a22a5d6" class=""><strong>Who are you?</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="318c94e7-dc42-808e-b888-d626cd4e8b9a" class="numbered-list" start="1"><li>🐾 <strong>Shaman</strong> — the main, most complete storyline (can be either man or woman)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="318c94e7-dc42-802d-9eb9-e1fdb6efa85a" class="numbered-list" start="2"><li>⚔️ <strong>Warrior</strong> — entering to seek protection or power</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="318c94e7-dc42-8037-af75-f7d857ec41aa" class="numbered-list" start="3"><li>👁️ <strong>Devotee I</strong> — seeking communication with ancestors and initiation rituals </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="318c94e7-dc42-80e4-8f19-fce8247b3cf8" class="numbered-list" start="4"><li>🙏 <strong>Devotee II</strong> — bringing an offering, asking something of the deity</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="318c94e7-dc42-8024-b056-f6cb309997ed" class="numbered-list" start="5"><li>💃 <strong>Dancer</strong> — part of the ritual, keeper of movement and trance</li></ol></div><div style="display:contents" dir="auto"><p id="36fc94e7-dc42-802e-a967-d957a83625a3" class="">We are now a person of the Neolithic, we’re back in time. </p></div><div style="display:contents" dir="auto"><hr id="318c94e7-dc42-805d-b276-d99d393b1456"/></div><div style="display:contents" dir="auto"><h3 id="318c94e7-dc42-8099-af84-c7c19131cd90" class="">Inside the Cave</h3></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-80bf-82d6-fa1506239068" class="">The educational content — descriptions of paintings, historical context, significance of symbols — is <strong>the same for all characters</strong>. What changes is the experiences.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8008-9c89-d9683cf94dca" class="">The Shaman performs the ritual and interprets the phosphenes as visions. <br/>The Devotee II must choose the right votive offering for their request, learning about the artifacts through that act of choice. <br/>The Dancer experiences the cave through movement and sound. </p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-80ef-9b2a-ef14c67d583a" class="">Each role makes the same knowledge feel personal.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-804d-a0f5-e8837a54afab" class=""><strong>As visitors move deeper into the cave, the experience follows the real spatial logic of the site — Zone by Zone, from the Red Room outward</strong> — mirroring the sacred path the Neolithic painters themselves walked.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-80f5-ac99-fa599fecfe52" class="">Key moments include:</p></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-800c-ad55-cd587b2d37d3" class="bulleted-list"><li style="list-style-type:disc">Encountering a <strong>3D model of Professor Valzano</strong> (the project&#x27;s academic anchor) who contextualises discoveries as you go; </li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-804b-901c-d8329d1c8dc9" class="bulleted-list"><li style="list-style-type:disc">Recognising a painting and seeing it <strong>linked to identical symbols found in caves worldwide</strong> — from California to Colombia — reinforcing the <strong>universal nature of phosphenic imagery</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-8004-831d-d5157baf8a28" class="bulleted-list"><li style="list-style-type:disc">A moment of <strong>genuine darkness and silence</strong> deep in the cave, where the visitor understands what the shamans felt</li></ul></div><div style="display:contents" dir="auto"><hr id="318c94e7-dc42-8056-9422-d342693a9819"/></div><div style="display:contents" dir="auto"><h3 id="318c94e7-dc42-80de-8c82-dece47861845" class="">The Ending: Your Mark on the World</h3></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8068-8fe4-fda004fe2004" class="">Transition between the VR Experience and the exit from the Aragonese Castle. An interactive LED Display (either on the wall or on the ground).  </p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-80c2-96bb-e0ec8e32eb2d" class="">Once out of the cave, other caves around the world with similar pictograms are shown, to highlight the common language shared by communities back then. </p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-8024-b81c-dbd55af7dccd" class="">The final scene poses a single, deceptively simple question:</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-80cc-9d62-c9c04e182447" class=""><em><strong>If you were a Neolithic painter, what would you draw?</strong></em></p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-804c-a4cc-ddaa034b671d" class="">The visitor is given a <strong>specific contemporary concept (object</strong> — assigned by the experience, not chosen by them. Something universal: a phone, a journey, a family, a celebration, death, love, time. They are asked to draw it <strong>abstractly</strong>, with no letters or realistic representation. Just marks, shapes, lines — the way the Badisco painters did.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-800e-8fd4-f93b1e8bc54e" class="">The real revelation comes after: their drawing is placed alongside <strong>every other visitor&#x27;s drawing of the same concept</strong>, gathered from all over the world and over time. The question the project asks — and answers — is:</p></div><div style="display:contents" dir="auto"><blockquote id="318c94e7-dc42-8006-a0de-f0638aca1eb1" class=""><div style="display:contents" dir="auto"><p id="36fc94e7-dc42-80e8-99c9-f8ee235ab600" class=""><em>Despite our differences, do we still picture things the sam  e way?<br/>Despite our borders, are we still part of one, big community?</em></p></div></blockquote></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8055-864a-d00949d4cb6b" class="">If the drawings converge — if a spiral still means something spinning, if concentric circles still suggest depth or importance, if a zigzag still means water or danger — then the cave paintings stop being ancient and alien. They become a mirror. The phosphenes were never just Neolithic. They were always ours.</p></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8089-94f4-f55a34eae2eb" class="">This transforms the mini-game from a fun activity into the <strong>intellectual and emotional thesis of the entire project</strong>.</p></div><div style="display:contents" dir="auto"><hr id="35dc94e7-dc42-80cd-ab6e-f27f3ce503ff"/></div><div style="display:contents" dir="auto"><h3 id="35dc94e7-dc42-80b9-82b6-d75d6c0ceea6" class="">Outside of the VR: Handprints’ Interactive Display </h3></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80ce-9530-d0f930efdf53" class="">Upon exiting the VR experience, the visitor finds themselves in front of a touch-reactive LED screen. All the handprints left by those who lived the experience before them are visible on the screen — luminous silhouettes on a dark background, arranged randomly, like the handprints on the ceiling of the Sanctuary. </p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80a7-94ec-f57320098d0d" class="">The visitor places their own hand on the screen: the print is added to the others with a brief light effect and remains.</p></div><div style="display:contents" dir="auto"><p id="35dc94e7-dc42-80e1-a488-c54251143476" class="">This gesture directly mirrors the handprints in the Sanctuary of the Grotta dei Cervi — the most immediate and universal symbol of presence: &quot;I was here.&quot; The accumulation of prints over time makes the belonging to a single humanity visible, regardless of the chosen character, the level, or the story experienced.</p></div><div style="display:contents" dir="auto"><hr id="35dc94e7-dc42-803a-9df7-f580f9e478e0"/></div><div style="display:contents" dir="auto"><h2 id="318c94e7-dc42-8006-925b-c2d391f3f0bf" class="">🎨 Visual Identity &amp; Style</h2></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-803f-91eb-d970c072d27f" class="">The entire visual language of the project — VR interface, website, printed materials — draws directly from the cave&#x27;s own artistic vocabulary:</p></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-8045-8fff-ca421d2a903c" class="bulleted-list"><li style="list-style-type:disc"><strong>Colours</strong>: red and black (the cave&#x27;s pigments), on a warm beige or off-white ground<div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-8056-bd63-ef344cecf00e" class="bulleted-list"><li style="list-style-type:circle"><strong>Red Ochre</strong> (iron oxide / hematite)<div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-80bd-b519-e2e12af54362" class="bulleted-list"><li style="list-style-type:square">HEX: <code>#8B3A2A</code></li></ul></div><div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-803e-9efa-e57b92daaaf1" class="bulleted-list"><li style="list-style-type:square">RGB: <code>rgb(139, 58, 42)</code></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-8061-8df9-d1f7bdda4545" class="bulleted-list"><li style="list-style-type:circle"><strong>Black Guano</strong> (bat guano, manganese-based black)<div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-804f-924a-da423bb0f0bf" class="bulleted-list"><li style="list-style-type:square">HEX: <code>#1C1A17</code></li></ul></div><div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-80c0-b7fd-e9cc0e569eaf" class="bulleted-list"><li style="list-style-type:square">RGB: <code>rgb(28, 26, 23)</code></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-80b0-8f08-c222f58ceece" class="bulleted-list"><li style="list-style-type:circle"> warm <strong>limestone/beige</strong> as a neutral background:<div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-80de-a196-c7d2fbefdca4" class="bulleted-list"><li style="list-style-type:square">HEX: <code>#C9B99A</code></li></ul></div><div style="display:contents" dir="auto"><ul id="34bc94e7-dc42-807f-8422-c208dbc72c5a" class="bulleted-list"><li style="list-style-type:square">RGB: <code>rgb(201, 185, 154)</code></li></ul></div></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-8035-8de1-d47242f9d752" class="bulleted-list"><li style="list-style-type:disc"><strong>Shapes</strong>: phosphenic forms — spirals, concentric circles, labyrinths, grids, dots — used as <span style="border-bottom:0.05em solid">decorative and navigational elements</span></li></ul></div><div style="display:contents" dir="ltr"><figure id="350c94e7-dc42-8094-a150-db76bb67f2c2" class="image"><a href="05-GROTTA-CERVI_pittogrammi-removebg-preview.png"><img style="width:543.7875366210938px" src="05-GROTTA-CERVI_pittogrammi-removebg-preview.png"/></a></figure></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80bd-ac52-e9093f5ab016" class="bulleted-list"><li style="list-style-type:disc"><strong>Motion</strong>: the same dashes and chevrons the shamans used to indicate movement animate transitions and loading screens</li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80d5-8ed8-ecb917855afc" class="bulleted-list"><li style="list-style-type:disc"><strong>Feeling</strong>: the design should feel <em>trance-adjacent</em> —<strong><span style="border-bottom:0.05em solid"> rhythmic, repetitive, hypnotic </span></strong>— without being inaccessible</li></ul></div><div style="display:contents" dir="auto"><p id="318c94e7-dc42-8008-a765-c1ccd73aa869" class=""><strong>The website mirrors the exhibition</strong>. As Professor Pescarini noted, <em><strong>the website is the mirror of the museum</strong></em><strong> </strong>— so the same symbolic vocabulary, the same darkness and warmth, the same sense of descending into something ancient.</p></div><div style="display:contents" dir="auto"><hr id="318c94e7-dc42-8010-8c09-e6ecf331ed31"/></div><div style="display:contents" dir="auto"><h2 id="318c94e7-dc42-8003-b2d7-fbf3cf56f351" class="">♿ Accessibility &amp; Accuracy</h2></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-809d-9789-e48d76009b5d" class="bulleted-list"><li style="list-style-type:disc">Full <strong>colorblind-friendly</strong> palette and interface options</li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-8007-8f76-d65a3ebc631f" class="bulleted-list"><li style="list-style-type:disc"><strong>Subtitles and visual cues</strong> for deaf visitors throughout</li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80a3-abb6-f62b0162cc04" class="bulleted-list"><li style="list-style-type:disc"><strong>No heavy physical movement</strong> required — designed to work seated if needed</li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80e6-930c-e8cfc6f512dc" class="bulleted-list"><li style="list-style-type:disc">VR side-effect warnings clearly communicated before the experience begins</li></ul></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80c7-8240-e2abb2690d1e" class="bulleted-list"><li style="list-style-type:disc">All content <strong>historically and archaeologically grounded</strong>, with Professor Valzano&#x27;s 3D presence as the guarantee of academic rigour</li></ul></div><div style="display:contents" dir="auto"><hr id="318c94e7-dc42-80fe-802c-fb05f5e2564e"/></div><div style="display:contents" dir="auto"><h2 id="318c94e7-dc42-809b-804b-c6d8199bfeb4" class="">❓Future Developments</h2></div><div style="display:contents" dir="auto"><ul id="318c94e7-dc42-80d1-8a7f-d63a8ca7ab2c" class="bulleted-list"><li style="list-style-type:disc"><strong>Multiplayer layer</strong> where a group visiting together can see each other&#x27;s characters inside the cave, each fulfilling their role in the same ritual simultaneously. This would make the group debrief afterward even richer, since each person literally experienced a different version of the same sacred space.</li></ul></div><div style="display:contents" dir="auto"><ul id="352c94e7-dc42-80d0-8e80-f04c5d4636ea" class="bulleted-list"><li style="list-style-type:disc"><strong>Kids level</strong>: specifically designed for kids (and not a diluted version of the adult version), following Tilden’s Interpretative Principles; </li></ul></div><div style="display:contents" dir="auto"><hr id="318c94e7-dc42-8055-8591-da3ad1ed5d96"/></div><div style="display:contents" dir="auto"><p id="350c94e7-dc42-8019-970f-d1dc9ae6e6af" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

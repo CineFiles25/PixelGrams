@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DEER CAVE: FULL RESEARCH</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2d2c94e7-dc42-803c-84b9-fc2818694fb8" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📝</span></div><h1 class="page-title" dir="auto">DEER CAVE: FULL RESEARCH</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><nav id="34bc94e7-dc42-80df-a73c-fdfcdde6ab9e" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8034-a523-c8a30a01615a">GROTTA DEI CERVI (DEER CAVE) - PORTO BADISCO, OTRANTO (LE)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8031-9874-e6aa302e5b4c">Comprehensive Archaeological and Historical Documentation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80d2-9df6-c002c172787e">BASIC INFORMATION</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8056-b6be-f7cd83af18aa">CHRONOLOGICAL TIMELINE</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8049-836e-fb779a4bb26d">DISCOVERY DETAILS</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8078-a8b9-dc64a4b0634c">PHYSICAL STRUCTURE</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8089-8087-f3c161412e31">Planimetry</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-809b-ae15-d934d2bf9aa6">ROCK ART &amp; PAINTINGS</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-803f-ac10-fa60d3614b84"><strong>General Characteristics</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80ae-86a3-cdd395362c66"><strong>Subject Matter</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80c7-a3e0-f99c87dab9d3"><strong>Symbolic Motifs - Detailed Analysis</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80ac-a499-dab3975c8983"><strong>Interpretation of Art</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80ee-be49-eb7891a7d245">ARCHAEOLOGICAL FINDINGS</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-808e-bcdd-edffcaea8148"><strong>Ceramic Vessels</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8074-99d0-d2395be9a3a8"><strong>Ceremonial Objects</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80e4-9194-e15f49c1191c"><strong>Trade Goods &amp; Exotic Materials</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8027-aeed-c61f90130e29"><strong>Structural Features</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-809a-8dd4-ec6c6a5e358b">CULTURAL CONNECTIONS &amp; EXCHANGE NETWORKS</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80d5-a3d4-de28b4b705dc"><strong>Geographic Distribution of Shared Symbolism</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8017-90bd-f39706dcbb5b"><strong>Chronological Spread of Symbolic Systems</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-803c-9373-e24d0e880831">INTERPRETATIONS &amp; THEORIES</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80ad-a0cf-ec220998ead6"><strong>Purpose &amp; Function of Cave</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-808f-854c-ff78380c8b56"><strong>Represented Figures - Possible Identities</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80e9-8ce3-dc7fa5678c7d">SCIENTIFIC STUDIES &amp; METHODOLOGY</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80e0-b174-e18da0482c7d"><strong>Research Campaigns</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8005-941d-fdaad84e2d8e"><strong>Modern Technologies Applied</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8009-af91-fb2d929609c9"><strong>Conservation Measures</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8030-9aa2-de1cce78ad1d">ACCESSIBILITY &amp; PUBLIC ENGAGEMENT</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8075-aa55-dc3ce8f20de5">OWNERSHIP &amp; MANAGEMENT</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80ff-a45c-e34aef3e3f50">CULTURAL &amp; HISTORICAL SIGNIFICANCE</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80e7-ab3e-dcd5244252d2"><strong>Key Insights Provided</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80d1-8da3-fad66b6854f1"><strong>Comparative Importance</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8041-9581-d2616429bbbb">REFERENCES &amp; RESOURCES</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8075-b53f-cba04666f08b"><strong>Key Researchers &amp; Publications</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2d2c94e7-dc42-80cf-bdbd-fe71e44dc32f"><strong>Documentation Available</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2d2c94e7-dc42-8032-a493-d73e5024bd17">NOTABLE QUOTES &amp; DESCRIPTIONS</a></div></nav></div><div style="display:contents" dir="auto"><h1 id="2d2c94e7-dc42-8034-a523-c8a30a01615a" class="">GROTTA DEI CERVI (DEER CAVE) - PORTO BADISCO, OTRANTO (LE)</h1></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8031-9874-e6aa302e5b4c" class="">Comprehensive Archaeological and Historical Documentation</h2></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-8055-baca-fbf4b1b6693a"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-80d2-9df6-c002c172787e" class="">BASIC INFORMATION</h2></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8089-8aa3-ec9b7148660b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b9-94da-e2940c3f4996"><th id="FPoJ" class="simple-table-header-color simple-table-header"><strong>Category</strong></th><th id="Y`rO" class="simple-table-header-color simple-table-header"><strong>Details</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80bd-b0be-efd3e8dde7b2"><td id="FPoJ" class=""><strong>Name Origin</strong></td><td id="Y`rO" class=""><strong>Named after the numerous depictions of deer</strong> on its walls, shown in various poses and hunting situations</td></tr></div><div style="display:contents" dir="ltr"><tr id="8ef03d9d-3546-41f8-b98d-6b83e0c2bb55"><td id="FPoJ" class=""><strong>Other Name</strong></td><td id="Y`rO" class="">  • “<strong>Cave of Aeneas</strong>” (because it was believed Enea had landed here when he came to Italy)<br/>  • <strong>&quot;Sistine Chapel of Prehistory&quot;</strong> (due to the immense scale and importance of the paintings)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-805f-b77f-d2d5e84334e3"><td id="FPoJ" class=""><strong>Location</strong></td><td id="Y`rO" class=""><strong>Porto Badisco</strong>, Otranto (Lecce), Salento, Puglia, Italy - 15km south of Otranto</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8003-8462-f8d4b761baec"><td id="FPoJ" class=""><strong>Geographic Coordinates</strong></td><td id="Y`rO" class="">Facing the Strait of Otranto (Adriatic Sea)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807b-ae01-c45f175d4b87"><td id="FPoJ" class=""><strong>Significance</strong></td><td id="Y`rO" class="">One of the <strong>most extraordinary testimonies of Prehistoric art in Europe</strong>; richest collection of Neolithic rock paintings in quality and variety</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8051-9246-e80c943f5409"><td id="FPoJ" class=""><strong>Current Status</strong></td><td id="Y`rO" class=""><strong>CLOSED TO PUBLIC </strong>since 1987 - accessible only to scientific community - due to the <strong>extreme fragility of the “</strong><em><strong>faugnu</strong></em><strong>” </strong>(humidity)<strong> microclimate </strong>(temperature and humidity) necessary for art preservation.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-808a-88bd-edc3b7724611"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8056-b6be-f7cd83af18aa" class="">CHRONOLOGICAL TIMELINE</h2></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-8022-8299-dbea243c2875" class="bulleted-list"><li style="list-style-type:disc"><strong>Paleolithic </strong>→ <strong>SHELTER</strong>, beginning of usage</li></ul></div><div style="display:contents" dir="auto"><ul id="314c94e7-dc42-80de-b893-da8f019698c8" class="bulleted-list"><li style="list-style-type:disc"><strong>Neolithic </strong>→ <strong>CERIMONIAL SITE,</strong> most use and traffic</li></ul></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80a7-966c-f0abab8a1dae" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8092-918c-ebc5313d1b7f"><th id="r|=r" class="simple-table-header-color simple-table-header"><strong>Period</strong></th><th id="r~Dl" class="simple-table-header-color simple-table-header"><strong>Dates</strong></th><th id="UAGL" class="simple-table-header-color simple-table-header"><strong>Activity/Events</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-806f-8368-c8b803fdb68d"><td id="r|=r" class=""><strong>Upper Paleolithic</strong></td><td id="r~Dl" class="">31,000 - 8,000 BC</td><td id="UAGL" class=""><strong>Initial human presence </strong>(radiocarbon dates from Cavity B); cave used as <strong>SHELTER</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e1-b994-cd0ba006af96"><td id="r|=r" class=""><strong>Early Neolithic (advanced phases)</strong></td><td id="r~Dl" class="">c. 5,800 BC</td><td id="UAGL" class=""><strong>Transformation into CERIMONIAL SITE</strong>; beginning of systematic ritual use</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-809b-a8fc-ddf8ab3a95f9"><td id="r|=r" class=""><strong>Early Neolithic</strong></td><td id="r~Dl" class="">6th millennium BC (6000-5000 BC)</td><td id="UAGL" class="">Creation of anthropomorphic vessels; ritual depositions near hearths and lithic enclosures</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8094-9254-f54ce13fab86"><td id="r|=r" class=""><strong>Mid-Late Neolithic</strong></td><td id="r~Dl" class="">Second half 6th millennium BC</td><td id="UAGL" class="">Introduction of anthropomorphic flask vessels (Scaloria Alta style)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8087-9693-cc58f3b3da29"><td id="r|=r" class=""><strong>Neolithic - Copper Age</strong></td><td id="r~Dl" class="">6000-3000 BC</td><td id="UAGL" class="">Continuous use of Cavities A, D, and Tunnel N</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8086-9267-c70fbae0c9be"><td id="r|=r" class=""><strong>End of 4th millennium</strong></td><td id="r~Dl" class="">c. 3,000 BC</td><td id="UAGL" class="">Abandonment of Cavity E; no later materials found in this area</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8054-ac2e-dd6c2b40ddd7"><td id="r|=r" class=""><strong>Bronze Age</strong></td><td id="r~Dl" class="">3000-1000 BC</td><td id="UAGL" class="">Continued ceremonial use of some cavities</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8018-b074-f8cc21ec9422"><td id="r|=r" class=""><strong>Modern Discovery</strong></td><td id="r~Dl" class="">February 1, 1970</td><td id="UAGL" class="">Discovery by speleologists of &quot;Pasquale de Lorentiis&quot; Salento Speleological Group of Maglie</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8022-9fc3-e5f12afd461a"><td id="r|=r" class=""><strong>Initial Excavations</strong></td><td id="r~Dl" class="">1970-1997</td><td id="UAGL" class="">Multiple excavation campaigns by various teams; surface collections in painted corridors</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-809f-9273-dcf9c0ac182d"><td id="r|=r" class=""><strong>Public Closure</strong></td><td id="r~Dl" class="">1987</td><td id="UAGL" class=""><strong>Permanent closure</strong> to general public for preservation</td></tr></div><div style="display:contents" dir="ltr"><tr id="ee05c889-2bb8-43bf-98d1-4929f6ffb9f0"><td id="r|=r" class=""><strong>Advanced Studies</strong></td><td id="r~Dl" class="">2015-2019</td><td id="UAGL" class="">  • Systematic study of ceramic complexes; <br/>  • 3D scanning; <br/>  • Material analysis; <br/>  • Topographic surveys</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-809e-96c9-cd272c27ae53"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8049-836e-fb779a4bb26d" class="">DISCOVERY DETAILS</h2></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80fe-a0e0-c0d1f7ccbda9" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80f6-8220-d33c0c14d01c"><th id="Y`|s" class="simple-table-header-color simple-table-header"><strong>Aspect</strong></th><th id="e@&gt;v" class="simple-table-header-color simple-table-header"><strong>Information</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-809a-baf3-e966d150a6f4"><td id="Y`|s" class=""><strong>Date</strong></td><td id="e@&gt;v" class=""><strong>February 1, 1970</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80f4-9bed-fd696bbe5d73"><td id="Y`|s" class=""><strong>Discoverers</strong></td><td id="e@&gt;v" class="">Five speleologists: Daniele Rizzo, Severino Albertini, Enzo Evangelisti, Isidoro Mattioli, Remo Mazzotta</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807e-acad-f27f60044404"><td id="Y`|s" class=""><strong>Organization</strong></td><td id="e@&gt;v" class="">&quot;Pasquale de Lorentiis&quot; Salento Speleological Group of Maglie</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e8-a3dc-cfab93528556"><td id="Y`|s" class=""><strong>Other Key Figures</strong></td><td id="e@&gt;v" class=""><strong>Paolo Graziosi</strong> (guided the group); Cosimo Leopizzi, Gigi Premiti, Antonio De Lorentiis (young local speleologists who first identified it), <strong>Maria Laura Leone</strong> (Phosphenic art theory), <strong>Marija Gimbutas</strong> (Great Goddess hypothesis applied to Neolithic context).</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8023-85da-c189e719538b"><td id="Y`|s" class=""><strong>Discovery Story</strong></td><td id="e@&gt;v" class=""><strong>One discoverer felt hot air coming from a hole in upper part of cave; began digging and descended 20m</strong> to find the cave</td></tr></div><div style="display:contents" dir="ltr"><tr id="cbacee31-1844-406b-a44a-1f79e185f210"><td id="Y`|s" class=""><strong>Exploration status</strong></td><td id="e@&gt;v" class="">INCOMPLETE</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-80db-9019-e7133331696d"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8078-a8b9-dc64a4b0634c" class="">PHYSICAL STRUCTURE</h2></div><div style="display:contents" dir="ltr"><table id="1a75ff45-21d2-47e6-a862-e33ab1107beb" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1a145f9c-0e27-477b-ae1c-863936e6c237"><th id="@ICt" class="simple-table-header-color simple-table-header"><strong>Feature</strong></th><th id="=wF@" class="simple-table-header-color simple-table-header" style="width:382px"><strong>Description</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="488e794e-f879-4e05-8a70-6dfd3c611ea2"><td id="@ICt" class=""><strong>Cave Type</strong></td><td id="=wF@" class="" style="width:382px"><strong>Karst complex </strong>in calcareous rock</td></tr></div><div style="display:contents" dir="ltr"><tr id="4bb17165-dad9-45ad-9883-7a9c78a06690"><td id="@ICt" class=""><strong>Total Length</strong></td><td id="=wF@" class="" style="width:382px">Over <strong>1,500 meters</strong> (=4,900 ft) of galleries across <strong>three </strong>main, tortuous <strong>corridors </strong>(first one is the most tortous<strong>)</strong>. There are some <strong>large, mostly not accessible rooms.</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="7cf5a5df-695e-4c56-8a73-a907d170d3ee"><td id="@ICt" class=""><strong>Depth</strong></td><td id="=wF@" class="" style="width:382px">Up to <strong>28 meters below sea level</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="53c6ca88-ed6c-4ab4-af0c-e45172ebede4"><td id="@ICt" class=""><strong>Main Components</strong></td><td id="=wF@" class="" style="width:382px">Five entrance cavities leading to four painted corridors</td></tr></div><div style="display:contents" dir="ltr"><tr id="8ad3f8e9-fa9b-428a-91be-b975b2cbbc3a"><td id="@ICt" class=""><strong>Development</strong></td><td id="=wF@" class="" style="width:382px"><strong>Predominantly horizontal</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="40729fc2-c9da-4e72-966b-42e8acbf2aed"><td id="@ICt" class=""><strong>Entrance</strong></td><td id="=wF@" class="" style="width:382px"><strong>Small opening</strong> in limestone rock (and anothe innaccessible)</td></tr></div><div style="display:contents" dir="ltr"><tr id="854e463b-796a-42d4-8233-0f49a5531aef"><td id="@ICt" class=""><strong>Internal Conditions</strong></td><td id="=wF@" class="" style="width:382px"><strong>  • Constant </strong>temperature;<br/>  • <strong>High humidity</strong> (crucial for preservation) (”<em>faugnu</em>” microclimate)<br/>  • <strong>Low air </strong>circulation<br/>  • <strong>Darkness </strong><br/>  • Mineral Condensation</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-8089-8087-f3c161412e31" class="">Planimetry</h3></div><div style="display:contents" dir="ltr"><figure id="315c94e7-dc42-80bd-9eb0-f4065d11b0dd" class="image" style="text-align:left"><a href="Progetto-169.jpg"><img style="width:672px" src="Progetto-169.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><table id="e4d50595-c557-4f9c-81e3-1366b45a3b16" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="5b60be07-0f5f-43bf-9517-75c5015bb1f7"><th id="gCRJ" class="simple-table-header-color simple-table-header"><strong>Corridor</strong></th><th id="q\?H" class="simple-table-header-color simple-table-header"><strong>Zone / Area</strong></th><th id="J;fL" class="simple-table-header-color simple-table-header"><strong>Name (as given by the author)</strong></th><th id="uW_&lt;" class="simple-table-header-color simple-table-header"><strong>Key features / notes</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="bacc08e4-cc34-44a1-8074-e21e0266812e"><td id="gCRJ" class=""><strong>1st CORRIDOR </strong> (from main entrance, west)</td><td id="q\?H" class="">—</td><td id="J;fL" class="">—</td><td id="uW_&lt;" class="">Most tortuous path, with sudden drops in the vault. Around 50 m from the entrance there is a water-collecting pool.</td></tr></div><div style="display:contents" dir="ltr"><tr id="4744e055-1d45-4300-9b8d-e0f3e92c9ae4"><td id="gCRJ" class=""><strong>1st corridor</strong></td><td id="q\?H" class=""><strong>Zone I</strong></td><td id="J;fL" class=""><strong>Dromos</strong></td><td id="uW_&lt;" class="">End of the first corridor. First paintings. Entrance to the <strong>fourth corridor</strong> (no drawings).</td></tr></div><div style="display:contents" dir="ltr"><tr id="0312099e-1d56-46d0-9c66-fa4b980db146"><td id="gCRJ" class=""><strong>2nd CORRIDOR</strong></td><td id="q\?H" class="">—</td><td id="J;fL" class="">—</td><td id="uW_&lt;" class="">Richest in pictorial representations and easiest to navigate. Entered via a narrow passageway.</td></tr></div><div style="display:contents" dir="ltr"><tr id="e226dd5f-8807-4153-94bd-005a1670d1c3"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone III</strong></td><td id="J;fL" class=""><strong>Red Hall</strong></td><td id="uW_&lt;" class="">First room. 4 m high. Ochre paintings. Notable figure: <strong>Fish Woman</strong> (two fins instead of feet). Contains the foundational mythological narrative of the site, paintings that tell a story in six parts: two women and a hunter that indicate the way (probably a quest for a deer). </td></tr></div><div style="display:contents" dir="ltr"><tr id="885790e7-05aa-44c7-b5a2-130083744733"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone IV</strong></td><td id="J;fL" class=""><strong>Androgen Hall</strong></td><td id="uW_&lt;" class="">Large natural anthropomorphic figure (2 m tall), surrounded by threadlike beings in various poses.</td></tr></div><div style="display:contents" dir="ltr"><tr id="33a0a190-1ad3-4e7d-9a7d-7fe612f6e453"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone V</strong></td><td id="J;fL" class=""><strong>Lizard Hall</strong></td><td id="uW_&lt;" class="">Circular room suitable for meetings. Lizard or gecko painted at the entrance.</td></tr></div><div style="display:contents" dir="ltr"><tr id="d0568748-48a6-49df-8284-15f2e5bc3aa7"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone V</strong></td><td id="J;fL" class=""><strong>Hall of Ceremonies</strong></td><td id="uW_&lt;" class="">Adjoining room. Depiction of six marathon runners running.</td></tr></div><div style="display:contents" dir="ltr"><tr id="a16cd421-2ab8-44f6-9a30-8e3623874d50"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone VI</strong></td><td id="J;fL" class="">—</td><td id="uW_&lt;" class="">Rich in stalactites and stalagmites.</td></tr></div><div style="display:contents" dir="ltr"><tr id="5daf865a-1d95-48c2-9757-c1ca02cb1157"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone VII</strong></td><td id="J;fL" class=""><strong>Vestibule</strong></td><td id="uW_&lt;" class="">Ante-chamber where an ancient guano deposit once stood. Precedes the Sanctuary.</td></tr></div><div style="display:contents" dir="ltr"><tr id="fe34edd0-f196-4741-8c14-92a53dee3711"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone VIII</strong></td><td id="J;fL" class=""><strong>Sanctuary</strong></td><td id="uW_&lt;" class=""><strong>Small handprints</strong> on the ceiling (suggesting female or child hands), interpreted as a <span style="border-bottom:0.05em solid">ritual gesture marking passage from childhood to adulthood</span>. Controversial figure: <strong>Lady of the Serpents</strong> (female figure with breasts attached directly to the neck, triangular head with a seven-rayed crown, S-shaped body; two attributes under mirrored S-shaped legs). <span style="border-bottom:0.05em solid">Linked by Maria Gimbutas to a Neolithic Mother Serpent Goddess</span> as a <span style="border-bottom:0.05em solid">symbol of cyclical time</span>.</td></tr></div><div style="display:contents" dir="ltr"><tr id="79488f53-f7ae-448b-a6fd-d5f66fb89b2f"><td id="gCRJ" class=""><strong>2nd corridor</strong></td><td id="q\?H" class=""><strong>Zone IX</strong></td><td id="J;fL" class=""><strong>Tabernacle</strong></td><td id="uW_&lt;" class="">Small circular room with significantly lowered ceiling. Seven pictorial groups with scattered graphemes. Cup for collecting liquids, likely used as an altar for ablutions and rituals. Collapse closed the tunnel before further rooms could be explored.</td></tr></div><div style="display:contents" dir="ltr"><tr id="48c03324-323f-425b-ab05-cac5805273ca"><td id="gCRJ" class=""><strong>3rd CORRIDOR</strong> (access from Red Hall)</td><td id="q\?H" class=""><strong>Area X</strong></td><td id="J;fL" class=""><strong>Hall of Arabesques</strong></td><td id="uW_&lt;" class="">Labyrinthine paintings and stalactites.</td></tr></div><div style="display:contents" dir="ltr"><tr id="fdca28f4-aa7b-406a-950a-82d8d38f65a9"><td id="gCRJ" class=""><strong>3rd corridor</strong></td><td id="q\?H" class=""><strong>Area XI</strong></td><td id="J;fL" class=""><strong>Hall of Spirals</strong></td><td id="uW_&lt;" class="">Sequence continues from Area X.</td></tr></div><div style="display:contents" dir="ltr"><tr id="9f483c11-3a28-4397-ae21-6a19e4d9ae6d"><td id="gCRJ" class=""><strong>3rd corridor</strong></td><td id="q\?H" class=""><strong>Area XII</strong></td><td id="J;fL" class=""><strong>Recondite Hall</strong></td><td id="uW_&lt;" class="">Final paintings. After this, the vault lowers significantly and the cave is no longer accessible.</td></tr></div></tbody></table></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-801f-b31a-f922b3ff7a86" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8092-b3f6-dba7470d8a82"><th id="\_eu" class="simple-table-header-color simple-table-header"><strong>Cavity</strong></th><th id="Uz@i" class="simple-table-header-color simple-table-header"><strong>Usage Period</strong></th><th id="g=i{" class="simple-table-header-color simple-table-header"><strong>Special Features</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80d2-9763-ca9d629ef3d7"><td id="\_eu" class=""><strong>Cavity A</strong></td><td id="Uz@i" class="">Upper Paleolithic through Bronze Age (continuous)</td><td id="g=i{" class="">Entrance cavity with evidence of ritual depositions</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b9-9d7b-df6f9f5e745c"><td id="\_eu" class=""><strong>Cavity B</strong></td><td id="Uz@i" class="">Upper Paleolithic (31,000-8,000 BC)</td><td id="g=i{" class="">Provided radiocarbon dating evidence for earliest occupation</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-808e-a306-e96f76abf1b5"><td id="\_eu" class=""><strong>Cavity D</strong></td><td id="Uz@i" class="">Neolithic through Bronze Age (continuous)</td><td id="g=i{" class="">Entrance cavity with long-term ceremonial use</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b7-8e5b-f00aa8926c74"><td id="\_eu" class=""><strong>Cavity E</strong></td><td id="Uz@i" class="">Used until end of 4th millennium BC (c. 3,000 BC)</td><td id="g=i{" class="">Abandoned earlier than other cavities; no later materials</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8010-bb8c-fbbb3bc94497"><td id="\_eu" class=""><strong>Tunnel N</strong></td><td id="Uz@i" class="">Neolithic through Bronze Age (continuous)</td><td id="g=i{" class="">Direct access to First Painted Corridor; continuous ritual use</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-8057-87bc-f23bc8274f76"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-809b-ae15-d934d2bf9aa6" class="">ROCK ART &amp; PAINTINGS</h2></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-803f-ac10-fa60d3614b84" class=""><strong>General Characteristics</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8048-9e9f-fec440a5496c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80d5-a16b-ce5b6efa9290"><th id="e}cB" class="simple-table-header-color simple-table-header"><strong>Aspect</strong></th><th id="tv?t" class="simple-table-header-color simple-table-header"><strong>Details</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e6-bbb1-f69eb2f0235f"><td id="e}cB" class=""><strong>Estimated Total</strong></td><td id="tv?t" class="">Approximately<strong> 3,000 pictograms</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="a90bc724-a4bb-4cc9-bd6d-9da09222bb3d"><td id="e}cB" class=""><strong>Coverage</strong></td><td id="tv?t" class="">Several meters of<span style="border-bottom:0.05em solid"> “wavy, milk colored” wall </span>surfaces across multiple corridors (on both side of the corridors)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8068-9346-f1a6635b4ed8"><td id="e}cB" class=""><strong>Dating</strong></td><td id="tv?t" class="">6000-1000 BC (Neolithic period, primarily 4000-3000 BC)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80c6-97a4-ed11a963f52b"><td id="e}cB" class=""><strong>Materials Used</strong></td><td id="tv?t" class=""><strong>RED ochre</strong> mixed with <strong>BLACK bat guano</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="ac4e7f43-f488-4782-888a-8789c3385427"><td id="e}cB" class=""><strong>Artistic Style</strong></td><td id="tv?t" class="">  • <strong>Stylized figures <br/>  • Phosphenic imagery </strong><br/>  • <strong>Dynamic scenes</strong> suggesting ritual and ceremonial use<br/>  • Surrealism</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e5-a1f3-c56a7811db78"><td id="e}cB" class=""><strong>Preservation</strong></td><td id="tv?t" class=""><strong>Excellent </strong>due to stable environmental conditions (constant temperature, high humidity)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8007-a71e-d827accb03a9"><td id="e}cB" class=""><strong>European Significance</strong></td><td id="tv?t" class="">Among the most important <strong>Neolithic rock art complexes</strong> in Europe and Mediterranean basin</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80ae-86a3-cdd395362c66" class=""><strong>Subject Matter</strong></h3></div><div style="display:contents" dir="auto"><p id="315c94e7-dc42-80df-9bcf-caf924509d3a" class="">Figures are usually represented “in motion”.<br/>Central role of women and children in the creation of rock art (<a href="https://www.preistoriainitalia.it/2020/11/20/messaggi-femminili-dalla-preistoria-dellarte-le-artiste-di-grotta-chauvet-e-grotta-dei-cervi/">source</a>)</p></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8081-95bc-c72071730ee8" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8079-b296-f45c8330f79f"><th id="AIEb" class="simple-table-header-color simple-table-header"><strong>Category</strong></th><th id="aCGj" class="simple-table-header-color simple-table-header"><strong>Description</strong></th><th id="lJ~O" class="simple-table-header-color simple-table-header"><strong>Frequency/Significance</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-806a-ae68-f6259870bf44"><td id="AIEb" class=""><strong>Deer</strong></td><td id="aCGj" class="">Various poses, hunting situations</td><td id="lJ~O" class=""><strong>MOST FREQUENT </strong>- gave cave its name</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80bd-bcb8-cfd9ce821ead"><td id="AIEb" class=""><strong>Hunting Scenes</strong></td><td id="aCGj" class="">Deer hunts with human figures</td><td id="lJ~O" class="">Major theme throughout cave, with the <strong>hunter </strong>being the main recurring human figure, usually indicating the way </td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8029-b271-fe73fbcf77b5"><td id="AIEb" class=""><strong>Human Figures</strong></td><td id="aCGj" class="">Anthropomorphic representations with varying stylization</td><td id="lJ~O" class=""><strong>Dancers, hunters, ritual participants</strong>; some with strong expressive characteristics</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8028-954e-c01015c58f98"><td id="AIEb" class=""><strong>Agricultural Scenes</strong></td><td id="aCGj" class="">Daily work activities</td><td id="lJ~O" class="">Evidence of Neolithic lifestyle</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-801f-9738-fa0f9145e29c"><td id="AIEb" class=""><strong>Social Scenes</strong></td><td id="aCGj" class="">Community activities and gatherings</td><td id="lJ~O" class="">Insight into <strong>social organization</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80d5-8ef2-e4e3565f6fa0"><td id="AIEb" class=""><strong>Domestic Animals</strong></td><td id="aCGj" class="">Various species</td><td id="lJ~O" class="">Evidence of <strong>animal domestication</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8052-bf8a-e0d98fc61163"><td id="AIEb" class=""><strong>Wild Animals</strong></td><td id="aCGj" class="">Beyond deer</td><td id="lJ~O" class="">Broader representation of fauna</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-802b-9053-dcd8ddc0dd85"><td id="AIEb" class=""><strong>Geometric Symbols</strong></td><td id="aCGj" class="">Abstract patterns (see detailed table below)</td><td id="lJ~O" class="">Widespread across Mediterranean and Balkans</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80d2-a092-c0fc29864139"><td id="AIEb" class=""><strong>Magical/Spiritual Symbols</strong></td><td id="aCGj" class="">Spirals, S-motifs, cymbal shapes</td><td id="lJ~O" class="">Connection to natural world, fertility, regeneration</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80f4-9a80-f11bccfa2411"><td id="AIEb" class=""><strong>Anthropomorphic Collectives</strong></td><td id="aCGj" class="">Groups of human figures</td><td id="lJ~O" class="">Similar to those found on ceramic vessels</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8081-98ad-e4bd1c333cec"><td id="AIEb" class=""><strong>Hand Prints</strong></td><td id="aCGj" class="">Impressions of human hands (found in the Sanctuary) </td><td id="lJ~O" class="">Personal/ritual marking passage from childhood to adulthood</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80c7-a3e0-f99c87dab9d3" class=""><strong>Symbolic Motifs - Detailed Analysis</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80e8-a08a-e4114c4b405b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80c5-bedd-f285e676d276"><th id="dyje" class="simple-table-header-color simple-table-header"><strong>Motif Type</strong></th><th id="~C_Z" class="simple-table-header-color simple-table-header"><strong>Description</strong></th><th id="TzgL" class="simple-table-header-color simple-table-header"><strong>Found in Grotta dei Cervi</strong></th><th id="dZfS" class="simple-table-header-color simple-table-header"><strong>Similar Sites</strong></th><th id="f_:x" class="simple-table-header-color simple-table-header"><strong>Symbolic Meaning</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8038-90fb-e31a75f7f5ef"><td id="dyje" class=""><strong>SPIRALS</strong></td><td id="~C_Z" class="">Large-scale (<strong>most recurring</strong>), deeply incised or painted in red <span style="border-bottom:0.05em solid">by the shamans</span> either through hallucinogens, hit on the head or pressure on the eye bulbs</td><td id="TzgL" class="">On walls; on Serra d&#x27;Alto vessels and pintaderas</td><td id="dZfS" class="">Vlashnje Cave (Kosovo); Sardinian domus de janas; Balkan/SE European pintaderas; Sultana vessel (Romania)</td><td id="f_:x" class="">Female genitalia; fertility; regeneration; cosmic cycles, <strong>symbol of the Mother Goddess</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b2-85d9-c62892134eff"><td id="dyje" class=""><strong>Opposed Spirals</strong></td><td id="~C_Z" class="">Mirrored spiral pairs</td><td id="TzgL" class="">On flask vessels</td><td id="dZfS" class="">Sardinian domus de janas</td><td id="f_:x" class="">Enhanced fertility symbolism</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80fd-9641-c442e984f250"><td id="dyje" class=""><strong>S-shaped Motif</strong></td><td id="~C_Z" class="">Serpentine curves</td><td id="TzgL" class="">On walls; painted on Serra d&#x27;Alto vessels</td><td id="dZfS" class="">Danilo culture vessels (Dalmatia); Cernavoda figurine (Romania)</td><td id="f_:x" class="">Female genitalia; fertility; water/life flow</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-800f-a2d9-d1fc596af89e"><td id="dyje" class=""><strong>Cymbal-shaped (Cembaliformi)</strong></td><td id="~C_Z" class="">Semicircular or bell-like forms</td><td id="TzgL" class="">Present on walls</td><td id="dZfS" class="">Grotta di Santa Croce (Bisceglie) - horizontal rows at entrance</td><td id="f_:x" class="">Musical/ritual instruments; sound in ceremonies</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80fc-84f4-fce22cabbe8c"><td id="dyje" class=""><strong>Rhombi with Triangular Vertices</strong></td><td id="~C_Z" class="">Diamond shapes with filled triangular corners</td><td id="TzgL" class="">On vessels</td><td id="dZfS" class="">Gradesnica anthropomorphic vessel (Bulgaria)</td><td id="f_:x" class="">Connection to SE European symbolic systems</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8010-abaa-cb5c0d9b6a64"><td id="dyje" class=""><strong>Inscribed Rectangles with Central Point</strong></td><td id="~C_Z" class="">Rectangular frames with centered dots</td><td id="TzgL" class="">On vessels, similar to wall paintings</td><td id="dZfS" class="">Masseria Candelaro vessel (Ordona)</td><td id="f_:x" class="">Shared space; cosmological representation</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8059-8bc8-d966d7379a51"><td id="dyje" class=""><strong>Notched Bands</strong></td><td id="~C_Z" class="">Series of incisions forming decorative borders</td><td id="TzgL" class="">On anthropomorphic vessel rims</td><td id="dZfS" class="">Grotta delle Veneri (Parabita) - identical fragment</td><td id="f_:x" class="">Fertility (water/seeds from mouth); decorated garments</td></tr></div><div style="display:contents" dir="ltr"><tr id="315c94e7-dc42-8010-97cc-cd907bfdfd07"><td id="dyje" class=""><strong>Additional Signs</strong></td><td id="~C_Z" class="">Dashes, dots, chévrons, trails</td><td id="TzgL" class="">On every figure depicted </td><td id="dZfS" class=""></td><td id="f_:x" class="">Symbols that indicated movement and motion</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80ac-a499-dab3975c8983" class=""><strong>Interpretation of Art</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8094-af46-cd4395f8ca34" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8020-a785-fa224288f3d4"><th id="xZrE" class="simple-table-header-color simple-table-header"><strong>Function</strong></th><th id="B@Sq" class="simple-table-header-color simple-table-header"><strong>Evidence/Interpretation</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807a-adf3-f79814299895"><td id="xZrE" class=""><strong>Propitiatory</strong></td><td id="B@Sq" class="">Hunting scenes suggest rituals to ensure successful hunts</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8046-b954-ef5bbab015e7"><td id="xZrE" class=""><strong>Ceremonial</strong></td><td id="B@Sq" class="">Connection to initiation rituals and sacred ceremonies</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-806e-a472-d4c7121b88d0"><td id="xZrE" class=""><strong>Fertility Cult</strong></td><td id="B@Sq" class="">Linked to Mother Goddess worship; pintaderas confirm body decoration during fertility rites</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8010-bb6e-f14164cfcfd0"><td id="xZrE" class=""><strong>Narrative</strong></td><td id="B@Sq" class="">Uninterrupted storytelling on walls: stories of gods, hero legends, mythical origin tales</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b3-aa4e-d8453c281461"><td id="xZrE" class=""><strong>Regeneration Anxiety</strong></td><td id="B@Sq" class="">Symbols express community concerns about <strong>fertility, rebirth, life continuity, </strong>cosmic renewal</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8019-9339-f190a1899b27"><td id="xZrE" class=""><strong>Spiritual Center</strong></td><td id="B@Sq" class="">Evidence of sacred space for connecting with ancestral spirits and deities</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-8049-ad53-f95d0a4b7e90"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-80ee-be49-eb7891a7d245" class="">ARCHAEOLOGICAL FINDINGS</h2></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-808e-bcdd-edffcaea8148" class=""><strong>Ceramic Vessels</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8043-ad24-d32f666cd57f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-808f-bdfc-cacff90db8c6"><th id="HjYJ" class="simple-table-header-color simple-table-header"><strong>Type</strong></th><th id="sF@;" class="simple-table-header-color simple-table-header"><strong>Period</strong></th><th id="GZ_;" class="simple-table-header-color simple-table-header"><strong>Style</strong></th><th id="Nfip" class="simple-table-header-color simple-table-header"><strong>Quantity</strong></th><th id="syoO" class="simple-table-header-color simple-table-header"><strong>Special Features</strong></th><th id="Bxgy" class="simple-table-header-color simple-table-header"><strong>Cultural Connections</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807a-98cb-def9963cec81"><td id="HjYJ" class=""><strong>Anthropomorphic Rim Vessels</strong></td><td id="sF@;" class="">Early Neolithic (6th millennium BC)</td><td id="GZ_;" class="">Various</td><td id="Nfip" class="">6 documented</td><td id="syoO" class="">Faces/full human figures on rims; notched chin bands; strong expressive features</td><td id="Bxgy" class="">Grotta delle Veneri (identical fragment); widespread SE Italy phenomenon</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b1-a6ee-eb8be0e59f14"><td id="HjYJ" class=""><strong>Anthropomorphic Flask Vessels</strong></td><td id="sF@;" class="">Late 6th millennium BC</td><td id="GZ_;" class="">Scaloria Alta</td><td id="Nfip" class="">4 (only necks survive)</td><td id="syoO" class="">Human faces on neck; genitalia on body</td><td id="Bxgy" class="">Rare in Puglia; common in Balkans - indicates strong Balkan influence</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8078-983f-f3b8fa0f8e23"><td id="HjYJ" class=""><strong>Serra d&#x27;Alto Style Vessels</strong></td><td id="sF@;" class="">Mid-Neolithic</td><td id="GZ_;" class="">Serra d&#x27;Alto</td><td id="Nfip" class="">Numerous</td><td id="syoO" class="">Decorated with spirals, S-motifs; some with pintadera impressions</td><td id="Bxgy" class="">Found throughout southern Italy</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-809c-936c-c6c329080dae"><td id="HjYJ" class=""><strong>Painted Vessels</strong></td><td id="sF@;" class="">Early Neolithic</td><td id="GZ_;" class="">Various</td><td id="Nfip" class="">Multiple</td><td id="syoO" class="">Similar anthropomorphs to wall paintings</td><td id="Bxgy" class="">Masseria Candelaro (Ordona); Sant&#x27;Anna (Oria)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-803e-ba99-ddedaba394eb"><td id="HjYJ" class=""><strong>Graffito Vessels</strong></td><td id="sF@;" class="">Neolithic</td><td id="GZ_;" class="">Matera-Ostuni</td><td id="Nfip" class="">Present</td><td id="syoO" class="">&quot;Shaman&quot; figure similar to wall paintings</td><td id="Bxgy" class="">Sant&#x27;Anna (Oria-BR)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8028-92c4-ee926e3219eb"><td id="HjYJ" class=""><strong>Import Vessels</strong></td><td id="sF@;" class="">Various Neolithic periods</td><td id="GZ_;" class="">Gaudo, Rinaldone, Danilo, Hvar</td><td id="Nfip" class="">Multiple</td><td id="syoO" class="">Evidence of long-distance contacts</td><td id="Bxgy" class="">Central Italy, Dalmatia</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-8074-99d0-d2395be9a3a8" class=""><strong>Ceremonial Objects</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80fb-bb00-f0eac41084a9" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8035-a6b7-f3956897fbec"><th id="HKj{" class="simple-table-header-color simple-table-header"><strong>Object Type</strong></th><th id="j&lt;My" class="simple-table-header-color simple-table-header"><strong>Material</strong></th><th id="mHy]" class="simple-table-header-color simple-table-header"><strong>Function</strong></th><th id="T[LV" class="simple-table-header-color simple-table-header"><strong>Cultural Significance</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8003-862d-c45142c787ea"><td id="HKj{" class=""><strong>Pintaderas (stamps)</strong></td><td id="j&lt;My" class="">Terracotta</td><td id="mHy]" class="">Body decoration during rites; printing designs</td><td id="T[LV" class="">Confirm Mother Goddess fertility cult; widespread Balkan tradition; spiral motifs</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-805d-97d5-f71273e13f89"><td id="HKj{" class=""><strong>Rhyta</strong></td><td id="j&lt;My" class="">Ceramic</td><td id="mHy]" class="">Ritual libation vessels</td><td id="T[LV" class="">Trans-Adriatic ceremonial practices; Balkan influence</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80db-85ed-f6630c597be3"><td id="HKj{" class=""><strong>Ceramic Ladles</strong></td><td id="j&lt;My" class="">Ceramic</td><td id="mHy]" class="">Ceremonial serving</td><td id="T[LV" class="">Common in Balkan area; ritual feasting</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-801c-ada8-fdd0de91c7ac"><td id="HKj{" class=""><strong>Hard Animal Matter Objects</strong></td><td id="j&lt;My" class="">Bone/horn</td><td id="mHy]" class="">Various ceremonial uses</td><td id="T[LV" class="">Evidence of specialized ritual craft</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80e4-9194-e15f49c1191c" class=""><strong>Trade Goods &amp; Exotic Materials</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8025-bc28-dfbf697b1eb1" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80c4-99c6-fbbc58126c2c"><th id="@Vuc" class="simple-table-header-color simple-table-header"><strong>Material</strong></th><th id="|eTB" class="simple-table-header-color simple-table-header"><strong>Origin</strong></th><th id="Pk;}" class="simple-table-header-color simple-table-header"><strong>Significance</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8076-bf5e-e64c7a035a71"><td id="@Vuc" class=""><strong>Obsidian</strong></td><td id="|eTB" class="">Lipari Islands</td><td id="Pk;}" class="">Long-distance maritime trade networks</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80bc-ac3c-e3fdc4dd5615"><td id="@Vuc" class=""><strong>Cinnabar</strong></td><td id="|eTB" class="">Probable Tuscan origin</td><td id="Pk;}" class="">Ritual pigment; indicates contact with central Italy</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-804f-8506-fc7902736f81"><td id="@Vuc" class=""><strong>Albanian Bitumen</strong></td><td id="|eTB" class="">Albania</td><td id="Pk;}" class="">Trans-Adriatic connections; waterproofing/adhesive</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8022-adae-c594d6481847"><td id="@Vuc" class=""><strong>Pottery Styles</strong></td><td id="|eTB" class="">Dalmatia (Danilo, Hvar cultures)</td><td id="Pk;}" class="">Cultural exchange across Adriatic</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807e-84c7-c3c141cc5894"><td id="@Vuc" class=""><strong>White on Dark Pottery</strong></td><td id="|eTB" class="">Greece, Montenegro (early Eneolithic)</td><td id="Pk;}" class="">Eastern Mediterranean connections</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e4-8e72-edaf47562e77"><td id="@Vuc" class=""><strong>Punctiform Decorated Ceramics</strong></td><td id="|eTB" class="">Various Balkan regions</td><td id="Pk;}" class="">Shared decorative traditions</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-8027-aeed-c61f90130e29" class=""><strong>Structural Features</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80f3-a8e5-e8b0f0081cb0" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8061-b438-dc126db859c7"><th id="J?|C" class="simple-table-header-color simple-table-header"><strong>Feature</strong></th><th id="vXg~" class="simple-table-header-color simple-table-header"><strong>Period</strong></th><th id="MoDv" class="simple-table-header-color simple-table-header"><strong>Current Status</strong></th><th id="vU`;" class="simple-table-header-color simple-table-header"><strong>Purpose</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8008-8c7a-e1cdf739fe00"><td id="J?|C" class=""><strong>Hearths</strong></td><td id="vXg~" class="">Neolithic</td><td id="MoDv" class="">Documented only in 1970s floor plans</td><td id="vU`;" class="">Ritual fires; cooking; light source</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e1-a86a-f5a407117ba5"><td id="J?|C" class=""><strong>Lithic Enclosures</strong></td><td id="vXg~" class="">Neolithic</td><td id="MoDv" class="">Documented only in 1970s floor plans</td><td id="vU`;" class="">Ritual spaces; object deposition areas</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8053-8a27-eb35b7427f6e"><td id="J?|C" class=""><strong>Object Deposition Areas</strong></td><td id="vXg~" class="">Throughout Neolithic-Bronze Age</td><td id="MoDv" class="">Archaeologically documented</td><td id="vU`;" class="">Votive offerings; ritual abandonment</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-8031-8873-d03009a7eac6"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-809a-8dd4-ec6c6a5e358b" class="">CULTURAL CONNECTIONS &amp; EXCHANGE NETWORKS</h2></div><div style="display:contents" dir="auto"><p id="315c94e7-dc42-8018-b7b4-c77f8ed3f667" class="">The Deer Cave <strong>shares a rich mythological and religious system </strong>with other Euro-Mediterranean contexts across time. </p></div><div style="display:contents" dir="auto"><p id="351c94e7-dc42-80b2-ae43-c5916b053fd9" class=""><em>&quot;There are </em><em><strong>symbols that recur throughout the ancient world</strong></em><em>, such as the spiral (a symbol of life and regeneration attributed to the Mother Goddess), which is present in the pictograms at the Grotta dei Cervi and is the dominant decorative motif on the ceramics found there.. But most of the symbols are a mystery. In reality, rather than looking at individual symbols, in my opinion we should consider the work as a whole: along the route, there is a narrative unfolding, a history shared and known to those who frequented the cave. The cave must have been the equivalent of what we consider a sanctuary or a place of worship. It certainly houses the richest collection of symbols dating back to the Neolithic—a true ideological manifesto of prehistory—in the entire Western world.”<br/></em><strong>Elettra Ingravallo</strong>, professor of Palaeontology at the <strong>University of Salento</strong>. <em><br/></em></p></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80d5-a3d4-de28b4b705dc" class=""><strong>Geographic Distribution of Shared Symbolism</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8064-9bd9-e5bb0030924a" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8084-9cd7-ffd96bfec92e"><th id="SMHO" class="simple-table-header-color simple-table-header"><strong>Region</strong></th><th id="b{cl" class="simple-table-header-color simple-table-header"><strong>Specific Sites/Cultures</strong></th><th id=":Pd;" class="simple-table-header-color simple-table-header"><strong>Shared Elements</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80c5-8f1d-d5b995c85265"><td id="SMHO" class=""><strong>Southern Italy (Puglia)</strong></td><td id="b{cl" class="">Grotta Cosma (Santa Cesarea Terme); Grotta delle Due Crocette (Bisceglie); Grotta di Santa Croce (Bisceglie); Grotta delle Veneri (Parabita); Masseria Candelaro (Ordona); Sant&#x27;Anna (Oria)</td><td id=":Pd;" class="">Anthropomorphic vessels; cymbal motifs; similar wall painting styles; notched band decoration</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8085-9bcb-cd87b32f7f73"><td id="SMHO" class=""><strong>Central Italy</strong></td><td id="b{cl" class="">Tuscan cinnabar source; Gaudo culture; Rinaldone culture</td><td id=":Pd;" class="">Trade materials; pottery styles</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80df-b8f5-d5946a0e0f80"><td id="SMHO" class=""><strong>Sardinia</strong></td><td id="b{cl" class="">Domus de janas (rock-cut tombs)</td><td id=":Pd;" class="">Opposed spirals; shared funerary symbolism</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8015-ad42-ef4e87faf423"><td id="SMHO" class=""><strong>Dalmatia</strong></td><td id="b{cl" class="">Danilo culture; Hvar style ceramics</td><td id=":Pd;" class="">Pottery styles; S-motifs; ceremonial vessels</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8074-afa5-e94593c9e784"><td id="SMHO" class=""><strong>Albania</strong></td><td id="b{cl" class="">Shpella i Shkruar cave; bitumen sources</td><td id=":Pd;" class="">Wall painting styles; anthropomorphic figures; trade materials</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8042-bd9e-cd1b874df386"><td id="SMHO" class=""><strong>Montenegro</strong></td><td id="b{cl" class="">Early Eneolithic cultures</td><td id=":Pd;" class="">White on Dark pottery; punctiform decoration</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80cd-836a-da9c299a214b"><td id="SMHO" class=""><strong>Kosovo</strong></td><td id="b{cl" class="">Vlashnje Cave</td><td id=":Pd;" class="">Large red spirals</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8097-b5b9-ec84eb82320d"><td id="SMHO" class=""><strong>Greece</strong></td><td id="b{cl" class="">Early Eneolithic cultures</td><td id=":Pd;" class="">Pottery styles; White on Dark decoration</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8034-95dd-d02f9735328a"><td id="SMHO" class=""><strong>Romania</strong></td><td id="b{cl" class="">Cernavoda figurine; Sultana vessel</td><td id=":Pd;" class="">S-motifs (female genitalia); spiral symbolism</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8065-b69c-dcc7d5581188"><td id="SMHO" class=""><strong>Bulgaria</strong></td><td id="b{cl" class="">Gradesnica</td><td id=":Pd;" class="">Rhombi motifs with triangular vertices on anthropomorphic vessels</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-802b-9704-e1bf687d517f"><td id="SMHO" class=""><strong>Southeast Europe (general)</strong></td><td id="b{cl" class="">Various Neolithic cultures</td><td id=":Pd;" class="">Pintaderas; spiral motifs; anthropomorphic vessels; fertility symbolism</td></tr></div><div style="display:contents" dir="ltr"><tr id="360c94e7-dc42-808c-8f71-d881e004023c"><td id="SMHO" class="">France</td><td id="b{cl" class="">Chauvet Cave</td><td id=":Pd;" class="">Fertility and feminility symbolism; handprints of children</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-8017-90bd-f39706dcbb5b" class=""><strong>Chronological Spread of Symbolic Systems</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8048-94db-e3e1117861a6" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807a-8d63-edfc547bd0c6"><th id="gdFd" class="simple-table-header-color simple-table-header"><strong>Time Period</strong></th><th id="tEuz" class="simple-table-header-color simple-table-header"><strong>Geographic Extent</strong></th><th id="QhnQ" class="simple-table-header-color simple-table-header"><strong>Key Symbolic Elements</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-806b-9984-c567458c2ea1"><td id="gdFd" class=""><strong>6th millennium BC</strong></td><td id="tEuz" class="">SE Europe → Central Mediterranean</td><td id="QhnQ" class="">Anthropomorphic vessels; initial spiral motifs</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-800f-8949-ce639a10ae3f"><td id="gdFd" class=""><strong>6th-5th millennium BC</strong></td><td id="tEuz" class="">Balkans → Western Mediterranean (Sardinia)</td><td id="QhnQ" class="">Full symbolic vocabulary: spirals, S-motifs, cymbal shapes, geometric patterns</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8070-bfeb-e99e8880ae1d"><td id="gdFd" class=""><strong>Late Neolithic-Copper Age</strong></td><td id="tEuz" class="">Entire Mediterranean basin + Balkans</td><td id="QhnQ" class="">Standardized ceremonial objects; shared fertility cult practices</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-80fc-b4c7-da7d13683d37"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-803c-9373-e24d0e880831" class="">INTERPRETATIONS &amp; THEORIES</h2></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80ad-a0cf-ec220998ead6" class=""><strong>Purpose &amp; Function of Cave</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80ec-804e-cc4a346817dd" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ed-9ffb-db076c7a7176"><th id="LKVa" class="simple-table-header-color simple-table-header"><strong>Theory</strong></th><th id="[vMe" class="simple-table-header-color simple-table-header"><strong>Supporting Evidence</strong></th><th id="O@V=" class="simple-table-header-color simple-table-header"><strong>Period</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807f-a679-dd79e646e49d"><td id="LKVa" class=""><strong>Ceremonial Center</strong></td><td id="[vMe" class="">Continuous ritual use over millennia; specialized objects; no habitation evidence</td><td id="O@V=" class="">All periods</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8059-9f88-c41d654b0e0f"><td id="LKVa" class=""><strong>Initiation Site</strong></td><td id="[vMe" class="">Restricted access; transformative imagery; journey into darkness</td><td id="O@V=" class="">Neolithic-Bronze Age</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8019-bfd6-eb945b5d1556"><td id="LKVa" class=""><strong>Mother Goddess Cult Center</strong></td><td id="[vMe" class="">Fertility symbols; female genitalia representations; pintaderas</td><td id="O@V=" class="">Neolithic</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8062-ad17-e905ca4a9659"><td id="LKVa" class=""><strong>Spiritual/Shamanic Site</strong></td><td id="[vMe" class="">&quot;Shaman&quot; figures; trance-inducing environment; phosphenic imagery</td><td id="O@V=" class="">Neolithic</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-809e-b1f2-f9344df6cabf"><td id="LKVa" class=""><strong>Inter-regional Meeting Place</strong></td><td id="[vMe" class="">Materials from vast geographic area; hosted local and distant groups</td><td id="O@V=" class="">Primarily Neolithic</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80d6-8794-f92e61ab19e0"><td id="LKVa" class=""><strong>Ancestral Worship</strong></td><td id="[vMe" class="">Anthropomorphic figures possibly representing ancestors; long-term ritual continuity</td><td id="O@V=" class="">All periods</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-808f-854c-ff78380c8b56" class=""><strong>Represented Figures - Possible Identities</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-807c-a478-d7cbb57d72d9" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-807a-ac34-e86a11879f30"><th id="D::c" class="simple-table-header-color simple-table-header"><strong>Hypothesis</strong></th><th id="K&lt;UG" class="simple-table-header-color simple-table-header"><strong>Context</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8002-b808-d84dae6c00e7"><td id="D::c" class=""><strong>Shamans/Priests</strong></td><td id="K&lt;UG" class="">Spiritual intermediaries; ritual specialists, painted the spirals either through hallucinogens, hit on the head or pressure on the eye bulbs →<strong> key figure </strong>of the site</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8038-8b8e-e606a834bc9c"><td id="D::c" class=""><strong>Ancestors</strong></td><td id="K&lt;UG" class=""><strong>Connection to past</strong>; legitimization of territorial claims</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80f0-b5b9-d1c0343f6e5c"><td id="D::c" class=""><strong>Deities</strong></td><td id="K&lt;UG" class=""><strong>Mother Goddess</strong>; nature spirits; hunting gods</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-802b-85a1-ef36ac67fd1a"><td id="D::c" class=""><strong>Ritual Offerers</strong></td><td id="K&lt;UG" class="">Participants <strong>bringing gifts</strong>/sacrifices</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80f0-99d5-d1410e61362b"><td id="D::c" class=""><strong>Dancers</strong></td><td id="K&lt;UG" class=""><strong>Ceremonial performers</strong> in trance states</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80f8-9b39-dfdfa0503033"><td id="D::c" class=""><strong>Guardians</strong></td><td id="K&lt;UG" class=""><strong>Protectors of cave space</strong> and vessel contents</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-80c5-a2f1-ea4a35ee20d0"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-80e9-8ce3-dc7fa5678c7d" class="">SCIENTIFIC STUDIES &amp; METHODOLOGY</h2></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80e0-b174-e18da0482c7d" class=""><strong>Research Campaigns</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80ed-9cd0-f9379fa57b54" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-804c-9ad8-d1cfa985b7b4"><th id="tZ\C" class="simple-table-header-color simple-table-header"><strong>Period</strong></th><th id="I[YQ" class="simple-table-header-color simple-table-header"><strong>Activities</strong></th><th id="XHNp" class="simple-table-header-color simple-table-header"><strong>Key Findings</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8023-96e5-da9e5ca722ca"><td id="tZ\C" class=""><strong>1970s</strong></td><td id="I[YQ" class="">Initial excavations; surface collections; first documentation</td><td id="XHNp" class="">Discovery of paintings; initial material recovery; floor plans of hearths and enclosures</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80fb-a926-d4ffffd4c97e"><td id="tZ\C" class=""><strong>1970-1997</strong></td><td id="I[YQ" class="">Multiple excavation campaigns by various teams</td><td id="XHNp" class="">Extended understanding of occupation; material culture documentation</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8097-b948-d23bc663d26c"><td id="tZ\C" class=""><strong>2015-2019</strong></td><td id="I[YQ" class="">Systematic ceramic complex study</td><td id="XHNp" class="">Extended chronological range; identified usage periods by cavity; evidence of changing purposes, abandonment, obliteration</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-8005-941d-fdaad84e2d8e" class=""><strong>Modern Technologies Applied</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80cd-be8a-d0ac2e9a759a" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ba-b024-c09f0c87100f"><th id="C&lt;C;" class="simple-table-header-color simple-table-header"><strong>Technology</strong></th><th id="^zho" class="simple-table-header-color simple-table-header"><strong>Purpose</strong></th><th id="Uzq]" class="simple-table-header-color simple-table-header"><strong>Results</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80a8-9be3-e7e0b08d1a37"><td id="C&lt;C;" class=""><strong>3D Scanning</strong></td><td id="^zho" class="">Digital preservation; virtual access</td><td id="Uzq]" class="">Created detailed 3D model available at Castello Aragonese, Otranto</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80d2-856a-d9bbae6033e2"><td id="C&lt;C;" class=""><strong>High-Resolution Photography</strong></td><td id="^zho" class="">Documentation without physical contact</td><td id="Uzq]" class="">Comprehensive visual record</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8089-8863-e13e148bffd2"><td id="C&lt;C;" class=""><strong>Photogrammetry</strong></td><td id="^zho" class="">Accurate measurements without touching walls</td><td id="Uzq]" class="">Precise documentation of paintings and structure</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e7-a4be-cf2ee1e11702"><td id="C&lt;C;" class=""><strong>Pigment Analysis</strong></td><td id="^zho" class="">Determine materials and techniques</td><td id="Uzq]" class="">Confirmed red ochre + bat guano composition</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-800b-8110-ca206c0e8ace"><td id="C&lt;C;" class=""><strong>Radiocarbon Dating</strong></td><td id="^zho" class="">Chronological framework</td><td id="Uzq]" class="">Dates from 31,000 BC (Cavity B) establishing earliest use</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b9-9058-d19452973ea2"><td id="C&lt;C;" class=""><strong>Ceramic Analysis</strong></td><td id="^zho" class="">Cultural connections; chronology</td><td id="Uzq]" class="">Identified trade networks; cultural influences</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8045-a965-c01617ba76e4"><td id="C&lt;C;" class=""><strong>Environmental Monitoring</strong></td><td id="^zho" class="">Preservation conditions</td><td id="Uzq]" class="">Continuous tracking of temperature, humidity, CO2 levels</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ff-9247-d021e286fb2a"><td id="C&lt;C;" class=""><strong>Topographic Survey</strong></td><td id="^zho" class="">Regional context</td><td id="Uzq]" class="">Mapped Porto Badisco area in relation to cave</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-8009-af91-fb2d929609c9" class=""><strong>Conservation Measures</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-809e-bad2-f5469eb3c0f2" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e6-8a77-f166435f8a4e"><th id="Q{Y;" class="simple-table-header-color simple-table-header"><strong>Measure</strong></th><th id="~~jY" class="simple-table-header-color simple-table-header"><strong>Purpose</strong></th><th id="Uc?}" class="simple-table-header-color simple-table-header"><strong>Implementation</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8015-9308-cb63b9ff2821"><td id="Q{Y;" class=""><strong>Public Closure (1987)</strong></td><td id="~~jY" class="">Prevent human-caused deterioration</td><td id="Uc?}" class="">Permanent; exceptions only for researchers</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b5-8bb2-fa13d8342af6"><td id="Q{Y;" class=""><strong>Environmental Controls</strong></td><td id="~~jY" class="">Maintain stable conditions</td><td id="Uc?}" class="">Monitoring systems for temperature, humidity, CO2</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8091-9ce0-d7a0089df70a"><td id="Q{Y;" class=""><strong>Entrance Protection</strong></td><td id="~~jY" class="">Limit external influences</td><td id="Uc?}" class="">Secured and monitored access point</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-802d-813e-c680a0f34b38"><td id="Q{Y;" class=""><strong>Biological Prevention</strong></td><td id="~~jY" class="">Stop algae, mold, bacterial growth</td><td id="Uc?}" class="">Regular assessment and intervention when needed</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e8-84d1-da4877815b6e"><td id="Q{Y;" class=""><strong>Digital Documentation</strong></td><td id="~~jY" class="">Preserve knowledge without physical access</td><td id="Uc?}" class="">3D models, photographs, virtual reconstructions</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-809f-81dd-e9bf5eb87598"><td id="Q{Y;" class=""><strong>Periodic Assessment</strong></td><td id="~~jY" class="">Track degradation</td><td id="Uc?}" class="">Regular expert evaluations</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-8049-9e06-c3bb1717d5ee"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8030-9aa2-de1cce78ad1d" class="">ACCESSIBILITY &amp; PUBLIC ENGAGEMENT</h2></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8051-9876-fba1b590f372" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-808f-9f6c-fd214a9c1904"><th id="iT|B" class="simple-table-header-color simple-table-header"><strong>Category</strong></th><th id="?RLw" class="simple-table-header-color simple-table-header"><strong>Details</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80c4-bab4-cdbea5dc2b7b"><td id="iT|B" class=""><strong>Current Status</strong></td><td id="?RLw" class=""><strong>CLOSED TO PUBLIC since 1987</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80c8-8cd0-e437f2fcbe01"><td id="iT|B" class=""><strong>Reason for Closure</strong></td><td id="?RLw" class="">Preservation of delicate paintings; changes in temperature and humidity from visitors would damage art; CO2 from human breath harmful</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80f9-ad45-fe9c3071f612"><td id="iT|B" class=""><strong>Who Can Access</strong></td><td id="?RLw" class="">Scientific community with special authorization; authorized researchers; conservation teams; monitoring specialists</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-805d-a433-c1a0e7772702"><td id="iT|B" class=""><strong>Virtual Access</strong></td><td id="?RLw" class="">3D reconstruction available at <strong>Castello Aragonese di Otranto</strong>; Virtual tour technology</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8057-a40c-fff71fe66adf"><td id="iT|B" class=""><strong>Educational Resources</strong></td><td id="?RLw" class="">Museo Civico di Otranto; Museo Faggiano (Lecce) - 3D models; Published materials; Documentaries; Scientific publications</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e2-9e18-d8d84c98d36a"><td id="iT|B" class=""><strong>UNESCO Status</strong></td><td id="?RLw" class="">Candidated for World Heritage status (2006); Part of 2024 initiative for &quot;Karst Caves of Prehistoric Puglia&quot;</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8077-bed6-f8d2885e9e83"><td id="iT|B" class=""><strong>Future Plans</strong></td><td id="?RLw" class="">Authorities and scholars seeking ways to increase accessibility without compromising preservation</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-80bb-99fa-d439cca1c047"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8075-aa55-dc3ce8f20de5" class="">OWNERSHIP &amp; MANAGEMENT</h2></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8005-b1b5-db8cf5b231e4" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80d7-aaa9-dd935387eb8e"><th id="UNxi" class="simple-table-header-color simple-table-header"><strong>Aspect</strong></th><th id="f_XZ" class="simple-table-header-color simple-table-header"><strong>Details</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="91320ff5-e8c9-4937-8f67-0b06edffbe94"><td id="UNxi" class=""><strong>Ownership</strong></td><td id="f_XZ" class="">Italian State (Stato Italiano)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-808a-ba8a-da6220a1fc72"><td id="UNxi" class=""><strong>Primary Authority</strong></td><td id="f_XZ" class="">Ministry of Culture (Ministero della Cultura)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80b1-a894-e0e7b0eac029"><td id="UNxi" class=""><strong>Direct Management</strong></td><td id="f_XZ" class=""><strong>University of Salento </strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ca-a9a1-cbc92a57f51a"><td id="UNxi" class=""><strong>Municipal Involvement</strong></td><td id="f_XZ" class="">Comune di <strong>Otranto </strong>(tourism promotion, virtual reconstruction hosting)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-806e-8de4-d229f75fda27"><td id="UNxi" class=""><strong>Scientific Partnerships</strong></td><td id="f_XZ" class="">Italian and international universities (<strong>National Research Council Canada</strong>); research institutions</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-80f7-955e-f27951b86745"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-80ff-a45c-e34aef3e3f50" class="">CULTURAL &amp; HISTORICAL SIGNIFICANCE</h2></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80e7-ab3e-dcd5244252d2" class=""><strong>Key Insights Provided</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80a3-936a-ec4f38fc6669" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-802b-b03e-f07579ac9da1"><th id="jqve" class="simple-table-header-color simple-table-header"><strong>Area of Knowledge</strong></th><th id="@pXV" class="simple-table-header-color simple-table-header"><strong>What Grotta dei Cervi Reveals</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8015-ab42-f0f468097645"><td id="jqve" class=""><strong>Neolithic Life</strong></td><td id="@pXV" class="">Daily activities: hunting, agriculture, social organization</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-809f-8b80-c5263a4a50a9"><td id="jqve" class=""><strong>Belief Systems</strong></td><td id="@pXV" class="">Complex symbolic and religious systems; Mother Goddess cult; fertility concerns; regeneration anxiety</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ce-b9ea-d52e49d9964e"><td id="jqve" class=""><strong>Artistic Capability</strong></td><td id="@pXV" class="">Advanced representational and abstract art; narrative storytelling; sophisticated symbolism</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8044-8801-e21f033a0a1b"><td id="jqve" class=""><strong>Trade Networks</strong></td><td id="@pXV" class="">Extensive contacts across Mediterranean and Balkans; movement of exotic materials</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-803c-bc67-e9b3d117ed33"><td id="jqve" class=""><strong>Cultural Exchange</strong></td><td id="@pXV" class=""><strong>Shared symbolic vocabulary across vast geographic area</strong>; &quot;common feeling&quot; among diverse communities</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ce-981a-cb7000db2a95"><td id="jqve" class=""><strong>Ritual Practices</strong></td><td id="@pXV" class=""><strong>Ceremonial deposition</strong>; body decoration; initiation <strong>rites</strong>; votive <strong>offerings</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8022-8e75-f3835eb3d22f"><td id="jqve" class=""><strong>Long-term Usage</strong></td><td id="@pXV" class=""><strong>Multi-millennial sacred site</strong>; changing but continuous ceremonial importance</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-803c-b25b-f611f6d6d301"><td id="jqve" class=""><strong>Trans-Adriatic Relations</strong></td><td id="@pXV" class="">Strong <strong>connections between Italian and Balkan peoples</strong>; shared spiritual traditions</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80d1-8da3-fad66b6854f1" class=""><strong>Comparative Importance</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-8057-aac4-c9d0641fc869" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80aa-9c70-c48ff0fa7b99"><th id="b_hN" class="simple-table-header-color simple-table-header"><strong>Comparison</strong></th><th id="ACxk" class="simple-table-header-color simple-table-header"><strong>Significance</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8088-8a0b-d78e6e4364ce"><td id="b_hN" class=""><strong>European Context</strong></td><td id="ACxk" class="">One of most important Neolithic rock art sites in Europe</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80bf-abba-d110222b97f7"><td id="b_hN" class=""><strong>Mediterranean Context</strong></td><td id="ACxk" class="">Critical node in cultural exchange networks</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ca-8c83-e816130eb330"><td id="b_hN" class=""><strong>Italian Context</strong></td><td id="ACxk" class="">Most extensive and varied Neolithic cave art in Italy</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8011-92c7-feacc136abd3"><td id="b_hN" class=""><strong>Quality</strong></td><td id="ACxk" class="">Exceptional preservation; high artistic quality; extensive variety</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-803c-8207-f8b3dc99ceb0"><td id="b_hN" class=""><strong>Quantity</strong></td><td id="ACxk" class="">~3,000 pictograms - among largest collections</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80e0-9f9c-d885de8cf2fe"><td id="b_hN" class=""><strong>Cultural Impact</strong></td><td id="ACxk" class="">Revolutionized understanding of Neolithic Italian art and society</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-8096-a3bf-f009e30621a1"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8041-9581-d2616429bbbb" class="">REFERENCES &amp; RESOURCES</h2></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-8075-b53f-cba04666f08b" class=""><strong>Key Researchers &amp; Publications</strong></h3></div><div style="display:contents" dir="ltr"><table id="2d2c94e7-dc42-80c1-8d0d-f4c24654c8dd" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-800b-aa7e-c7b5d1e9442c"><th id="lxik" class="simple-table-header-color simple-table-header"><strong>Researcher</strong></th><th id="PIFp" class="simple-table-header-color simple-table-header"><strong>Contribution</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8066-8693-cbb780c6da56"><td id="lxik" class=""><strong>Paolo Graziosi</strong></td><td id="PIFp" class="">Led early documentation; published foundational work (1980)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8090-9381-fbbf4f1ea815"><td id="lxik" class=""><strong>Felice Gino Lo Porto</strong></td><td id="PIFp" class="">Early excavations; first published artifacts</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-80ec-bb27-d4261142059e"><td id="lxik" class=""><strong>Aprile &amp; Tiberi</strong></td><td id="PIFp" class="">Recent systematic studies (2017, 2019, 2020, 2021); anthropomorphic vessels analysis</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8079-b67f-dbd0de0a3901"><td id="lxik" class=""><strong>Radina</strong></td><td id="PIFp" class="">Comparative studies with other Pugliese caves (2002, 2017)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-8016-93d3-f143158cfc57"><td id="lxik" class=""><strong>Korkuti</strong></td><td id="PIFp" class="">Albanian cave connections (2008)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2d2c94e7-dc42-803e-a457-cebd0e28b21f"><td id="lxik" class=""><strong>Martini, Sarti, Visentini</strong></td><td id="PIFp" class="">SE European symbolic connections (2017)</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="2d2c94e7-dc42-80cf-bdbd-fe71e44dc32f" class=""><strong>Documentation Available</strong></h3></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-804c-9d58-f86af3b4002f" class="bulleted-list"><li style="list-style-type:disc">YouTube documentary: https://www.youtube.com/watch?v=EmeNmLFkGO8</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-803d-843c-fbbc2199b421" class="bulleted-list"><li style="list-style-type:disc">Virtual 3D tour at Castello Aragonese, Otranto</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-80b5-a09d-ea0748d9ebd4" class="bulleted-list"><li style="list-style-type:disc">Scientific papers (multiple from 2015-2021 studies)</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-804d-b92c-eb9b520f5582" class="bulleted-list"><li style="list-style-type:disc">Museum exhibitions (Otranto, Lecce, Taranto)</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-805b-b8dc-f21e413677aa" class="bulleted-list"><li style="list-style-type:disc">Academic publications in Italian and English</li></ul></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-803a-b42a-cf48273bcf19"/></div><div style="display:contents" dir="auto"><h2 id="2d2c94e7-dc42-8032-a493-d73e5024bd17" class="">NOTABLE QUOTES &amp; DESCRIPTIONS</h2></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-8054-8a67-ef55bd98959f" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Cappella Sistina del Neolitico&quot;</strong> (Sistine Chapel of the Neolithic) - Popular descriptor</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-801e-88f8-c9964fc94327" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Biggest Salento Mystery&quot;</strong> - Local reference to its enigmatic nature</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-80de-b8d0-e243068b85b7" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Extraordinary evocative power&quot;</strong> - Description of symbolic motifs&#x27; ability to transmit concepts</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-8023-aa81-fe36197d451d" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Common feeling&quot; (comune sentire)</strong> - Shared conceptual framework across Neolithic communities</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-80a6-aa1a-dfd25a11f474" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Anxiety of regeneration&quot;</strong> - Core theme expressed through fertility and rebirth symbolism</li></ul></div><div style="display:contents" dir="auto"><ul id="2d2c94e7-dc42-80bc-9cf5-d802bba3a5b5" class="bulleted-list"><li style="list-style-type:disc"><strong>&quot;Uninterrupted narration&quot;</strong> - Nature of wall paintings telling continuous stories</li></ul></div><div style="display:contents" dir="auto"><hr id="2d2c94e7-dc42-807f-aa60-d1055a9be933"/></div><div style="display:contents" dir="auto"><p id="2d2c94e7-dc42-8072-9401-dd44d0dc9ca0" class=""><em>Last Updated: December 2024Based on archaeological research 1970-2024</em></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
