@@ -91,9 +91,9 @@ PixelGrams/
 - **Site:** Grotta dei Cervi, Porto Badisco, Lecce, Puglia
 - **Cave closed since:** 1987
 - **3D documentation:** Prof. Virginia Valzano, University of Salento (from 2005)
-- **Course:** [Digital Heritage and Multimedia](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364) · University of Bologna · A.Y. 2024/25
-  - Module A: Interaction Media Design — Prof. Sofia Pescarin
-  - Module B: Museology, Museography and Virtual Environments — Prof. Chiara Tartarini
+- **Course:** Digital Heritage and Multimedia · University of Bologna · A.Y. 2024/25
+  - Module A: [Interaction Media Design](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364) — Prof. Sofia Pescarin
+  - Module B: [Museology, Museography and Virtual Environments](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502365) — Prof. Chiara Tartarini
 
 ---
 
