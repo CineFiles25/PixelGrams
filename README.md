@@ -41,7 +41,7 @@ The guiding metaphor: **the user journey is the descent into darkness.**
 | Role | Arc |
 |---|---|
 | **Shaman** | Performs the ritual. Interprets phosphenes as visions. |
-| **Guardian** | Protects the sacred site. Seeks power in darkness. |
+| **Warrior** | Protects the sacred site. Seeks power in darkness. |
 | **Devotee I** | Seeks communication with ancestors. |
 | **Devotee II** | Brings a votive offering. Asks something of the deity. |
 | **Dancer** | Keeper of movement and trance. Does not choose to come — is called. |
@@ -91,7 +91,9 @@ PixelGrams/
 - **Site:** Grotta dei Cervi, Porto Badisco, Lecce, Puglia
 - **Cave closed since:** 1987
 - **3D documentation:** Prof. Virginia Valzano, University of Salento (from 2005)
-- **Courses:** [Interactive Multimedia Design](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364) · [Museology](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502365)
+- **Course:** [Digital Heritage and Multimedia](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364) · University of Bologna · A.Y. 2024/25
+  - Module A: Interaction Media Design — Prof. Sofia Pescarin
+  - Module B: Museology, Museography and Virtual Environments — Prof. Chiara Tartarini
 
 ---
 
