@@ -103,7 +103,7 @@ The design system is drawn directly from the cave's own artistic vocabulary:
 - **Typeface:** [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) (website) · [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (design brief & hi-fi)
 - **Motifs:** phosphenic forms — spirals, concentric circles, labyrinths, grids
 
-> *"The website is the mirror of the museum."* — Prof. Pescarini
+> *"The website is the mirror of the museum."* — Prof. Pescarin
 
 ---
 
