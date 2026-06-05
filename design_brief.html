@@ -161,6 +161,9 @@
             gap: 1px; background: var(--border);
             border: 1px solid var(--border); margin: 28px 0;
         }
+        .cards-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
         .card {
             background: var(--dark-warm); padding: 24px 22px;
         }
@@ -246,6 +249,13 @@
             opacity: 0.6; letter-spacing: 0.04em;
         }
 
+        /* Miro embed */
+        .miro-embed {
+            width: 100%; height: 520px;
+            border: 1px solid var(--border-strong);
+            display: block;
+        }
+
         /* Footer */
         footer {
             padding: 60px; background: var(--dark);
@@ -272,10 +282,12 @@
             .brief-toc { display: none; }
             .brief-content { padding: 40px 24px 80px; }
             .cards-grid, .moscow-grid { grid-template-columns: 1fr; }
+            .cards-grid.three-col { grid-template-columns: 1fr; }
             .characters-list { grid-template-columns: repeat(2, 1fr); }
             .characters-list .character-item:last-child { grid-column: 1/-1; }
             footer { grid-template-columns: 1fr; padding: 40px 24px; }
             .nav-links { display: none; }
+            .miro-embed { height: 340px; }
         }
     </style>
 </head>
@@ -377,7 +389,7 @@
                 </div>
             </div>
 
-            <div class="cards-grid">
+            <div class="cards-grid three-col">
                 <div class="card">
                     <span class="card-label">Laura Bortoli</span>
                     <p class="card-text">Ideation · Lo-Fi Prototype · Storyboard · Website</p>
@@ -572,8 +584,13 @@
             <p>An interactive narrative prototype was built in Twine (Harlowe format) to model the branching logic, decision-making dynamics, and the emotional arc of the experience. The prototype implements all five character paths, with looping video backgrounds, CSS animations, and image-based scene backgrounds drawn from archival photographs of the cave's pictograms.</p>
 
             <div class="brief-figure">
-                <img src="docs/twine.webp" alt="Twine narrative map" class="light">
-                <figcaption>Figure 4. Narrative structure in Twine. Source: team elaboration.</figcaption>
+                <iframe
+                    class="miro-embed"
+                    src="https://miro.com/app/live-embed/uXjVHJ07HPg=/?embedMode=view_only_without_ui&moveToViewport=6520%2C3156%2C2410%2C1478&embedId=473066362384"
+                    frameborder="0" scrolling="no" allowfullscreen
+                    title="Twine narrative map — PixelGrams"
+                ></iframe>
+                <figcaption>Figure 4. Narrative structure of the Twine prototype, rendered as a flow diagram. The Twine experience was not embedded directly — its branching logic, custom CSS, and looping video backgrounds are designed for standalone playback and are not suited for inline display within a web page.</figcaption>
             </div>
 
             <h3>Low-Fidelity Wireframes</h3>
