@@ -68,19 +68,12 @@ PixelGrams/
 │   ├── fonts/          # IM Fell English (Regular + Italic)
 │   └── imgs/           # Cave photography and visual assets
 ├── docs/               # Project documentation and diagrams
-│   ├── pact_map.png
-│   ├── user_flow.png
-│   ├── user_flow_extended.png
-│   ├── user_journey.png
 │   └── personas/       # Persona PDFs
 ├── figma/              # Figma export files
-├── pitch/              # Presentation materials
 ├── twine/              # Twine narrative prototype
 │   └── index.html
 ├── design_brief.html   # Full design brief
-├── figma.html          # Figma page
 ├── index.html          # Homepage
-└── twine.html          # Twine page
 ```
 
 ---
