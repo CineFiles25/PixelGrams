@@ -41,7 +41,7 @@ The guiding metaphor: **the user journey is the descent into darkness.**
 | Role | Arc |
 |---|---|
 | **Shaman** | Performs the ritual. Interprets phosphenes as visions. |
-| **Warrior** | Protects the sacred site. Seeks power in darkness. |
+| **Guardian** | Protects the sacred site. Seeks power in darkness. |
 | **Devotee I** | Seeks communication with ancestors. |
 | **Devotee II** | Brings a votive offering. Asks something of the deity. |
 | **Dancer** | Keeper of movement and trance. Does not choose to come — is called. |
