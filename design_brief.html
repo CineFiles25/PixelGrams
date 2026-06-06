@@ -308,6 +308,33 @@
     <span class="brief-hero-label">Digital Heritage &amp; Multimedia · University of Bologna · 2024/25</span>
     <h1 class="brief-hero-title">Design Brief<br><em>PixelGrams</em></h1>
     <p class="brief-hero-meta">Laura Bortoli &nbsp;·&nbsp; Qinghao Chen &nbsp;·&nbsp; Claudia Romanello &nbsp;·&nbsp; CineFiles25</p>
+
+    <div style="display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;">
+        <a href="docs/design_brief_PDF.pdf" download
+           style="display:inline-flex; align-items:center; gap:8px;
+                  padding:10px 20px; border:1px solid var(--border-strong);
+                  background:rgba(201,98,42,0.08); color:var(--cream);
+                  font-family:'Cormorant Garamond',Georgia,serif;
+                  font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase;
+                  text-decoration:none; transition:background 0.2s;"
+           onmouseover="this.style.background='rgba(201,98,42,0.2)'"
+           onmouseout="this.style.background='rgba(201,98,42,0.08)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.7"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Design Brief
+        </a>
+        <a href="docs/ppt_project.pdf" download
+           style="display:inline-flex; align-items:center; gap:8px;
+                  padding:10px 20px; border:1px solid var(--border-strong);
+                  background:rgba(201,98,42,0.08); color:var(--cream);
+                  font-family:'Cormorant Garamond',Georgia,serif;
+                  font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase;
+                  text-decoration:none; transition:background 0.2s;"
+           onmouseover="this.style.background='rgba(201,98,42,0.2)'"
+           onmouseout="this.style.background='rgba(201,98,42,0.08)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.7"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Presentation
+        </a>
+    </div>
 </div>
 
 <div class="brief-layout">
@@ -321,6 +348,10 @@
             <li><a href="#concept">3. The Concept</a></li>
             <li><a href="#requirements">4. Requirements</a></li>
             <li><a href="#ideation">5. Ideation</a></li>
+            <li><a href="#twine">6. Twine</a></li>
+            <li><a href="#figma">7. Figma</a></li>
+            <li><a href="#team">8. Team</a></li>
+            <li><a href="#bibliography">9. Sources</a></li>
         </ul>
     </aside>
 
@@ -337,7 +368,7 @@
             <p>The cave has been <strong>closed to the public since 1987</strong>. Human presence — breath, warmth, light — would destroy the fragile microclimate preserving the paintings. Only researchers with special authorisation may enter.</p>
 
             <h3>3D Documentation</h3>
-            <p>A high-resolution, full-colour 3D model of the cave was developed starting in 2005 by the University of Salento, led by <strong>Professor Virginia Valzano</strong>, in collaboration with the Visual Information Technology Group of the IIT-NRC (Canada) and CASPUR (Rome). The acquisition took place under extreme conditions — high humidity, difficult access — and required specialised equipment. The resulting model is a milestone: unmatched resolution, never previously achieved for a cave site of this scale. As of September 2025, a permanent exhibition at the <strong>Castello Aragonese di Otranto</strong> includes a 3D digital twin of Corridor 2, the corridor containing the most significant pictograms.</p>
+            <p>A high-resolution, full-colour 3D model of the cave was developed starting in 2005 by the University of Salento, led by <strong>Professor Virginia Valzano</strong>, in collaboration with the Visual Information Technology Group of the IIT-NRC (Canada) and CASPUR (Rome). The model was produced using <strong>photogrammetry</strong> — overlapping photographs taken from multiple angles, processed computationally to reconstruct geometry without physically touching the walls — combined with 3D scanning. The acquisition took place under extreme conditions — high humidity, difficult access — and required specialised equipment. The resulting model is a milestone: unmatched resolution, never previously achieved for a cave site of this scale. As of September 2025, a permanent exhibition at the <strong>Castello Aragonese di Otranto</strong> includes a 3D digital twin of Corridor 2, the corridor containing the most significant pictograms. This is the asset the VR experience would be built on: the game engine imports and renders it in real time for the headsets.</p>
 
             <h3>Institutional Goals</h3>
             <div class="cards-grid">
@@ -361,6 +392,60 @@
 
             <h3>Star Assets</h3>
             <p>The <strong>Shaman pictogram</strong> — the most iconographically charged image in the cave — as well as the full pictogram ensemble, the mystery of ritual practice, and the <strong>3D model by Professor Valzano</strong> are the core star assets. The ability to virtually access a location inaccessible to almost every living person is itself the most powerful asset of all.</p>
+
+            <h3>Physical Structure</h3>
+            <p>The cave extends for over <strong>1,500 metres</strong> of galleries across three main tortuous corridors, with five entrance cavities leading to four painted corridors, reaching depths of up to 28 metres below sea level. Internal conditions — constant temperature, high humidity (the <em>faugnu</em> microclimate), near-total darkness — have preserved the paintings across six millennia, but make the space acutely sensitive to human presence. CO₂ from a single visitor's breath alters humidity levels irreversibly, which is why the 1987 closure remains permanent.</p>
+
+            <h3>The Twelve Zones</h3>
+            <p>The painted corridors are organised into twelve named zones, each with distinct iconographic content. The second corridor — the richest and most accessible — contains the experience's primary narrative and ritual spaces:</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">Zone III — Red Hall</span>
+                    <p class="card-text">First room of the second corridor. 4 m high. Ochre paintings on wavy, milk-coloured wall surfaces. Contains the foundational mythological narrative: two women and a hunter indicating the way. Notable figure: the <em>Fish Woman</em>, with fins instead of feet.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Zone IV — Androgen Hall</span>
+                    <p class="card-text">A large natural anthropomorphic figure (2 m tall), surrounded by threadlike beings in various poses. Among the most complex figurative compositions in the cave, merging human and natural form.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Zone V — Lizard Hall &amp; Hall of Ceremonies</span>
+                    <p class="card-text">A circular room suited to ritual gatherings, with a lizard or gecko painted at the entrance. The adjoining Hall of Ceremonies depicts six figures in a posture suggesting marathon runners in motion — evidence of communal ceremonial performance.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Zone VIII — Sanctuary</span>
+                    <p class="card-text">Small handprints on the ceiling — likely female and child — interpreted as ritual markers of passage from childhood to adulthood. Location of the <em>Lady of the Serpents</em>: a female figure with a seven-rayed crown and S-shaped body, linked by Marija Gimbutas to a Neolithic Mother Serpent Goddess.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Zone IX — Tabernacle</span>
+                    <p class="card-text">A small circular room with a significantly lowered ceiling. Seven pictorial groups with scattered graphemes. A cup for collecting liquids likely served as an altar for ritual ablutions. The tunnel beyond was sealed by a structural collapse.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Zones X–XII — Third Corridor</span>
+                    <p class="card-text">Hall of Arabesques, Hall of Spirals, and the Recondite Hall. Labyrinthine paintings, stalactites, and the final pictorial groups before the vault lowers and the cave becomes physically impassable.</p>
+                </div>
+            </div>
+
+            <h3>The Pictograms</h3>
+            <p>Approximately <strong>3,000 pictograms</strong> cover the walls across all corridors, painted in red ochre mixed with black bat guano, and dated primarily between 6000 and 3000 BC. Figures are typically rendered in motion. The most frequent subject is the deer — giving the cave its name — followed by hunting scenes, anthropomorphic collectives, agricultural scenes, and dancers. Abstract geometric motifs — spirals, S-shapes, cymbal forms, rhombi, opposed spirals, chevrons, and dots — are distributed throughout, and correspond closely to forms found in caves from Sardinia and Kosovo to France and Romania. The shamans who painted the spirals are thought to have done so under hallucinogens, blows to the head, or pressure on the eye bulbs — all documented methods of inducing the phosphenic geometries that gave rise to the cave's abstract imagery.</p>
+
+            <h3>Archaeological Findings</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">Ceramic Vessels</span>
+                    <p class="card-text">Anthropomorphic rim vessels with human faces and notched chin bands; anthropomorphic flask vessels (Scaloria Alta style) with faces on the neck and genitalia on the body; Serra d'Alto style vessels decorated with spirals and S-motifs; graffito vessels bearing a figure closely resembling the Shaman wall painting.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Ceremonial Objects</span>
+                    <p class="card-text"><strong>Pintaderas</strong> (terracotta stamps used for body decoration during fertility rites), confirming an active Mother Goddess cult and direct Balkan connections. Rhyta for ritual libation. Ceramic ladles for ceremonial serving. Hard animal matter objects of specialised ritual craft.</p>
+                </div>
+            </div>
+
+            <h3>Cultural Connections &amp; UNESCO</h3>
+            <p>The cave's symbolic vocabulary — spirals, S-motifs, anthropomorphic vessels, cymbal-shaped forms — is shared with sites across southern Italy, Sardinia, Dalmatia, Kosovo, Romania, Bulgaria, and France (including Chauvet Cave, where children's handprints of the same kind appear). This <strong>trans-Adriatic and Mediterranean exchange network</strong> suggests not merely trade, but a common mythological and religious system across the Neolithic world. The cave was candidated for <strong>UNESCO World Heritage Status</strong> in 2006 and is part of the 2024 initiative for <em>Karst Caves of Prehistoric Puglia</em>.</p>
+
+            <div class="quote-block">
+                <p>"Along the route, there is a narrative unfolding — a history shared and known to those who frequented the cave. The cave must have been the equivalent of what we consider a sanctuary or a place of worship. It certainly houses the richest collection of symbols dating back to the Neolithic — a true ideological manifesto of prehistory — in the entire Western world." <br>— <strong>Elettra Ingravallo</strong>, Professor of Palaeontology, University of Salento</p>
+            </div>
         </section>
 
         <!-- 2. AUDIENCE -->
@@ -368,7 +453,7 @@
             <span class="section-label">02 — Audience</span>
             <h2 class="section-title">The <em>Visitors</em></h2>
 
-            <p>The audience is intentionally <strong>as wide as the human community that once inhabited the cave</strong> — and as diverse as the one that shared a universal visual language across prehistoric sites worldwide. Our primary audience groups are tourists visiting Otranto and Puglia, cultural heritage enthusiasts, school groups, and locals with a connection to the territory.</p>
+            <p>The audience is intentionally <strong>as wide as the human community that once inhabited the cave</strong>, and as diverse as the one that shared a universal visual language across prehistoric sites worldwide. Our primary audience groups are tourists visiting Otranto and Puglia, cultural heritage enthusiasts, and locals with a connection to the territory.</p>
 
             <div class="cards-grid">
                 <div class="card">
@@ -389,14 +474,35 @@
                 </div>
             </div>
 
-            <h3>User Persona — Annunziata</h3>
+            <h3>User Personas</h3>
+
+            <div class="cards-grid three-col">
+                <div class="card">
+                    <span class="card-label" style="color:var(--ochre);opacity:1;font-size:0.78rem;">Annunziata · 56 · Galatina, Italy</span>
+                    <p class="card-text" style="margin-bottom:10px;"><strong>Goals</strong></p>
+                    <p class="card-text">Cultural identity · Curiosity · Time travel · Wonder · Social interaction</p>
+                    <p class="card-text" style="margin-top:12px;margin-bottom:10px;"><strong>Frustrations</strong></p>
+                    <p class="card-text">Low self-esteem · Educationally disadvantaged · Complicated technology · Physical strain</p>
+                </div>
+                <div class="card">
+                    <span class="card-label" style="color:var(--ochre);opacity:1;font-size:0.78rem;">Diletta · 32 · Verona, Italy</span>
+                    <p class="card-text" style="margin-bottom:10px;"><strong>Goals</strong></p>
+                    <p class="card-text">Memorable cultural experience · Learn something surprising about ancient rituals · Immersion with no prior knowledge · Be stunned</p>
+                    <p class="card-text" style="margin-top:12px;margin-bottom:10px;"><strong>Frustrations</strong></p>
+                    <p class="card-text">Mental overload · Experience for experts only · Not understanding what she sees</p>
+                </div>
+                <div class="card">
+                    <span class="card-label" style="color:var(--ochre);opacity:1;font-size:0.78rem;">Daniel · 27 · Shanghai, China</span>
+                    <p class="card-text" style="margin-bottom:10px;"><strong>Goals</strong></p>
+                    <p class="card-text">Understand prehistoric people · Experience CH immersively · Connect archaeology and human stories · Learn something meaningful</p>
+                    <p class="card-text" style="margin-top:12px;margin-bottom:10px;"><strong>Frustrations</strong></p>
+                    <p class="card-text">Closed CH sites · Exhibits that show items with no context · Overly-technical info · No immersivity</p>
+                </div>
+            </div>
+
+            <h3>User Scenario — Annunziata</h3>
             <p><em>56 years old · Catholic · Low tech literacy · Carpal tunnel · Chronic back pain</em></p>
             <p>After a beach day at Porto Badisco, Annunziata visits the Otranto Castle with her family. She sits comfortably in a chair, a staff member shows her the VR controller. The experience opens on a 360° panorama of Porto Badisco at sunset — she recognises the place. She chooses Devotee II, as she is a strong devotee in real life. In the Sanctuary, she is mesmerised by the handprints on the wall, children and women. She leaves her own handprint on the LED display. Afterward, she exchanges the experience with her husband and kids.</p>
-
-            <div class="brief-figure">
-                <img src="docs/user_journey.png" alt="User Scenario — Annunziata" class="light">
-                <figcaption>User Scenario · Annunziata, 56 · Storyboard drawn by the team</figcaption>
-            </div>
         </section>
 
         <!-- 3. CONCEPT -->
@@ -414,30 +520,6 @@
             <h3>How We Face Them</h3>
             <p>By <strong>hosting the experience at the Castello Aragonese di Otranto</strong> — already a heritage destination — we meet the audience where they already are. A <strong>branching narrative with five character roles</strong> allows each visitor to engage at their own pace. Groups are encouraged to choose different characters and compare experiences afterward, creating social motivation. The <strong>closing handprint activity</strong> bridges the ancient and contemporary, making the experience personally relevant regardless of background.</p>
 
-            <h3>The Five Roles</h3>
-            <div class="characters-list">
-                <div class="character-item">
-                    <span class="character-role">Shaman</span>
-                    <span class="character-desc">The most complete path. Performs the ritual. Interprets phosphenes as visions.</span>
-                </div>
-                <div class="character-item">
-                    <span class="character-role">Guardian</span>
-                    <span class="character-desc">Protects the sacred site. Seeks power or protection in darkness.</span>
-                </div>
-                <div class="character-item">
-                    <span class="character-role">Devotee I</span>
-                    <span class="character-desc">Seeks initiation and communication with ancestors.</span>
-                </div>
-                <div class="character-item">
-                    <span class="character-role">Devotee II</span>
-                    <span class="character-desc">Brings a votive offering. Asks something of the deity.</span>
-                </div>
-                <div class="character-item">
-                    <span class="character-role">Dancer</span>
-                    <span class="character-desc">Keeper of movement and trance. Does not choose to come — is called.</span>
-                </div>
-            </div>
-
             <h3>Museological Approach</h3>
             <p>The project is grounded in <strong>interpretive museology</strong>, guided by Freeman Tilden's six principles (<em>Interpreting Our Heritage</em>, 1957). Successful interpretation requires a robust mix of media and sensory experiences designed to stimulate curiosity, challenge intellect, and appeal to emotion. Every design decision begins with the visitor — not the collection. The cave's pictograms, zones, and artifacts are always encountered through the lens of a specific role, motivation, and emotional state.</p>
 
@@ -447,7 +529,7 @@
             <h3>Key Themes</h3>
             <p><strong>Phosphenic art and altered states of consciousness.</strong> The Shaman figure as organiser of symbolic life. The Mother Goddess — recurring female figure linked to fertility, trans-Adriatic cultural exchange. The ritual community — five interdependent roles reconstructing a full Neolithic ceremony. <strong>The universality of abstract visual language</strong>: the same geometric forms (spirals, concentric circles, zigzags) appear from California to Colombia, suggesting a neurological rather than purely cultural origin.</p>
 
-            <p>Community is a central topic of this project: the whole point is to remind people that we live in communities, that we have duties to them and draw strength from them — and that we share the same basic concepts with other communities across time and space.</p>
+            <p style="font-size:1.25rem; color:var(--cream); font-weight:500; line-height:1.6; max-width:none; border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); padding:28px 0; margin:40px 0;">Community is a central topic of this project: the whole point is to remind people that we live in communities, that we have duties to them and draw strength from them — and that we share the same basic concepts with other communities across time and space.</p>
         </section>
 
         <!-- 4. REQUIREMENTS -->
@@ -538,10 +620,8 @@
                 <span class="journey-step">Caring</span>
             </div>
 
-            <h3>Experience Flow</h3>
-
             <div class="brief-figure">
-                <img src="docs/user_flow_extended.png" alt="User flow diagram" class="light">
+                <img src="docs/user_journey.png" alt="User flow diagram" class="light">
                 <figcaption>Figure 2. Experience flow diagram. Source: team elaboration.</figcaption>
             </div>
 
@@ -560,12 +640,168 @@
             <h3>Storyboard</h3>
             <p>The storyboard maps the narrative arc for all five character paths across 8 panels: Physical Preamble → VR Opening → Red Hall → Character Paths (5a–5e) → The Sanctuary → The Collapse → VR Exit → Physical Outro.</p>
 
-            <div class="brief-figure">
-                <img src="docs/user_flow.png" alt="Storyboard flow panels" class="light">
-                <figcaption>Figure 3. Storyboard panels flow. Source: team elaboration.</figcaption>
+            <h3>The Five Roles</h3>
+            <div class="characters-list">
+                <div class="character-item">
+                    <span class="character-role">Shaman</span>
+                    <span class="character-desc">The most complete path. Performs the ritual. Interprets phosphenes as visions.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Guardian</span>
+                    <span class="character-desc">Protects the sacred site. Seeks power or protection in darkness.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Devotee I</span>
+                    <span class="character-desc">Seeks initiation and communication with ancestors.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Devotee II</span>
+                    <span class="character-desc">Brings a votive offering. Asks something of the deity.</span>
+                </div>
+                <div class="character-item">
+                    <span class="character-role">Dancer</span>
+                    <span class="character-desc">Keeper of movement and trance. Does not choose to come — is called.</span>
+                </div>
             </div>
 
-            <h3>Twine Narrative Prototype</h3>
+            <h3>Emotional Arcs by Character</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">Shaman</span>
+                    <p class="card-text">You perform a ritual for a devotee and, after taking sacred substances, enter a visionary state. The most complete path: every painting becomes a phosphenic vision, every zone a ritual stage. You guide the ceremony — and you are transformed by it.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Guardian</span>
+                    <p class="card-text">After fighting off a robber and sustaining an injury, you enter the cave to seek the Shaman's help. The cave is not a place of beauty for you — it is a place of necessity. Power, protection, survival. You leave changed in a way you did not expect.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Devotee I</span>
+                    <p class="card-text">You seek initiation and communication with your ancestors. The Shaman performs a powerful ritual on your behalf and what you asked for is granted. Transformation through surrender: you enter seeking something and leave as something else.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Devotee II</span>
+                    <p class="card-text">You carry a votive offering and petition the deity. At the climax of the experience, your ancestor appears and speaks directly to you. The object you chose — ceramic, obsidian, or pintadera — was the key. The cave answered.</p>
+                </div>
+                <div class="card" style="grid-column: 1 / -1">
+                    <span class="card-label">Dancer</span>
+                    <p class="card-text">You did not choose to come here — you were called. You help the Shaman prepare the ritual; after taking the sacred substances, you begin to dance and fall into vivid visions. The cave moves with you. You do not interpret the paintings. You become them.</p>
+                </div>
+            </div>
+
+            <h3>The Closing Activity: Draw Your Pictogram</h3>
+            <p>At the end of the VR journey, visitors face a final challenge: <em>“If you were a Neolithic painter, what would you draw?”</em> The system assigns a universal contemporary concept — a phone, a journey, a family, death, love, time — and asks visitors to draw it abstractly with marks, shapes, and lines, using no letters or realistic representation. Just as the Badisco painters did.</p>
+            <p>The real revelation comes after: the visitor's drawing is placed in a <strong>Global Archive</strong> alongside every other visitor's drawing of the same concept, gathered over time from visitors worldwide. If the drawings converge — if a spiral still means something spinning, if concentric circles still suggest depth, if a zigzag still means water or danger — then the cave paintings stop being ancient and alien. They become a mirror. The phosphenes were never just Neolithic. They were always ours. This transforms the activity from a mini-game into the intellectual and emotional thesis of the entire project.</p>
+
+            <h3>Visual Identity</h3>
+            <p>The project's entire visual language draws from the cave's own artistic vocabulary. The palette is derived from the cave's two pigments: <strong>red ochre</strong> (iron oxide / haematite, <code>#8B3A2A</code>) and <strong>black guano</strong> (bat guano / manganese, <code>#1C1A17</code>), on a warm limestone beige ground (<code>#C9B99A</code>). Decorative forms — spirals, concentric circles, labyrinths, grids, dots — serve as both design elements and navigational cues across VR screens, the website, and printed materials. Motion is expressed through the same chevrons and dashes the Neolithic shamans used to indicate movement in the pictograms. The design aesthetic is trance-adjacent: rhythmic, repetitive, hypnotic — without being inaccessible. The website mirrors the exhibition: the same symbolic vocabulary, the same darkness and warmth, the same sense of descending into something ancient.</p>
+
+            <h3>Foreseen Workflow</h3>
+            <p>The full project follows a twelve-phase production pipeline, from research to public opening and ongoing maintenance:</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">1. Research</span>
+                    <p class="card-text">Collection and analysis of all academic sources — Leone tracings, Graziosi 1980, Valzano's 3D documentation and publications. Contact with Virginia Valzano for asset permissions and academic consultation. Copyright and usage rights clarification for all third-party materials. Preliminary knowledge base on cave structure, zones, pictograms, archaeological interpretations, and trans-Adriatic connections.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">2. Site Visit</span>
+                    <p class="card-text">Visit to the Castello Aragonese di Otranto and its permanent Grotta dei Cervi exhibition. Assessment of the VR installation room: dimensions, lighting conditions, electrical infrastructure, accessibility, visitor flow. Visit to Museo Faggiano (Lecce) and MArTA (Taranto) for artifact study. Visit to Porto Badisco for site survey.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">3. Planning &amp; Concept Design</span>
+                    <p class="card-text">Definition of the core concept, narrative structure, and character roles. Writing of character scripts and branching logic. Storyboard production. Exhibition flow mapping. Interaction diagram. PACT analysis and persona development. MoSCoW requirements.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">4. Asset Design</span>
+                    <p class="card-text">Pictogram redraws inspired by published academic tracings. Phosphenic pattern development and visual identity in Adobe Illustrator. UI design across all screens. Website background illustrations. Physical preamble station graphic design. Handprint LED display concept design.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">5–6. Prototyping &amp; Implementation</span>
+                    <p class="card-text">Lo-fidelity wireframes → mid-fidelity layout → hi-fidelity Figma prototype. Twine interactive narrative prototype build and HTML export. Website build and publication on GitHub Pages.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">7–8. Build, Presentation &amp; Revision</span>
+                    <p class="card-text">Final website publication with all project documentation, Twine link, Figma link, bibliography, and credits. PPT slides and pitch preparation. Full project review: consistency check across visual identity, narrative content, and museological framework. Final edits.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">9. Testing</span>
+                    <p class="card-text">User testing of Twine and Figma prototypes with representative target audience users. Accessibility testing: colorblind palette, subtitle readability, seated usability. VR hardware testing in the intended room at the Castello Aragonese. Feedback collection and iteration.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">10–11. Approval &amp; Installation</span>
+                    <p class="card-text">Academic approval from course supervisors. Confirmation of permissions from Virginia Valzano and the Castello Aragonese. Final sign-off on all content, assets, and installation design. Physical setup of four VR headsets, preamble station infographics, and LED handprint display. Staff briefing on visitor onboarding, accessibility protocols, and headset management.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">12. Opening &amp; Delivery</span>
+                    <p class="card-text">Public opening of the exhibition. Submission of Design Brief, Twine scenario, Figma prototype, website, and presentation for academic examination. Post-opening monitoring and maintenance plan handed to venue staff.</p>
+                </div>
+            </div>
+
+            <h3>Technologies</h3>
+            <h4>Hardware</h4>
+            <p><strong>VR Headsets — Meta Quest 2</strong>, the most widely deployed headset in museum contexts, supporting seated usability for visitors with mobility constraints. <strong>VR Controllers</strong> handle primary navigation and role-specific interactions: picking up votive offerings, performing rituals, and ray-casting for the pictogram drawing activity. An <strong>Interactive LED Display</strong> — large, touch-reactive — is positioned in the physical room as the post-VR handprint screen. A <strong>Local Server</strong> ensures real-time synchronisation between the headsets and the LED display without internet dependency, maintaining reliability within the museum environment.</p>
+            <h4>Software</h4>
+            <p>The VR experience is built in <strong>Unity</strong> or <strong>Unreal Engine</strong> for real-time 3D rendering and interactive narrative delivery. <strong>PTGui</strong> is required to stitch the team's Porto Badisco photographs into the final 360° equirectangular panorama used as the VR opening scene. The software architecture prioritises reliability within the museum's local network while maintaining a full global digital presence through the website (GitHub Pages).</p>
+            <h4>Media Assets Required</h4>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">360° Equirectangular Imagery</span>
+                    <p class="card-text">High-resolution HDR panoramas of the Porto Badisco coastline at sunset — the liminal opening scene of the VR experience. Final version to be photographed and stitched in PTGui by the team; current prototype uses a stand-in from 360Cities.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">3D Cave Environment</span>
+                    <p class="card-text">High-fidelity 3D reconstructions of the 12 zones, optimised from Professor Valzano's photogrammetric scans (University of Salento / IIT-NRC Canada / CASPUR Rome). The archaeological foundation of the entire VR environment; subject to permissions currently being sought.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">2D Animated Assets</span>
+                    <p class="card-text">Phosphenic-style animations for the pictograms — simulating fresh paint appearing on cave walls, or spiritual visions materialising during the Shaman path. Pictogram redraws based on published academic tracings by Maria Laura Leone.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Spatial Audio</span>
+                    <p class="card-text">Ambient cave audio: echoes, dripping water, coastal sounds for the opening scene. No voiceover — immersive VR requires concentrated focus, not narration. Optional: soft constant ambient sound resembling the cave's natural echo, non-distracting.</p>
+                </div>
+            </div>
+
+            <h3>Disruptions</h3>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-label">Production &amp; Installation Costs</span>
+                    <p class="card-text">A full VR installation with four headsets, custom narrative content, and professional prototypes requires significant investment. Mitigation: partnerships with the Castello Aragonese, the Municipality of Otranto, regional cultural funds (Puglia Region, MiC), and European heritage programmes (Creative Europe).</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Valzano Asset Permissions</span>
+                    <p class="card-text">The project's archaeological foundation depends on Valzano's 3D reconstructions. Permissions are sought through an ongoing academic relationship. When institutions collaborate to enhance a historical landmark, traditional restrictions should give way to shared progress and global academic benefit.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">VR Discomfort &amp; Health Risks</span>
+                    <p class="card-text">Motion sickness, disorientation, or anxiety may affect older adults and first-time users. Mitigated by: clear VR warnings at the preamble station, seated-only design, short session duration (estimated 20–25 minutes), trained staff monitoring throughout, and an immediate exit option at any point in the experience.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Low Digital Literacy</span>
+                    <p class="card-text">Visitors unfamiliar with VR — such as Annunziata — may feel intimidated. Addressed by staff onboarding, the physical preamble station building familiarity before the headset is introduced, and a controller design limited to single button presses with no complex gestures required.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Technical Failure</span>
+                    <p class="card-text">Hardware malfunction, software crashes, or connectivity issues could interrupt an experience. Mitigation: daily checks before opening, backup headsets on standby, staff trained for basic troubleshooting, and a printed fallback of key content at the preamble station so the visit retains educational value even without VR.</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Severe Physical Disabilities</span>
+                    <p class="card-text">Despite the seated design, visitors with significant motor impairments may find VR controllers difficult. Future development should include eye-tracking navigation as an alternative input method, already available on several current VR headsets and feasible as a retrofit.</p>
+                </div>
+            </div>
+
+            <h3>Further Development</h3>
+            <p>Three priority areas identified for future development: a <strong>multiplayer layer</strong>, allowing a group visiting together to see each other's characters inside the cave simultaneously — each fulfilling their role in the same ritual, making the group debrief richer because each person literally experienced a different version of the same sacred space; <strong>adjustable text size</strong> for visitors with visual impairments; and a <strong>kids' version</strong> — not a diluted adaptation of the adult experience, but a purpose-built version following Tilden's Interpretative Principles.</p>
+            <p>A children's version is historically justified: the handprints in the Sanctuary indicate that children were present in and central to these ritual spaces. The experience should reflect that. A kids' version should not sanitise the cave's themes — ritual, darkness, community, altered states — but approach them through age-appropriate narrative lenses that honour Tilden's principle: interpretation for children must not be a simplification of the adult version, but a fundamentally different creation.</p>
+
+            <h3>Maintenance</h3>
+            <p>VR headsets require regular hardware upkeep: lens cleaning between sessions, battery charging, strap and hygiene maintenance, and periodic firmware and software updates. The narrative and interface will need compatibility checks as VR platforms evolve. A <strong>modular content architecture</strong> — where individual zones, pictogram descriptions, or educational panels can be updated without rebuilding the entire experience — is essential, as archaeological understanding of the Grotta dei Cervi is ongoing: new findings may require content revision. Ongoing staffing, website hosting, and content update costs require a <strong>sustainable funding model</strong>: a modest visitor contribution integrated into the Castello Aragonese ticket price, recurring regional cultural funding applications, and long-term academic partnerships with UniSalento and UniBo for content review.</p>
+        </section>
+
+        <!-- 6. TWINE -->
+        <section class="brief-section" id="twine">
+            <span class="section-label">06 — Twine</span>
+            <h2 class="section-title">Narrative <em>Prototype</em></h2>
+
             <p>An interactive narrative prototype was built in Twine (Harlowe format) to model the branching logic, decision-making dynamics, and the emotional arc of the experience. The prototype implements all five character paths, with looping video backgrounds, CSS animations, and image-based scene backgrounds drawn from archival photographs of the cave's pictograms.</p>
 
             <div class="brief-figure">
@@ -577,6 +813,14 @@
                 ></iframe>
                 <figcaption>Figure 4. Narrative structure of the Twine prototype, rendered as a flow diagram. The Twine experience was not embedded directly — its branching logic, custom CSS, and looping video backgrounds are designed for standalone playback and are not suited for inline display within a web page.</figcaption>
             </div>
+
+            <p><a href="https://cinefiles25.github.io/PixelGrams/twine/index.html" target="_blank" rel="noopener" style="color:var(--ochre); text-decoration:underline; font-size:0.9rem; letter-spacing:0.06em;">Play Twine Prototype →</a></p>
+        </section>
+
+        <!-- 7. FIGMA -->
+        <section class="brief-section" id="figma">
+            <span class="section-label">07 — Figma</span>
+            <h2 class="section-title">Hi-Fi <em>Prototype</em></h2>
 
             <h3>Low-Fidelity Wireframes</h3>
             <p>Low-fidelity wireframes were developed in Figma across two pages. <strong>Page A (External Interface)</strong> covers E1 (pre-VR informational panel) and E2 (level selection: Kids / Light / Full). <strong>Page B (VR + Physical)</strong> maps V1 (sunset entrance + character selection), V2 (Red Hall), V3a–e (five character paths), V4 (Sanctuary), V5 (global phosphenic map), and P1 (physical LED handprint screen).</p>
@@ -593,8 +837,13 @@
             <p>The interface follows Fitt's Law, Gestalt principles, Hick's Law, Miller's Law, and Tidwell's preattentive variables. Figma plugins were used to check accessibility, color contrast, and UI quality. A settings menu allows users to adjust sound, color theme, and font size. Green-dot annotations flag features that could not be fully implemented due to budget or rights constraints.</p>
 
             <p><a href="https://www.figma.com/proto/JYK878ImTlbi3Z7feiOZUZ/Grotta-dei-Cervi-VR-%E2%80%94-Hi-Fi-Wireframes--Copy-?node-id=1-3&t=NXlmvA55O6wHBzIm-1" target="_blank" style="color:var(--ochre); text-decoration:underline; font-size:0.9rem; letter-spacing:0.06em;">View Hi-Fi Prototype on Figma →</a></p>
+        </section>
 
-            <h3>Team Roles</h3>
+        <!-- 8. TEAM ROLES -->
+        <section class="brief-section" id="team">
+            <span class="section-label">08 — Team</span>
+            <h2 class="section-title">Team <em>Roles</em></h2>
+
             <div class="cards-grid three-col">
                 <div class="card">
                     <span class="card-label">Laura Bortoli</span>
@@ -607,6 +856,44 @@
                 <div class="card">
                     <span class="card-label">Claudia Romanello</span>
                     <p class="card-text">Ideation · Research · Hi-Fi Prototype · Presentation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. BIBLIOGRAPHY -->
+        <section class="brief-section" id="bibliography">
+            <span class="section-label">09 — Sources</span>
+            <h2 class="section-title">Bibliography, Sitography<br><em>&amp; Tools</em></h2>
+
+            <h3>Bibliography</h3>
+            <p>Aprile, G., Potenza, A., Tiberi, I., "Grotta dei Cervi, un santuario della Preistoria del Mediterraneo", in <em>XXVIII Valcamonica Symposium 2021: Rock-Art, a Human Heritage</em>, 2021.</p>
+            <p>Benyon, D., <em>Designing User Experience: A Guide to HCI, UX and Interaction Design</em>, Harlow, Pearson, 2019.</p>
+            <p>Leone, M. L., <em>La Fosfenica Grotta dei Cervi. Arte Mitologia e Religione dei Pittori di Porto Badisco</em>, 2009.</p>
+            <p>Valzano, V., "Neolithic Mysteries: Revealing in 3D the Grotta dei Cervi of Porto Badisco", video lecture, CEIT Otranto, 2020, <a href="https://vimeo.com/407669569" target="_blank" rel="noopener" style="color:var(--ochre);">vimeo.com/407669569</a>.</p>
+
+            <h3>Sitography</h3>
+            <p>Comune di Otranto, <em>La Grotta dei Cervi di Porto Badisco in 3D</em>, <a href="https://comune.otranto.le.it/novita/la-grotta-dei-cervi-di-porto-badisco-in-3d/" target="_blank" rel="noopener" style="color:var(--ochre);">comune.otranto.le.it</a>, consultato il 12/05/2026.</p>
+            <p>Comune di Otranto, <em>I luoghi della preistoria a Otranto e la Grotta dei Cervi</em>, <a href="https://comune.otranto.le.it/novita/i-luoghi-della-preistoria-a-otranto-e-la-grotta-dei-cervi-2/" target="_blank" rel="noopener" style="color:var(--ochre);">comune.otranto.le.it</a>, consultato il 12/05/2026.</p>
+            <p>Comune di Otranto, <em>Presentazione dei primi risultati di ricostruzione tridimensionale della Grotta dei Cervi</em>, <a href="https://comune.otranto.le.it/novita/presentazione-dei-primi-risultati-di-ricostruzione-tridimensionale-della-grotta-dei-cervi/" target="_blank" rel="noopener" style="color:var(--ochre);">comune.otranto.le.it</a>, consultato il 12/05/2026.</p>
+            <p>Fondo Ambiente Italiano, <em>Grotta dei Cervi</em>, <a href="https://fondoambiente.it/luoghi/grotta-dei-cervi" target="_blank" rel="noopener" style="color:var(--ochre);">fondoambiente.it</a>, consultato il 12/05/2026.</p>
+            <p>Focus.it, <em>Ecco la grotta proibita</em>, <a href="https://www.focus.it/cultura/storia/ecco-la-grotta-proibita" target="_blank" rel="noopener" style="color:var(--ochre);">focus.it</a>, consultato il 12/05/2026.</p>
+            <p>Preistoria in Italia, <em>Grotta dei Cervi, Porto Badisco (LE)</em>, <a href="https://www.preistoriainitalia.it/scheda/grotta-dei-cervi-porto-badisco-le/" target="_blank" rel="noopener" style="color:var(--ochre);">preistoriainitalia.it</a>, consultato il 12/05/2026.</p>
+            <p>Preistoria in Italia, <em>Messaggi femminili dalla preistoria dell'arte. Le artiste di Grotta Chauvet e Grotta dei Cervi</em>, <a href="https://www.preistoriainitalia.it/2020/11/20/messaggi-femminili-dalla-preistoria-dellarte-le-artiste-di-grotta-chauvet-e-grotta-dei-cervi/" target="_blank" rel="noopener" style="color:var(--ochre);">preistoriainitalia.it</a>, consultato il 12/05/2026.</p>
+            <p>Puglia Tourism, <em>Grotta dei Cervi</em>, <a href="https://visit.puglia.it/it/grotta-dei-cervi" target="_blank" rel="noopener" style="color:var(--ochre);">visit.puglia.it</a>, consultato il 12/05/2026.</p>
+
+            <h3>Tools &amp; Software</h3>
+            <div class="cards-grid three-col">
+                <div class="card">
+                    <span class="card-label">Design &amp; Prototyping</span>
+                    <p class="card-text">Figma (plugins: Unsplash, A11y, Coloors) · Adobe Illustrator · PTGui · Canva · Google Fonts</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Narrative &amp; Web</span>
+                    <p class="card-text">Twine · HTML · CSS · JS · VS Code · GitHub Pages · Mermaid Live Editor</p>
+                </div>
+                <div class="card">
+                    <span class="card-label">Research &amp; Planning</span>
+                    <p class="card-text">Notion · CoToolKit · PACT Framework · Microsoft Word · Microsoft PowerPoint · Claude</p>
                 </div>
             </div>
         </section>
