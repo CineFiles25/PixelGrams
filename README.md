@@ -83,7 +83,6 @@ PixelGrams/
 - **Museum:** Castello Aragonese di Otranto (host institution)
 - **Site:** Grotta dei Cervi, Porto Badisco, Lecce, Puglia
 - **Cave closed since:** 1987
-- **3D documentation:** Prof. Virginia Valzano, University of Salento (from 2005)
 - **Course:** Digital Heritage and Multimedia · University of Bologna · A.Y. 2024/25
   - Module A: [Interaction Media Design](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502364) — Prof. Sofia Pescarin
   - Module B: [Museology, Museography and Virtual Environments](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/502365) — Prof. Chiara Tartarini
@@ -95,7 +94,7 @@ PixelGrams/
 The design system is drawn directly from the cave's own artistic vocabulary:
 
 - **Red Ochre** `#8B3A2A` · **Black Guano** `#1C1A17` · **Limestone Beige** `#C9B99A`
-- **Typeface:** [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) (website) · [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (design brief & hi-fi)
+- **Typeface:** [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) (website) · [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) (Figma prototype)
 - **Motifs:** phosphenic forms — spirals, concentric circles, labyrinths, grids
 
 ---
